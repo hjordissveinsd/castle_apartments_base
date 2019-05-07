@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <ol class="breadcrumb">
-        <li><a href="../">Home</a></li>
-        <li><a href="../profile">Profile</a></li>
+        <li><a href="{% url 'main-front' %}">Home</a></li>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
         <li class="active">Settings</li>
     </ol>
     <h1>welcome to settings!!!</h1>

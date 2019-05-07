@@ -20,5 +20,5 @@ urlpatterns = [
     path('', include('front.urls')),
     path('admin/', admin.site.urls),
     path('prufa/', include('prufa.urls')),
-    #path('admin/', admin.site.urls),
+    path('profile/', include('Profile.urls')),
 ]

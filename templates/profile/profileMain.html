@@ -2,25 +2,32 @@
 
 {% block content %}
     <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
+        <li><a href="../">Home</a></li>
         <li class="active">Profile</li>
     </ol>
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Settings</a></li>
+        <li role="presentation"><a href="../settings">Settings</a></li>
         <li role="presentation"><a href="#">Messages</a></li>
     </ul>
     <h4> Welcome to your profile</h4>
-    <div class="Account info">
+    <div class="Account info" style="border-style:solid">
         <span><p>This will be a profile photo</p></span>
             <p>Name: </p>
             <p>E-mail: </p>
             <p>Phone Number: </p>
     </div>
-    <div class="searchHistory">
-    <p>Kópavogur</p>
-    <p>220</p>
-    <p></p>
+    <div class="searchHistory" style="border-style:solid">
+        <h5>Search history</h5>
+        <p>Kópavogur</p>
+        <p>220</p>
+        <p>eitthvað annað sem þú leitaðir að</p>
     </div>
 
+    <div class="savedLaterSmall" style="border-style:solid">
+        <a href="#" class="linktoSaved">Saved for later</a>
+        <p>image 1</p>
+        <p>image 2</p>
+        <p>image 3</p>
+    </div>
 {% endblock %}

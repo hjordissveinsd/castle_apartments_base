@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1> Welcome to your profile</h1>
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="active">Profile</li>
+    </ol>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Settings</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <h4> Welcome to your profile</h4>
+    <div class="Account info">
+        <span><p>This will be a profile photo</p></span>
+            <p>Name: </p>
+            <p>E-mail: </p>
+            <p>Phone Number: </p>
+    </div>
+    <div class="searchHistory">
+    <p>Kópavogur</p>
+    <p>220</p>
+    <p></p>
+    </div>
+
 {% endblock %}

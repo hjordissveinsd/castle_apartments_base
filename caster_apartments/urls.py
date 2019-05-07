@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('prufa/', include('prufa.urls')),
     path('profile/', include('Profile.urls')),
+    path('browse/', include('Browse.urls')),
 ]

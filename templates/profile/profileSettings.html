@@ -5,5 +5,26 @@
         <li><a href="{% url 'profile' %}">Profile</a></li>
         <li class="active">Settings</li>
     </ol>
+        </ol>
+        <ul class="nav nav-tabs">
+        <li role="presentation"><a href="{% url 'profile' %}">Profile</a></li>
+        <li role="presentation"  class="active"><a href="{% url 'settings' %}">Settings</a></li>
+        <li role="presentation"><a href="{% url 'messages' %}">Messages</a></li>
+    </ul>
     <h1>welcome to settings!!!</h1>
+    <div id="uploadPicture">
+        <p>this is a picture</p>
+        <p>add or change photo CHANGE</p>
+    </div>
+    <a href="#" class="button">THIS SHOULD BE A BUTTON Save without changing</a>
+    <div id="userInformation">
+        <form action="/action_page.php">
+          Name: <input type="text" name="name"><br>
+          E-mail: <input type="text" name="email"><br>
+          Phone number: <input type="text" name="phone" ><br>
+          Password: <input type="password" name="Passw"><br>
+          Retype Password <input type="password" name="retypePassw"><br>
+          <input type="submit" value="Submit">
+        </form>
+    </div>
 {% endblock %}

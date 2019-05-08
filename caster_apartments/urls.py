@@ -23,5 +23,6 @@ urlpatterns = [
     path('browse/', include('Browse.urls')),
     path('settings/', include('Settings.urls')),
     path('sell/', include('Sell.urls')),
-    path('messages/', include('Messages.urls'))
+    path('messages/', include('Messages.urls')),
+    path('sell/put-up-estate/', include('PutUpEstateForSale.urls'))
 ]

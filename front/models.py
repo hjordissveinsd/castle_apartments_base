@@ -34,3 +34,4 @@ class VisitMessage (models.Model):
     estate = models.ForeignKey(Estate, on_delete=models.CASCADE)
     buyer = models.ForeignKey(User)
     seller = models.ForeignKey(User)
+    #bla

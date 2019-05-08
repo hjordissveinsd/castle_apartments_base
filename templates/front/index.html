@@ -3,19 +3,23 @@
 {% block content %}
 
 <div class="jumbotron">
-  <h1 id="title">Welcome to Castle Apartments.</h1>
-  <p id="title">A website where you can buy, sell and explore quality estates.</p>
+    <h1 id="title">Welcome to Castle Apartments.</h1>
+    <p id="title">A website where you can buy, sell and explore quality estates.</p>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search by address, city or zip code">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Search</button>
-          </span>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
+    <div class="row search">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form role="form">
+                <div class="input-group" id="search-box">
+                  <input type="text" class="form-control input-sm" placeholder="Search for address, city or zip..." required>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default btn-sm" type="submit"><span class="input-group-btn"></span>
+                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
+                    </button>
+                  </span>
+                </div>
+        </form>
+      </div>
+    </div>
 </div>
 
 <br>

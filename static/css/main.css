@@ -1,3 +1,8 @@
+/* BASE */
+body{
+    background-color: #fbfbfb;
+}
+/* NAVBAR */
 .container-fluid {
     background: rgb(255,255,255);
     background: linear-gradient(135deg, rgba(255,255,255,1) 15%, rgba(250,56,56,1) 70%);
@@ -46,8 +51,23 @@
     max-width: 100%;
 }
 
+/* FRONT PAGE */
+
 #title {
     text-align: center;
+    color: rgb(255,255,255);
+    text-shadow: 2px 2px 5px rgba(250,56,56,1);
+    padding: 10px;
+}
+
+.jumbotron {
+    background-image: url("https://images.pexels.com/photos/532860/pexels-photo-532860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    padding-bottom: 250px;
+}
+
+#search-box {
+    align-content: center;
 }
 
 /* Fyrir Messages í Profiles*/

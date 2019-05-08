@@ -6,4 +6,9 @@
         <li><a href="../profile">Profile</a></li>
         <li class="active">Messages</li>
     </ol>
+        <ul class="nav nav-tabs">
+        <li role="presentation"><a href="{% url 'profile' %}">Profile</a></li>
+        <li role="presentation"><a href="{% url 'settings' %}">Settings</a></li>
+        <li role="presentation" class="active"><a href="{% url 'messages' %}">Messages</a></li>
+    </ul>
 {% endblock %}

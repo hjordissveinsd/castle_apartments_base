@@ -5,6 +5,12 @@
         <li><a href="{% url 'profile' %}">Profile</a></li>
         <li class="active">Settings</li>
     </ol>
+        </ol>
+        <ul class="nav nav-tabs">
+        <li role="presentation"><a href="{% url 'profile' %}">Profile</a></li>
+        <li role="presentation"  class="active"><a href="{% url 'settings' %}">Settings</a></li>
+        <li role="presentation"><a href="{% url 'messages' %}">Messages</a></li>
+    </ul>
     <h1>welcome to settings!!!</h1>
     <div id="uploadPicture">
         <p>this is a picture</p>

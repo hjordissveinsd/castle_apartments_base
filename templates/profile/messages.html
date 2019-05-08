@@ -1,171 +1,68 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<script>
-var messages = [
-    {"id":1,"from":"Gary Lewis","fromAddress":"test@testdomain.com","subject":"Posting on board","dtSent":"Today, 9:18AM","read":false,"body":"Hey Mark,<br><br>I saw your post on the message board and I was wondering if you still had that item available. Can you call me if you still do?<br><br>Thanks,<br><b>Gary Lewis</b>"},
-    {"id":2,"from":"Bob Sutton","fromAddress":"test@testdomain.com","subject":"In Late Today","dtSent":"Today, 8:54AM","read":false,"body":"Mark,<br>I will be in late today due to an appt.<br>v/r Bob","attachment":true},
-    {"id":3,"from":"Will Adivo","fromAddress":"test@testdomain.com","subject":"New developer","dtSent":"Yesterday, 4:48PM","read":true,"body":"The message body goes here..."},
-    {"id":4,"from":"Al Kowalski","fromAddress":"test@testdomain.com","subject":"RE: New developer","dtSent":"Yesterday, 4:40PM","read":false,"body":"The message body goes here...","priority":1},
-    {"id":4,"from":"Beth Maloney","fromAddress":"test@testdomain.com","subject":"July Reports","dtSent":"3 Days Ago","read":true,"body":"PYC Staff-<br> Our weekly meeting is canceled due to the holiday. Please review and submit your PID report before next week's meeting.<br>Thanks,<br>Beth"},
-    {"id":6,"from":"Jason Furgano","fromAddress":"test@testdomain.com","subject":"New developer","dtSent":"3 Days Ago","read":true,"body":"All,<br>I'd like to introduce Joe Canfigliata our new S/W developer. If you see him in the office introduce yourself and make him feel welcome."},
-    {"id":7,"from":"Bob Sutton","fromAddress":"test@testdomain.com","subject":"Tasking request","dtSent":"3 Days Ago","read":true,"body":"Ovi lipsu doir. The message body goes here..."},
-    {"id":8,"from":"Will Adivo","fromAddress":"test@testdomain.com","subject":"Proposal for Avid Consulting","dtSent":"3 Days Ago","read":true,"body":"Mark, I reviewed your proposal with Beth and we have a few questions. Let me know when you time to meet."},
-    {"id":9,"from":"Philip Corrigan","fromAddress":"test@testdomain.com","subject":"Follow-up Appt.","dtSent":"4 Days Ago","read":true,"body":"Hi,<br>Can you please confirm the expense report I submitted for my last trip to SD?<br>Thanks,<br>Tom Grey"},
-    {"id":10,"from":"Will Adivo","fromAddress":"test@testdomain.com","subject":"FWD: Subject","dtSent":"4 Days Ago","read":true,"body":"The message body goes here dapibus nec velit egdiet tempu...","priority":1},
-    {"id":11,"from":"Will Adivo","fromAddress":"test@testdomain.com","subject":"Subject","dtSent":"Last Week","read":true,"body":"The message body goes here... <br>Regards,Fagan"},
-    {"id":12,"from":"Parker Dunlap","fromAddress":"test@testdomain.com","subject":"Subject","dtSent":"Aug 14 5:09PM","read":true,"body":"Hello,<br>The message body goes here...","attachment":true},
-    {"id":13,"from":"Hannah Marks","fromAddress":"test@testdomain.com","subject":"Subject","dtSent":"Aug 14 4:18PM","read":true,"body":"Dear Mark,<br>We've missed you at the shop. How are you and the fam? Let's get together soon.<br> - James"},
-    {"id":14,"from":"Parker Dunlap","fromAddress":"test@testdomain.com","subject":"Subject","dtSent":"Aug 14 5:09PM","read":true,"body":"The message body goes here...","attachment":true},
-    {"id":15,"from":"Hannah Marks","fromAddress":"hmarks@testdomain.com","subject":"Subject","dtSent":"Aug 14 4:18PM","read":true,"body":"The message body goes here..."},
-    {"id":16,"from":"Parker Dunlap","fromAddress":"parker@testdomain.com","subject":"Subject","dtSent":"Aug 14 5:09PM","read":true,"body":"The message body goes here...","attachment":true},
-    {"id":17,"from":"Amy Davis","fromAddress":"amy@testdomain.com","subject":"Subject","dtSent":"Aug 14 4:18PM","read":true,"body":"The message body goes here..."}
-];
+
+<style>
+    /* CSS used here will be applied after bootstrap.css */
+
+body{ margin-top:50px;}
+.nav-tabs .glyphicon:not(.no-margin) {
+    margin-right:10px;
+}
+.tab-pane .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.tab-pane .list-group-item:last-child {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.tab-pane .list-group .checkbox {
+    display: inline-block;
+    margin: 0px;
+}
+.tab-pane .list-group input[type="checkbox"]{
+    margin-top: 2px;
+}
+.tab-pane .list-group .glyphicon {
+    margin-right:5px;
+}
+.tab-pane .list-group .glyphicon:hover {
+    color:#FFBC00;
+}
+a.list-group-item.read {
+    color: #222;background-color: #F3F3F3;
+}
+hr {
+    margin-top: 5px
+;margin-bottom: 10px;
+}
+.nav-pills>li>a {
+    padding: 5px 10px;
+}
+
+.ad {
+    padding: 5px;
+    background: #F5F5F5;
+    color: #222;
+    font-size: 80%;
+    border: 1px solid #E5E5E5;
+}
+.ad a.title {
+    color: #15C;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 110%;
+}
+.ad a.url {
+    color: #093;
+    text-decoration: none;
+}
+
+</style>
 
 
-app.controller('inboxCtrl', ['$scope', '$filter', function ($scope, $filter) {
-
-
- 	$scope.date = new Date;
-    $scope.sortingOrder = 'id';
-    $scope.pageSizes = [10,20,50,100];
-    $scope.reverse = false;
-    $scope.filteredItems = [];
-    $scope.groupedItems = [];
-    $scope.itemsPerPage = 10;
-    $scope.pagedItems = [];
-    $scope.currentPage = 0;
-
-    /* inbox functions -------------------------------------- */
-
-    // get data and init the filtered items
-    $scope.init = function () {
-
-       $scope.items = messages;
-       $scope.search();
-
-    }
-
-    var searchMatch = function (haystack, needle) {
-        if (!needle) {
-          return true;
-        }
-        return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
-    };
-
-    // filter the items
-    $scope.search = function () {
-        $scope.filteredItems = $filter('filter')($scope.items, function (item) {
-          for(var attr in item) {
-            if (searchMatch(item[attr], $scope.query))
-              return true;
-          }
-          return false;
-        });
-        $scope.currentPage = 0;
-        // now group by pages
-        $scope.groupToPages();
-    };
-
-    // calculate page in place
-    $scope.groupToPages = function () {
-        $scope.selected = null;
-        $scope.pagedItems = [];
-
-        for (var i = 0; i < $scope.filteredItems.length; i++) {
-          if (i % $scope.itemsPerPage === 0) {
-            $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
-          } else {
-            $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
-          }
-        }
-    };
-
-    $scope.range = function (start, end) {
-        var ret = [];
-        if (!end) {
-          end = start;
-          start = 0;
-        }
-        for (var i = start; i < end; i++) {
-          ret.push(i);
-        }
-        return ret;
-    };
-
-    $scope.prevPage = function () {
-        if ($scope.currentPage > 0) {
-            $scope.currentPage--;
-        }
-        return false;
-    };
-
-    $scope.nextPage = function () {
-        if ($scope.currentPage < $scope.pagedItems.length - 1) {
-            $scope.currentPage++;
-        }
-        return false;
-    };
-
-    $scope.setPage = function () {
-        $scope.currentPage = this.n;
-    };
-
-    $scope.deleteItem = function (idx) {
-        var itemToDelete = $scope.pagedItems[$scope.currentPage][idx];
-        var idxInItems = $scope.items.indexOf(itemToDelete);
-        $scope.items.splice(idxInItems,1);
-        $scope.search();
-
-        return false;
-    };
-
-    $scope.isMessageSelected = function () {
-        if (typeof $scope.selected!=="undefined" && $scope.selected!==null) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-
-    $scope.readMessage = function (idx) {
-        $scope.items[idx].read = true;
-        $scope.selected = $scope.items[idx];
-    };
-
-    $scope.readAll = function () {
-        for (var i in $scope.items) {
-            $scope.items[i].read = true;
-        }
-    };
-
-    $scope.closeMessage = function () {
-        $scope.selected = null;
-    };
-
-    $scope.renderMessageBody = function(html)
-    {
-        return html;
-    };
-
-    /* end inbox functions ---------------------------------- */
-
-
-    // initialize
-    $scope.init();
-
-}])// end inboxCtrl
-.controller('messageCtrl', ['$scope', function ($scope) {
-
-    $scope.message = function(idx) {
-        return messages(idx);
-    };
-
-}]);// end messageCtrl
-
-//$(document).ready(function(){});
-</script>
     <ol class="breadcrumb">
         <li><a href="../">Home</a></li>
         <li><a href="../profile">Profile</a></li>
@@ -177,156 +74,62 @@ app.controller('inboxCtrl', ['$scope', '$filter', function ($scope, $filter) {
         <li role="presentation" class="active"><a href="{% url 'messages' %}">Messages</a></li>
     </ul>
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-10">
+          <h1>Welcome to your Inbox!</h1>
+        </div>
+    </div>
+    <hr class="">
+    <div class="row">
+        <div class="col-sm-3 col-md-2"> <a href="#" class="btn btn-danger btn-sm btn-block" role="button"><i class="glyphicon glyphicon-edit"></i> New message </a>
+            <hr class="">
+        </div>
+        <div class="col-sm-9 col-md-10">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab" class=""><span class="glyphicon glyphicon-inbox">
+                </span>Messages</a>
 
-<ng ng-app="myApp">
+                </li>
 
-  <hr>
-
-
-  <div class="container">
-    <h1>Bootstrap Inbox</h1>
-
-        <div class="row" ng-controller="inboxCtrl">
-        <aside class="col-md-2 pad-right-0">
-            <ul class="nav nav-pills nav-stacked">
-              <li class="active"><a href="javascript:;" ng-click="groupToPages()"><span class="badge pull-right">{{items.length}}</span> Inbox </a></li>
-              <li><a href="javascript:;">Sent</a></li>
-              <li><a href="javascript:;"><span class="badge pull-right">3</span>Drafts</a></li>
             </ul>
-
-        </aside>
-        <div class="col-md-10">
-            <!--inbox toolbar-->
-            <div class="row" ng-show="!isMessageSelected()">
-                <div class="col-xs-12">
-                    <button title="Compose New" class="btn btn-default btn-lg" data-target="#modalCompose" data-toggle="modal">
-                      New <span class="fa fa-edit fa-lg"></span>
-                    </button>
-
-                    <div class="pull-right">
-
-                        <div class="btn-group btn-group">
-                            <button class="btn btn-default btn-lg" type="button" ng-click="prevPage()" ng-class="{disabled: currentPage == 0}">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </button>
-                            <button class="btn btn-default btn-lg" type="button" ng-click="nextPage()" ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </button>
-                        </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="list-group"> <a href="#" class="list-group-item">
+                            <div class="checkbox">
+                                <label class="">
+                                    <input type="checkbox" class="">
+                                </label>
+                            </div>
+                            <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
+                                display: inline-block;">Bjöggi King</span> <span class="">I would really like to visit</span>
+                            <span class="text-muted" style="font-size: 11px;">- Hi there! I was wondering if it...</span> <span class="badge">12:10 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
+                                </span></span></a><a href="#" class="list-group-item">
+                                    <div class="checkbox">
+                                        <label class="">
+                                            <input type="checkbox" class="">
+                                        </label>
+                                    </div>
+                                    <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
+                                        display: inline-block;">Castle Apartments</span> <span class="">Your estate has been sold!</span>
+                                    <span class="text-muted" style="font-size: 11px;">- BjoggiKing has purchased..</span> <span class="badge">12:09 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
+                                        </span></span></a><a href="#" class="list-group-item read">
+                                            <div class="checkbox">
+                                                <label class="">
+                                                    <input type="checkbox" class="">
+                                                </label>
+                                            </div>
+                                            <span class="glyphicon glyphicon-star"></span><span class="name" style="min-width: 120px;
+                                                display: inline-block;">Castle Apartments</span> <span class="">Your estate is up for sale!</span>
+                                            <span class="text-muted" style="font-size: 11px;">- Your estate "Amazing Castle one" is now..</span> <span class="badge">11:30 PM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
+                                                </span></span></a>
                     </div>
-                </div><!--/col-->
-                <div class="col-xs-12 spacer5"></div>
-            </div><!--/row-->
-            <!--/inbox toolbar-->
-            <div class="panel panel-default inbox" id="inboxPanel">
-                <!--message list-->
-                <div class="table-responsive" ng-show="!isMessageSelected()">
-                    <table class="table table-striped table-hover refresh-container pull-down">
-                        <thead class="hidden-xs">
-                            <tr><td class="col-sm-1"><input title="Mark all" type="checkbox"></td>
-                            <td class="col-sm-2"><a href="javascript:;"><strong>From</strong></a></td>
-                            <td class="col-sm-4"><a href="javascript:;"><strong>Subject</strong></a></td>
-                            <td class="col-sm-1"></td>
-                        </tr></thead>
-
-                          <tbody><tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                            <td class="col-sm-1 col-xs-4"><input title="Mark this item here" type="checkbox"></td>
-                            <td class="col-sm-3 col-xs-4" ng-click="readMessage($index)"><span ng-class="{strong: !item.read}">{{item.dtSent}}</span></td>
-                            <td class="col-sm-1 col-xs-4"><a title="Delete item" href="javascript:;" ng-click="deleteItem($index)" ng-class="{strong: !item.read}"><i class="fa fa-trash-o"></i></a> <a title="Mark item" href="javascript:;"><i class="fa fa-flag"></i></a></td>
-                            <td class="col-sm-2 col-xs-4" ng-click="readMessage($index)"><span ng-class="{strong: !item.read}">{{item.from}}</span></td>
-                            <td class="col-sm-4 col-xs-6" ng-click="readMessage($index)"><span ng-class="{strong: !item.read}">{{item.subject}}</span></td>
-                            <td class="col-sm-1 col-sm-2" ng-click="readMessage($index)"><span class="glyphicon glyphicon-paperclip pull-right" ng-show="item.attachment"></span> <span class="pull-right glyphicon glyphicon-warning-sign text-danger" ng-show="item.priority==1"></span></td>
-                          </tr>
-                        </tbody>
-                    </table>
                 </div>
-                <!--message detail-->
-                <div class="container-fluid" ng-show="isMessageSelected()">
-                    <div class="row" ng-controller="messageCtrl">
-                        <div class="col-xs-12">
-                            <h3 title="subject"><button class="close pull-right" aria-hidden="true" type="button" ng-click="closeMessage()">×</button><a href="javascript:;" ng-click="groupToPages()">Inbox</a> &gt; {{selected.subject}}</h3>
-                        </div>
-                        <div class="col-md-8">
-                            <blockquote class="bg-info small">
-                            <strong>{{selected.from}}</strong> &lt;{{selected.fromAddress}}&gt; on 10:14AM, 22 May 2014
-                            </blockquote>
-                        </div>
-                        <div class="col-md-4">
-                			<div class="btn-group btn-group-lg pull-right">
-                				<button title="Reply to this message" class="btn btn-primary" data-toggle="tooltip">
-                					<i class="fa fa-reply"></i> Reply
-                				</button>
-                				<button title="More options" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                					<i class="fa fa-angle-down"></i>
-                				</button>
-                				<ul class="dropdown-menu pull-right">
-                					<li><a href="javascript:;"><i class="fa fa-reply"></i> Reply</a></li>
-                					<li><a href="javascript:;"><i class="fa fa-mail-forward"></i> Forward</a></li>
-                					<li><a href="javascript:;"><i class="fa fa-print"></i> Print</a></li>
-                					<li class="divider"></li>
-                					<li><a href="javascript:;"><i class="fa fa-ban"></i> This is Spam</a></li>
-                					<li><a href="javascript:;"><i class="fa fa-trash-o"></i> Send to Trash</a></li>
-                				</ul>
-                			</div>
-                			<div class="spacer5 pull-right"></div>
-                			<button title="Delete this message" class="btn btn-lg btn-primary pull-right" data-toggle="tooltip" ng-click="deleteItem(selected.$index)">
-            					<i class="fa fa-trash-o fa-1x"></i>
-            				</button>
-                		</div>
-                		<div class="col-xs-12"><hr></div>
-                        <div class="col-xs-12">
-                            <!--message body-->
-                            <div ng-bind-html="renderMessageBody(selected.body)"></div>
-                            <!--/message body-->
-                        </div>
-                        <div class="col-xs-12 clearfix"><hr></div>
-                        <div class="col-xs-12">
-                            <a title="Download attachment" href="javascript:;" ng-show="selected.attachment"><span class="glyphicon glyphicon-paperclip"></span></a>
-                        </div>
-                    </div><!--/row-->
-                </div>
-            </div><!--/inbox panel-->
-            <div class="well well-s text-right"><em>Inbox last updated: <span id="lastUpdated">{{date | date:'MM-dd-yyyy HH:mm:ss'}}</span></em></div>
-        </div><!--/col-9-->
-        <!-- /.modal compose message -->
-        <div class="modal fade" id="modalCompose">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
-                <h4 class="modal-title">Compose Message</h4>
-              </div>
-              <div class="modal-body">
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                      <label class="col-sm-2" for="inputTo">To</label>
-                      <div class="col-sm-10"><input class="form-control" id="inputTo" type="email" placeholder="comma separated list of recipients"></div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2" for="inputSubject">Subject</label>
-                      <div class="col-sm-10"><input class="form-control" id="inputSubject" type="text" placeholder="subject"></div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-12" for="inputBody">Message</label>
-                      <div class="col-sm-12"><textarea class="form-control" id="inputBody" rows="12"></textarea></div>
-                    </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-default pull-left" type="button" data-dismiss="modal">Cancel</button>
-                <button class="btn btn-warning pull-left" type="button">Save Draft</button>
-                <button class="btn btn-primary " type="button">Send <i class="fa fa-arrow-circle-right fa-lg"></i></button>
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal compose message -->
-    <div><!--/row ng-controller-->
 
-  	</div><!--/container-->
-
-  </div>
-
-  </div>
-</ng>
-
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

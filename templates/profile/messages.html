@@ -1,14 +1,74 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <ol class="breadcrumb">
         <li><a href="../">Home</a></li>
         <li><a href="../profile">Profile</a></li>
         <li class="active">Messages</li>
     </ol>
-        <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs">
         <li role="presentation"><a href="{% url 'profile' %}">Profile</a></li>
         <li role="presentation"><a href="{% url 'settings' %}">Settings</a></li>
         <li role="presentation" class="active"><a href="{% url 'messages' %}">Messages</a></li>
     </ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-10">
+          <h1>Welcome to your Inbox!</h1>
+        </div>
+    </div>
+    <hr class="">
+    <div class="row">
+        <div class="col-sm-3 col-md-2"> <a href="#" class="btn btn-danger btn-sm btn-block" role="button"><i class="glyphicon glyphicon-edit"></i> New message </a>
+            <hr class="">
+        </div>
+        <div class="col-sm-9 col-md-10">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab" class=""><span class="glyphicon glyphicon-inbox">
+                </span>Messages</a>
+
+                </li>
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="list-group"> <a href="#" class="list-group-item">
+                            <div class="checkbox">
+                                <label class="">
+                                    <input type="checkbox" class="">
+                                </label>
+                            </div>
+                            <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
+                                display: inline-block;">Bjöggi King</span> <span class="">I would really like to visit</span>
+                            <span class="text-muted" style="font-size: 11px;">- Hi there! I was wondering if it...</span> <span class="badge">12:10 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
+                                </span></span></a><a href="#" class="list-group-item">
+                                    <div class="checkbox">
+                                        <label class="">
+                                            <input type="checkbox" class="">
+                                        </label>
+                                    </div>
+                                    <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
+                                        display: inline-block;">Castle Apartments</span> <span class="">Your estate has been sold!</span>
+                                    <span class="text-muted" style="font-size: 11px;">- BjoggiKing has purchased..</span> <span class="badge">12:09 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
+                                        </span></span></a><a href="#" class="list-group-item read">
+                                            <div class="checkbox">
+                                                <label class="">
+                                                    <input type="checkbox" class="">
+                                                </label>
+                                            </div>
+                                            <span class="glyphicon glyphicon-star"></span><span class="name" style="min-width: 120px;
+                                                display: inline-block;">Castle Apartments</span> <span class="">Your estate is up for sale!</span>
+                                            <span class="text-muted" style="font-size: 11px;">- Your estate "Amazing Castle one" is now..</span> <span class="badge">11:30 PM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
+                                                </span></span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

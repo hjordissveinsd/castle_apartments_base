@@ -70,6 +70,22 @@ body{
     align-content: center;
 }
 
+#flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: DodgerBlue;
+}
+
+#flex-box > div {
+    background-color: #f1f1f1;
+    width: 30%;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 75px;
+}
+
 /* Fyrir Messages í Profiles*/
 
 .nav-tabs .glyphicon:not(.no-margin) {

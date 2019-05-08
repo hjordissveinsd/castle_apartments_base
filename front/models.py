@@ -19,19 +19,18 @@ class Estate(models.Model):
     bedNum = models.IntegerField()
     bathNum = models.IntegerField()
     price = models.IntegerField()
-    desc = models.CharField(max_lenght=999)
-    owner = models.ForeignKey(User)
+    desc = models.CharField(max_length=255)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.BooleanField()
 
 class Message (models.Model):
-    recipient = models.ForeignKey(User)
-    writer = models.ForeignKey(User)
+    recipient = models.ForeignKey(User, on_delete=models.CASCADE)
+    #writer = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=999)
 
 class VisitMessage (models.Model):
     message = models.CharField(max_length=999)
     date = models.DateTimeField()
     estate = models.ForeignKey(Estate, on_delete=models.CASCADE)
-    buyer = models.ForeignKey(User)
-    seller = models.ForeignKey(User)
-    #bla
+    #buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)

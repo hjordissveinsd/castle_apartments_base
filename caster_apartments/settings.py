@@ -80,15 +80,16 @@ WSGI_APPLICATION = 'caster_apartments.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tfebpsvj',
-        'USER' : 'tfebpsvj',
-        'PASSWORD': 'zkjbR3VueubMU2noBX4yqtzPSRpTQAJt',
+        'NAME': 'mhpgkmcp',
+        'USER' : 'mhpgkmcp',
+        'PASSWORD': 'uIzguKLyx4sCSM2xGrM5TsEtHq59dCas',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
     }
 }
 
 #LINKUR AÐ DATABASE-INU https://api.elephantsql.com/console/a3c8af6f-b68d-4421-9ff1-649218340f2a/browser?
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 

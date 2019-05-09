@@ -28,15 +28,14 @@
             <li><a href="{% url 'browse' %}" id="hoverable">Browse</a></li>
               <li><a href="#" id="hoverable">Sell</a></li>
               <li><a href="#" id="hoverable">About us</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="hoverable">Language <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#" id="dropdown-choice">English US</a></li>
-                <li><a href="#" id="dropdown-choice">English UK</a></li>
-                <li><a href="#" id="dropdown-choice">English AU</a></li>
-                <li><a href="#" id="dropdown-choice">English NZ</a></li>
-              </ul>
-            </li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="hoverable">Language <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" id="dropdown-choice">English US</a></li>
+                    <li><a href="#" id="dropdown-choice">English UK</a></li>
+                    <li><a href="#" id="dropdown-choice">English AU</a></li>
+                    <li><a href="#" id="dropdown-choice">English NZ</a></li>
+                  </ul>
+              </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="profile-hover"> <img src="../static/images/Profile.png" height="30" width="30"> <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -58,6 +57,19 @@
             {% block content %}
             {% endblock %}
     </div>
+
+    <footer>
+      <div class="container-fluid">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="hoverable">About us</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
         <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

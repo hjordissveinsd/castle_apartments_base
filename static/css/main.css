@@ -8,6 +8,12 @@ body{
     background: linear-gradient(135deg, rgba(255,255,255,1) 15%, rgba(250,56,56,1) 70%);
 }
 
+/* FOOTER */
+#footer {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.16150210084033612) 0%, rgba(168,168,168,1) 40%, rgba(168,168,168,1) 100%);
+}
+
 #dropdown-choice:hover {
     background: rgba(250,56,56,1);
     color: rgb(255,255,255);

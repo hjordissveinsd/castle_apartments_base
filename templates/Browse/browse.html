@@ -18,6 +18,12 @@
         </div>
       </div>
     </div>
+    <div>
+    {% for estate in estates %}
+    {{ estate.address }}
+    {{ estate.owner }}
+    {% endfor %}
+    </div>
 
 
 {% endblock %}

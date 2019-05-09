@@ -21,5 +21,5 @@
           #  'desc' : widgets.TextInput(attrs={'class': 'form-control'}),
            # 'owner' : widgets.TextInput(attrs={'class': 'form-control'}),
            # 'status' : 'For Sale'
-                   }
+                  # }
 

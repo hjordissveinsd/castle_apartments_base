@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-#LINKUR AÐ DATABASE-INU https://api.elephantsql.com/console/a3c8af6f-b68d-4421-9ff1-649218340f2a/browser?
+#LINKUR AÐ DATABASE-INU https://api.elephantsql.com/console/ad9b44e2-386c-4d86-b9bb-c493c12f0ade/browser?
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

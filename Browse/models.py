@@ -10,6 +10,6 @@ class Estate(models.Model):
     bedNum = models.IntegerField()
     bathNum = models.IntegerField()
     price = models.IntegerField()
-    desc = models.CharField(max_length=255)
+    desc = models.CharField(max_length=999)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.BooleanField()

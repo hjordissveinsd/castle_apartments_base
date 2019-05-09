@@ -23,6 +23,7 @@ urlpatterns = [
     path('sell/', include('Sell.urls')),
     path('profile/', include('Profile.urls')),
     path('sell/put-up-estate/', include('PutUpEstateForSale.urls')),
+    path('log-in/', include('Profile.urls')),
 
 
 ]

@@ -22,7 +22,7 @@ def loggedIn (request):
     return render(request, 'Profile/loggedIn.html')
 
 def notLoggedIn (request):
-    return render(request, 'Profile/notLogedIn.html')
+    return render(request, 'Profile/notLoggedIn.html')
 
 ###############################################
 #raggi að bæta við#############################

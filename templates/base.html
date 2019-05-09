@@ -46,7 +46,7 @@
                 <li><a href="#" id="dropdown-choice">Previously purchased</a></li>
                 <li><a href="#" id="dropdown-choice">Previously sold</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#" id="dropdown-choice">Log out</a></li>
+                <li><a href="{% url 'createOrLogIn' %}" id="dropdown-choice">Log out</a></li>
               </ul>
             </li>
           </ul>
@@ -71,6 +71,7 @@
     </footer>
 
         <!-- Latest compiled and minified JavaScript -->
+    <script src = "{% static 'js/global.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 

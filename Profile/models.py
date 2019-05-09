@@ -9,3 +9,7 @@ class User(models.Model):
     address = models.CharField(max_length=255)
     phoneNumber = models.IntegerField()
 
+
+class ProfileImage(models.Model):
+    the_image = models.CharField(max_length=999)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

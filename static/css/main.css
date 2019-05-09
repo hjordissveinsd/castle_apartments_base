@@ -2,6 +2,10 @@
 body{
     background-color: #fbfbfb;
 }
+
+#flair {
+    font-family: Verdana;
+}
 /* NAVBAR */
 .container-fluid {
     background: rgb(255,255,255);
@@ -76,6 +80,7 @@ body{
 
 #flair {
     color: rgb(0, 0, 0);
+    font-family: Verdana;
 }
 
 #search-box {
@@ -118,6 +123,74 @@ body{
     color: rgb(255, 255, 255);
     background-color: rgb(217, 83, 79);
     border-color: rgb(212, 63, 58);
+}
+
+/* Profile */
+
+#breadcrumb-hoverable {
+    background: rgba(250,56,56,0);
+    color: rgb(175, 5, 41);
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-top: 8px;
+    text-align: center;
+    position: center;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+#breadcrumb-hoverable:hover {
+    color: black;
+}
+
+#presentation-hoverable {
+
+}
+
+.AccountInfo {
+    position: center;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+#AccountInfo {
+    text-align: left;
+    margin-top: 15px;
+}
+
+#prof-pic {
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px;
+    margin-right: 25px;
+    padding: 5px;
+    width: 150px;
+}
+
+#AccountSettings {
+    display: flex;
+}
+
+#AccountSettings img {
+  margin-right: 10px;
+  display: block;
+    width: 100%;
+}
+
+#AccountSettings form {
+    margin: 0;
+}
+
+#SettingsForm {
+    width: 100%;
+}
+
+#settings-pic {
+    text-align: center;
 }
 /* Fyrir Messages í Profiles*/
 

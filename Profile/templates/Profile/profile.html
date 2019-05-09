@@ -2,35 +2,79 @@
 
 {% block content %}
     <ol class="breadcrumb">
-        <li><a href="../">Home</a></li>
+        <li><a href="../" id="breadcrumb-hoverable">Home</a></li>
         <li class="active">Profile</li>
     </ol>
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="{% url 'settings' %}">Settings</a></li>
-        <li role="presentation"><a href="{% url 'messages' %}">Messages</a></li>
+        <li role="presentation" class="active"><a href="#" id="dropdown-choice">Profile</a></li>
+        <li role="presentation"><a href="{% url 'settings' %}" id="dropdown-choice">Settings</a></li>
+        <li role="presentation"><a href="{% url 'messages' %}" id="dropdown-choice">Messages</a></li>
     </ul>
-    <h4> Welcome to your profile</h4>
+    <h4 id="flair"> Welcome to your profile</h4>
 
-    <div class="Account info" style="border-style:solid">
-        <span><img src="../static/images/profilePicture.jpg" alt="Your Picture" style="height: 300px; width: 230px"></span>
-            <p>Name: </p>
-            <p>E-mail: </p>
-            <p>Phone Number: </p>
-    </div>
-    <div class="searchHistory" style="border-style:solid">
-        <h4>Search history</h4>
-        <p>Kópavogur</p>
-        <p>220</p>
-        <p>eitthvað annað sem þú leitaðir að</p>
+    <div class="AccountInfo" style="border-style:solid">
+        <span><img src="../static/images/profilePicture.jpg" alt="Your Picture" style="width:100px;height:150px;" id="prof-pic"></span>
+        <div style="display: inline-block" id="AccountInfo">
+            <blockquote>
+            <p>Profile name</p> <small><cite title="Source Title">City, Country  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+            </blockquote>
+            <p> <i class="glyphicon glyphicon-envelope"></i> E-mail: ratwoman321@flatmail.com</p>
+            <p> <i class="glyphicon glyphicon-globe"></i> Phone Number: 12 345 67 89</p>
+        </div>
     </div>
 
-    <div class="savedLaterSmall" style="border-style:solid">
-        <h4><a href="#" class="linktoSaved">Saved for later</a></h4>
+    <br>
 
-        <p>image 1</p>
-        <p>image 2</p>
-        <p>image 3</p>
+    <h4 id="flair">Search history</h4>
+
+    <div class="searchHistory">
+        <div class="list-group">
+          <a href="#" class="list-group-item" id="dropdown-choice">SearchResult1</a>
+          <a href="#" class="list-group-item" id="dropdown-choice">SearchResult2</a>
+          <a href="#" class="list-group-item" id="dropdown-choice">SearchResult3</a>
+        </div>
+    </div>
+
+    <br>
+
+    <h4><a href="#" class="linktoSaved" id="flair">Saved for later</a></h4>
+
+    <div class="savedLaterSmall">
+        <div class="row" id="flex-box">
+  <div>
+    <div class="thumbnail">
+      <img src="https://images.pexels.com/photos/462770/pexels-photo-462770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="AwesomeCastle1">
+      <div class="caption">
+        <h2>Awesome Castle 1</h2>
+        <p>A stunning, beautifully structured castle with uncountable amounts of bathrooms and bedrooms, in the middle of nowhere! Don't miss out!</p>
+        <p><a href="#" class="btn btn-default" role="button" id="hoverable-button-2">Learn more...</a></p>
+      </div>
+    </div>
+  </div>
+
+      <br>
+    <div>
+    <div class="thumbnail">
+      <img src="https://images.pexels.com/photos/416026/pexels-photo-416026.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="AwesomeCastle2">
+      <div class="caption">
+        <h2>Awesome Castle 2</h2>
+        <p>A stunning, beautifully structured castle with uncountable amounts of bathrooms and bedrooms, in the middle of nowhere! Don't miss out!</p>
+        <p><a href="#" class="btn btn-default" role="button" id="hoverable-button-2">Learn more...</a></p>
+      </div>
+    </div>
+  </div>
+
+    <div>
+    <div class="thumbnail">
+      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f7a5a2c0-fd5d-4ad6-84a2-39f86e7a07fc/dp7qs5-32ae63ae-5166-4f5a-8123-1963ec2497f0.jpg/v1/fill/w_1032,h_774,q_70,strp/castle_by_elizatibbits_stock_dp7qs5-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjMwNCIsInBhdGgiOiJcL2ZcL2Y3YTVhMmMwLWZkNWQtNGFkNi04NGEyLTM5Zjg2ZTdhMDdmY1wvZHA3cXM1LTMyYWU2M2FlLTUxNjYtNGY1YS04MTIzLTE5NjNlYzI0OTdmMC5qcGciLCJ3aWR0aCI6Ijw9MzA3MiJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.G6A5erAG_vHaYUFqZtsbLcpPAqowh4EctcJip8U8-Lc" alt="AwesomeCastle3">
+      <div class="caption">
+        <h2>Awesome Castle 3</h2>
+        <p>A stunning, beautifully structured castle with uncountable amounts of bathrooms and bedrooms, in the middle of nowhere! Don't miss out!</p>
+        <p><a href="#" class="btn btn-default" role="button" id="hoverable-button-2">Learn more...</a></p>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
 
     ####################raggi##############################

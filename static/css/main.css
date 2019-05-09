@@ -143,10 +143,6 @@ body{
     color: black;
 }
 
-#presentation-hoverable {
-
-}
-
 .AccountInfo {
     position: center;
     width: 100%;
@@ -176,13 +172,18 @@ body{
 }
 
 #AccountSettings img {
-  margin-right: 10px;
-  display: block;
+    margin-right: 10px;
+    display: block;
     width: 100%;
 }
 
 #AccountSettings form {
-    margin: 0;
+    margin: 5px;
+}
+
+#AccountSettings button {
+    height: 100%;
+    margin-right: 50px;
 }
 
 #SettingsForm {

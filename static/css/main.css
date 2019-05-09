@@ -12,6 +12,7 @@ body{
 #footer {
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,0.16150210084033612) 0%, rgba(168,168,168,1) 40%, rgba(168,168,168,1) 100%);
+    width: 100%;
 }
 
 #dropdown-choice:hover {
@@ -62,14 +63,19 @@ body{
 #title {
     text-align: center;
     color: rgb(255,255,255);
-    text-shadow: 2px 2px 5px rgba(250,56,56,1);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52);
     padding: 10px;
 }
 
 .jumbotron {
     background-image: url("https://images.pexels.com/photos/532860/pexels-photo-532860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
+    width: 100%;
     padding-bottom: 250px;
+}
+
+#flair {
+    color: rgb(0, 0, 0);
 }
 
 #search-box {
@@ -79,7 +85,9 @@ body{
 #flex-box {
     display: flex;
     flex-wrap: wrap;
-    background-color: DodgerBlue;
+    background-color: rgb(255,255,255);
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 #flex-box > div {
@@ -92,6 +100,19 @@ body{
     line-height: 75px;
 }
 
+#stretch {
+    width: 100%;
+}
+
+.thumbnail {
+    height: 100%;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 250px;
+    object-fit: fill;
+}
 /* Fyrir Messages í Profiles*/
 
 .nav-tabs .glyphicon:not(.no-margin) {

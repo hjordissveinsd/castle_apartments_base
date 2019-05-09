@@ -39,14 +39,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="profile-hover"> <img src="../static/images/Profile.png" height="30" width="30"> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{% url 'profile' %}" id="dropdown-choice">Profile</a></li>
-                <li><a href="{% url 'settings' %}" id="dropdown-choice">Settings</a></li>
-                <li><a href="#" id="dropdown-choice">Messages</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#" id="dropdown-choice">Previously purchased</a></li>
-                <li><a href="#" id="dropdown-choice">Previously sold</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="{% url 'createOrLogIn' %}" id="dropdown-choice">Log out</a></li>
+
+            {% include "Profile/loggedIn.html" %}
+           <!--  {% include "Profile/notLogedIn.html" %}
+
               </ul>
             </li>
           </ul>

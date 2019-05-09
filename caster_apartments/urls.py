@@ -25,5 +25,4 @@ urlpatterns = [
     path('sell/put-up-estate/', include('PutUpEstateForSale.urls')),
     path('log-in/', include('Profile.urls')),
 
-
 ]

@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from django.contrib.auth.forms import UserCreationForm
 from Profile.models import User
 
 # Create your views here.
@@ -23,6 +24,19 @@ def loggedIn (request):
 
 def notLoggedIn (request):
     return render(request, 'Profile/notLoggedIn.html')
+
+####################raggi######################
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Login')
+    return render(request, 'profile/register.html',
+                  {'form' : UserCreationForm()
+
+                                                      }
+                  )
 
 ###############################################
 #raggi að bæta við#############################

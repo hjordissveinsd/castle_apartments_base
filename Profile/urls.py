@@ -8,5 +8,7 @@ urlpatterns = [
     path('settings', views.settings, name="settings"),
     path('createOrLogIn', views.createOrLogIn, name="createOrLogIn"),
     path('loggedIn', views.loggedIn, name="loggedIn"),
-    path('notLoggedIn', views.notLoggedIn, name="notLoggedIn")
+    path('notLoggedIn', views.notLoggedIn, name="notLoggedIn"),
+    ##############raggi##############################
+    path('register', views.register, name="register")
 ]

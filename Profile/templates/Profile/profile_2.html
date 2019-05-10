@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1> Sign up now!</h1>
+    <h1>Profile</h1>
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -13,6 +13,12 @@
             <label>Profile details</label>
             {{ profile_form.as_p }}
         </fieldset>
-        <input type="submit" class="btn btn-primary" value="Sign up">
+
+        {% if profile_form.instance.avatar %}
+            <img src="{{ profile_form.instance.avatar.url }}" alt="{{ user_form.instance.username }}">
+        {% else %}
+            <p>No profile pic</p>
+        {% endif %}
+        <input type="submit" class="btn btn-primary" value="Update">
     </form>
 {% endblock %}

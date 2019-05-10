@@ -1,6 +1,7 @@
 from django.db import models
 
-from Profile.models import User
+#from Profile.models import User
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Estate(models.Model):

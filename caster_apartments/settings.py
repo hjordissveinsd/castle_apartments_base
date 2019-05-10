@@ -130,3 +130,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, "static")
 ]
+
+#staðurinn sem maður er redirctaður á ef maður er ekki loggaður inn og er að reyna t.d. að selja og kaupa
+
+
+# The url that the user is redirected to when he tries to access a protected area.
+LOGIN_URL = '/profile/login/'
+
+#staður sem maður endar eftir að hafa loggað sig inn
+
+LOGIN_REDIRECT_URL ='/profile/profile/'
+LOGOUT_REDIRECT_URL='messages'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'

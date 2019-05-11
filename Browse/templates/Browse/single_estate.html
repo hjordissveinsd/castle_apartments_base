@@ -1,0 +1,15 @@
+<div class="well estate" style="bacground-color: blue">
+    {% for image in imageList %}
+        {% if image.id == estate.id %}
+        <img src="{{ image.imageList }}"/>
+        {% endif %}
+    {% endfor %}
+    <h4>{{ estate.address }}</h4>
+    <p>{{ estate.description }}</p>
+    <h4> Address: {{ estate.address }}</h4>
+    <h3> Price:{{ estate.price }}</h3>
+    <p> bathroom number:{{ estate.bathNum }}</p>
+    <p> bedroom number:{{ estate.bedNum }}</p>
+    <p> size of house: {{ estate.houseSize }}</p>
+    <p> size of lot: {{ estate.lotSize }}</p>
+</div>

@@ -140,7 +140,7 @@ LOGIN_URL = '/profile/login/'
 #staður sem maður endar eftir að hafa loggað sig inn
 
 LOGIN_REDIRECT_URL ='/profile/profile/'
-LOGOUT_REDIRECT_URL='messages'
+LOGOUT_REDIRECT_URL='login'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'

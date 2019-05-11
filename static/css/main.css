@@ -122,6 +122,12 @@ body{
     border-color: rgb(212, 63, 58);
 }
 
+/* Browse */
+#estate-box {
+    color: black;
+}
+
+
 /* Profile */
 
 #breadcrumb-hoverable {

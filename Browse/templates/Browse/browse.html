@@ -1,4 +1,4 @@
-{% extends '../base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <ol class="breadcrumb">
@@ -16,7 +16,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="hoverable">Castle type <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Castle type <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#" id="dropdown-choice">Medieval Castle</a></li>
             <li><a href="#">Motte-and-Bailey</a></li>
@@ -144,8 +144,10 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    {% for estate in estates %}
-        {% include 'Browse/single_estate.html' with estate=estate%}
-    {% endfor %}
+    <div class="row" id="flex-box">
+        {% for estate in estates %}
+            {% include 'Browse/single_estate.html' with estate=estate%}
+        {% endfor %}
+    </div>
 
 {% endblock %}

@@ -3,15 +3,44 @@
     <h1> Sign up now!</h1>
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-
+        {% load widget_tweaks %}
         <fieldset>
+
             <label>User details</label>
-            {{ user_form.as_p }}
+            {% for hidden in user_form.hidden_fields %}
+              {{ hidden }}
+            {% endfor %}
+
+            {% for field in user_form.visible_fields %}
+              <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field|add_class:'form-control' }}
+                {% for error in field.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endfor %}
+
+
+            <!--{{ user_form.as_p}}-->
         </fieldset>
 
         <fieldset>
             <label>Profile details</label>
-            {{ profile_form.as_p }}
+            {% for hidden in profile_form.hidden_fields %}
+              {{ hidden }}
+            {% endfor %}
+
+            {% for field in profile_form.visible_fields %}
+              <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field|add_class:'form-control' }}
+                {% for error in field.errors %}
+                  <span class="help-block">{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            <!--{{ profile_form.as_p }}-->
         </fieldset>
 
         <input type="submit" class="btn btn-primary" value="Sign up">

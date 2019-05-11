@@ -5,21 +5,9 @@ body{
 
 /* NAVBAR */
 .container-fluid {
-    background: rgb(255,255,255);
-    background: linear-gradient(135deg, rgba(255,255,255,1) 15%, rgb(175, 5, 41) 70%);
-}
-
-/* FOOTER */
-#footer {
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0.16150210084033612) 0%, rgba(168,168,168,1) 40%, rgba(168,168,168,1) 100%);
-    width: 100%;
-}
-
-#dropdown-choice:hover {
-    background: rgb(175, 5, 41);
-    color: rgb(255,255,255);
-    transition: 0.5s;
+    background: rgb(251,251,251);
+    background: linear-gradient(135deg, rgba(251,251,251,1) 15%, rgba(175,5,41,1) 40%);
+    margin-right: auto;
 }
 
 #hoverable {
@@ -29,13 +17,28 @@ body{
     border-radius: 5px;
     text-align: center;
     position: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52);
     font-size: 16px;
     margin: 12px 4px;
     transition: 0.5s;
+    vertical-align: middle;
 }
 
 #hoverable:hover {
     color: black;
+}
+
+#dropdown-choice:hover {
+    background: rgb(175, 5, 41);
+    color: rgb(255,255,255);
+    transition: 0.5s;
+}
+
+/* FOOTER */
+#footer {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.16150210084033612) 0%, rgba(168,168,168,1) 40%, rgba(168,168,168,1) 100%);
+    width: 100%;
 }
 
 #profile-hover {
@@ -123,10 +126,27 @@ body{
 }
 
 /* Browse */
-#estate-box {
+#hoverable-browse {
+    background: rgba(250,56,56,0);
+    color: rgb(255,255,255);
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52);
+    vertical-align: middle;
+    font-size: 13px;
+    margin: 12px 4px;
+    transition: 0.5s;
+}
+
+#hoverable-browse:hover {
     color: black;
 }
 
+#search-box-browse {
+    padding: 5px;
+}
 
 /* Profile */
 

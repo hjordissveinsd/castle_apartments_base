@@ -13,21 +13,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel="stylesheet" href = "{% static 'css/main.css' %}">
+        <link rel="stylesheet" href = "{% static 'css/style.css' %}">
     </head>
 
     <body>
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'main-front' %}"><img alt="logo" src="../static/images/logoAnTexta.png" id="logo"></a>
+      <div class="container-fluid   ">
+        <a class="navbar-brand" href="{% url 'main-front' %}">
+            <img alt="logo" src="../static/images/logoAnTexta.png" id="logo">
+        </a>
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-        </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'browse' %}" id="hoverable">Browse</a></li>
               <li><a href="{% url 'sell' %}" id="hoverable">Sell</a></li>
@@ -55,7 +53,6 @@
 
             {%  endif %}
 
-
               </ul>
             </li>
           </ul>
@@ -63,13 +60,12 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container" id="container">
-            {% block content %}
-            {% endblock %}
+        {% block content %}
+        {% endblock %}
     </div>
 
     <footer>
       <div class="container-fluid" id="footer">
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 

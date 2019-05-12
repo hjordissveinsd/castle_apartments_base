@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 from Browse.models import Estate
 from Browse.models import ImageList
-
+#kannski frekar ljótt import, skiptir pottþétt engu máli
+from Browse.forms.estate_form import EstateCreateForm
 
 # Create your views here.
 

@@ -17,7 +17,7 @@ def browse(request):
 
 
 def singleEstate(request):
-    return render(request, 'Browse/single_estate.html.html')
+    return render(request, 'Browse/single_estate.html')
 
 
 def createEstate(request):
@@ -27,5 +27,7 @@ def createEstate(request):
         form = EstateCreateForm()
     return render(request, 'browse/createEstate.html', {
       'form': form
-
     })
+
+def clickEstate(request):
+    return render(request, 'Browse/estate_detail.html')

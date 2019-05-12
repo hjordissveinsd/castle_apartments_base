@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from Browse.models import Estate
 from Browse.models import ImageList
+
 
 # Create your views here.
 
@@ -16,3 +17,14 @@ def browse(request):
 
 def singleEstate(request):
     return render(request, 'Browse/single_estate.html.html')
+
+
+def createEstate(request):
+    if request.method =='POST':
+        print(1)
+    else:
+        form = EstateCreateForm()
+    return render(request, 'browse/createEstate.html', {
+      'form': form
+
+    })

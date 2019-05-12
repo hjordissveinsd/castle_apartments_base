@@ -15,6 +15,7 @@ class Estate(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.BooleanField()
     #bæta við, "if no pictures still post"
+    #bæta við Estate type
 
 class ImageList(models.Model):
     #should contain a list of image jpg links

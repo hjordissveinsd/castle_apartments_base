@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
     <ol class="breadcrumb">
-        <li><a href="{% url 'main-front' %}" id="breadcrumb-hoverable">Home</a></li>
-        <li><a href="{% url 'profile' %}" id="breadcrumb-hoverable">Profile</a></li>
+        <li><a href="{% url 'main-front' %}" id="hoverable-generic">Home</a></li>
+        <li><a href="{% url 'profile' %}" id="hoverable-generic">Profile</a></li>
         <li class="active">Settings</li>
     </ol>
-        </ol>
-        <ul class="nav nav-tabs">
+
+    <ul class="nav nav-tabs">
         <li role="presentation"><a href="{% url 'profile' %}" id="dropdown-choice">Profile</a></li>
         <li role="presentation"  class="active"><a href="{% url 'settings' %}">Settings</a></li>
         <li role="presentation"><a href="{% url 'messages' %}" id="dropdown-choice">Messages</a></li>
     </ul>
+
     <br>
 <div id="AccountSettings">
 <div id="settings-pic">

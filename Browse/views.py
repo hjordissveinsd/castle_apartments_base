@@ -14,8 +14,6 @@ def browse(request):
     context = {'estates' : Estate.objects.all().order_by('address'), 'imageList': ImageList.objects.all()}
     return render(request, 'Browse/browse.html', context )
 
-
-
 def singleEstate(request):
     return render(request, 'Browse/single_estate.html')
 

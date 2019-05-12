@@ -74,8 +74,6 @@ def register(request):
 
 @login_required
 def profile(request):
-
-
     print('current user = ', request.user.id)
     user = get_object_or_404(User, pk=request.user.id)
     print('current user info = ', user.profile.phone)
@@ -87,7 +85,6 @@ def profile(request):
     print(user_form)
     print(profile_form)
     if request.method == 'POST':
-
         #user_form = CustomUserChangeForm(request.POST, instance=user)
         #profile_form = ProfileForm(request.POST, request.FILES, instance=user.profile)
         user_form = CustomUserChangeForm(request.POST, instance=user)

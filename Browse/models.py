@@ -1,5 +1,4 @@
 from django.db import models
-
 #from Profile.models import User
 from django.contrib.auth.models import User
 
@@ -20,4 +19,4 @@ class Estate(models.Model):
 class ImageList(models.Model):
     #should contain a list of image jpg links
     estateId = models.ForeignKey(Estate, on_delete=models.CASCADE)
-    imageList = models.CharField(max_length=999)
+    imageList = models.CharField(max_length=999, blank=True)

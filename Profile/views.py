@@ -48,6 +48,8 @@ def register1(request):
                   {'form' : UserCreationForm()})
 
 
+
+
 def register(request):
     if request.method == 'POST':
         user_form = CustomUserCreationForm(request.POST)
@@ -71,6 +73,10 @@ def register(request):
     # All other cases that are not a POST (like GET request).
     context = {'user_form': CustomUserCreationForm(), 'profile_form': ProfileForm()}
     return render(request, 'profile/register.html', context)
+
+
+
+
 
 @login_required
 def profile(request):

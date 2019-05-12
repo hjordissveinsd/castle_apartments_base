@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from Browse.models import Estate
 from Browse.models import ImageList
@@ -20,9 +20,14 @@ def singleEstate(request):
 
 def createEstate(request):
     if request.method =='POST':
-        print(1)
+        form = EstateCreateForm(data=request.POST)
+        if form.is_valid():
+            print('Valid!')
+            form.save()
+        return redirect('browse')
     else:
         form = EstateCreateForm()
+    #return redirect('profile')
     return render(request, 'browse/createEstate.html', {
       'form': form
     })

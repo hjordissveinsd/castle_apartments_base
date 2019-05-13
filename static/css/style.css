@@ -72,7 +72,7 @@ body{
     padding: 10px;
 }
 
-.jumbotron {
+#frontpage {
     background-image: url("https://images.pexels.com/photos/532860/pexels-photo-532860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
     width: 100%;

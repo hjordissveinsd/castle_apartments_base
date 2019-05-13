@@ -3,25 +3,25 @@ from django import forms
 from Browse.models import Estate
 
 class EstateCreateForm(ModelForm):
-    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    #image = forms.ImageField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Estate
         exclude = ['id']
-        widgets= {
-            'address' : widgets.TextInput(attrs={'class':'form-control','placeholder':'address'}),
-            'description': widgets.TextInput(attrs={'class': 'form-control'}),
-            'price' : widgets.NumberInput(attrs={'class':'form-control'}),
-            'lotSize' : widgets.NumberInput(attrs={'class':'form-control'}),
-            'houseSize': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'bedNum': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'bathNum': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'status': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'owner' : widgets.Select(attrs={'class': 'form-control'})
+        #widgets= {
+            #'address' : widgets.TextInput(attrs={'class':'form-control','placeholder':'address'}),
+            #'description': widgets.TextInput(attrs={'class': 'form-control'}),
+            #'price' : widgets.NumberInput(attrs={'class':'form-control'}),
+            #'lotSize' : widgets.NumberInput(attrs={'class':'form-control'}),
+            #'houseSize': widgets.NumberInput(attrs={'class': 'form-control'}),
+            #'bedNum': widgets.NumberInput(attrs={'class': 'form-control'}),
+            #'bathNum': widgets.NumberInput(attrs={'class': 'form-control'}),
+            #'status': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            #'owner' : widgets.Select(attrs={'class': 'form-control'})
             #'estateType' : widgets.Select(attrs={'class':'form-control'})
             #bæta við estate type
 
 
-        }
+        #}
 
 
 

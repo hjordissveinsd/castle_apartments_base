@@ -2,6 +2,8 @@
 {% block content %}
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-primary" value="jibbí">
         {% load widget_tweaks %}
         <fieldset>
             <div class="page-header">

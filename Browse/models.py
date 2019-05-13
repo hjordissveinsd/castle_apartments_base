@@ -13,6 +13,7 @@ class Estate(models.Model):
     desc = models.CharField(max_length=999)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.BooleanField()
+    image = models.ImageField(upload_to='es_image/', blank=True)
     #bæta við, "if no pictures still post"
     #bæta við Estate type
 

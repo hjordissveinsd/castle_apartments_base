@@ -27,7 +27,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'browse' %}" id="hoverable">Browse</a></li>
+            <li><a href="{% url 'estate' %}" id="hoverable">Browse</a></li>
             {% if user.is_authenticated %}:
               <li><a href="{% url 'sell' %}" id="hoverable">Sell</a></li>
             {% endif%}

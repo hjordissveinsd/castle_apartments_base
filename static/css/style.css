@@ -3,6 +3,13 @@ body{
     background-color: #fbfbfb;
 }
 
+.limit{
+    width:100%;
+    height: 75px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-y: scroll;
+}
 
 /* NAVBAR */
 .container-fluid {

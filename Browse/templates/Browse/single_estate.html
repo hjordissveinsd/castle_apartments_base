@@ -1,6 +1,6 @@
 <div>
     <div class="thumbnail">
-        <div>
+        <div class="imagelist">
             {% for image in imageList %}
                 {% if image.id == estate.id %}
                     <img src="{{ image.imageList }}" id="prof-pic" alt="EstateLogo"/>
@@ -9,8 +9,8 @@
         </div>
 
         <div class="caption">
-            <h3> Address: {{ estate.address }}</h3>
-            <h4> Price:{{ estate.price }}</h4>
+            <h3>{{ estate.address }}</h3>
+            <h4> Price:{{ estate.price }} ISK</h4>
             <div class="limit">
                 <p>{{ estate.desc }}</p>
             </div>

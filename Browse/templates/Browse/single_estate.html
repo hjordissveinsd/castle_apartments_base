@@ -9,12 +9,12 @@
         </div>
 
         <div class="caption">
-            <h4> Address: {{ estate.address }}</h4>
-            <h3> Price:{{ estate.price }}</h3>
-            <p> bathroom number:{{ estate.bathNum }}</p>
-            <p> bedroom number:{{ estate.bedNum }}</p>
-            <p> size of house: {{ estate.houseSize }}</p>
-            <p> size of lot: {{ estate.lotSize }}</p>
+            <h3> Address: {{ estate.address }}</h3>
+            <h4> Price:{{ estate.price }}</h4>
+            <div class="limit">
+                <p>{{ estate.desc }}</p>
+            </div>
+            <br>
             <button onclick="window.location.href = '{{ estate.id }}';" id="dropdown-choice">Learn more</button>
         </div>
     </div>

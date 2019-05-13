@@ -120,22 +120,21 @@ body{
     width: 100%;
 }
 
-#flex-box > div {
-    background-color: #f1f1f1;
-    width: 30%;
-    height: auto;
-    margin: 10px;
-    text-align: center;
-    font-size: 15px;
-    line-height: 75px;
-}
-
 #stretch {
     width: 100%;
 }
 
+#flex-box {
+    align-items: center;
+}
+
 .thumbnail {
-    height: 100%;
+    background-color: #fff;
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+    font-size: 15px;
 }
 
 .thumbnail img {
@@ -254,8 +253,6 @@ body{
 
 #filter-sell{
     background:#db414e;
-
-
 }
 
 /* PutUpEstate */

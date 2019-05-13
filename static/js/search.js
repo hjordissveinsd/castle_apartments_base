@@ -8,11 +8,11 @@ $(document).ready(function() {
             success: function(resp) {
                 var newHTML = resp.data.map(d => {
                     return `<div class="thumbnail">
-                                <div class="imagelist">
+                                <div class="imagelist" id="estateimg">
                                     <img src="${d.image}" id="prof-pic" alt="EstateLogo"/>
                                 </div>
 
-                                <div class="caption">
+                                <div class="caption" id="estatebox">
                                     <h3>${d.address}</h3>
                                     <h4>Price:${d.price} ISK</h4>
                                     <div class="limit">
@@ -23,7 +23,7 @@ $(document).ready(function() {
                                 </div>
                             </div>`
                 });
-                $('.row').html(newHTML.join(''));
+                $('#flex-box').html(newHTML.join(''));
                 $('#search-box').val('');
             },
             error: function(xhr, status, error) {

@@ -170,7 +170,10 @@ body{
 
 #filter-bar{
     background: rgba(175,5,41,1);
+}
 
+.imagelist {
+    height: 250px;
 }
 
 /* Profile */

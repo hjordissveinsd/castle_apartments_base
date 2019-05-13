@@ -8,7 +8,6 @@
         {% csrf_token %}
         {% load widget_tweaks %}
         <fieldset>
-
             {% for hidden in user_form.hidden_fields %}
               {{ hidden }}
             {% endfor %}

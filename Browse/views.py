@@ -12,7 +12,6 @@ def browse(request):
 def singleEstate(request):
     return render(request, 'Browse/single_estate.html')
 
-
 def createEstate(request):
     if request.method =='POST':
         estate_form = EstateCreateForm(data=request.POST)

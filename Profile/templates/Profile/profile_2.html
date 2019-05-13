@@ -2,14 +2,14 @@
 {% block content %}
     <ol class="breadcrumb">
         <li><a href="{% url 'main-front' %}" id="breadcrumb-hoverable">Home</a></li>
-        <li><a href="{% url 'profile' %}" id="hoverable-generic">Profile</a></li>
-        <li class="active">Settings</li>
+        <li class="active">Profile</li>
     </ol>
 
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="{% url 'profile' %}">Profile</a></li>
         <li role="presentation"><a href="{% url 'settings' %}" id="dropdown-choice">Settings</a></li>
         <li role="presentation"><a href="{% url 'messages' %}" id="dropdown-choice">Messages</a></li>
+        <li role="presentation"><a href="{% url 'browsingHistory' %}" id="dropdown-choice">Browsing History</a></li>
     </ul>
 
     <h1>Profile</h1>
@@ -18,7 +18,9 @@
 
         <fieldset>
             <label>User details</label>
-            {{ user_form.as_p }}
+            <div>
+                {{ user_form.as_p }}
+            </div>
         </fieldset>
 
         <fieldset>
@@ -27,10 +29,12 @@
         </fieldset>
 
         {% if profile_form.instance.avatar %}
-            <img src="{{ profile_form.instance.avatar.url }}" alt="{{ user_form.instance.username }}">
+            <img id="prof-pic" src="{{ profile_form.instance.avatar.url }}" alt="{{ user_form.instance.username }}">
         {% else %}
             <p>No profile pic</p>
         {% endif %}
+    <br><br>
         <input type="submit" class="btn btn-primary" value="Update">
     </form>
+    <br>
 {% endblock %}

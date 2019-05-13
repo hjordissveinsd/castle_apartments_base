@@ -11,9 +11,8 @@ def browse(request):
         search_filter = request.GET['search_filter']
         estate = [{
             'id': x.id,
-            'name': x.name,
-            'description': '',
-            'firstImage': ''
+            'name': x.address,
+            'description': x.desc,
         } for x in Estate.objects.filter(address__icontains=search_filter)]
         estate = list(Estate.objects.filter(address__icontains=search_filter).values())
         return JsonResponse({'data': estate})

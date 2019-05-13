@@ -29,6 +29,9 @@ def loggedIn (request):
 def notLoggedIn (request):
     return render(request, 'Profile/notLoggedIn.html')
 
+def browsingHistory (request):
+    return render(request, 'Profile/browsingHistory.html')
+
 ####################raggi######################
 def register1(request):
     if request.method == 'POST':

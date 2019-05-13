@@ -116,16 +116,12 @@ body{
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(255,255,255);
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
 }
 
 #stretch {
     width: 100%;
-}
-
-#flex-box {
-    align-items: center;
 }
 
 .thumbnail {
@@ -178,6 +174,19 @@ body{
 
 .imagelist {
     height: 250px;
+}
+
+#img-pic {
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 5px;
+    width: 250px;
+    justify-content: center;
+    align-self: center;
 }
 
 /* Profile */

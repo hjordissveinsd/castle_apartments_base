@@ -18,7 +18,7 @@ def browse(request):
         return JsonResponse({'data': estate})
 
     context = {'estates' : Estate.objects.all().order_by('id'), 'imageList': ImageList.objects.all()}
-    return render(request, 'Browse/browse.html', context )
+    return render(request, 'Browse/browse.html', context)
 
 def singleEstate(request):
     return render(request, 'Browse/single_estate.html')

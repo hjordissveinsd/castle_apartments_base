@@ -25,10 +25,17 @@ def singleEstate(request):
 
 def createEstate(request):
     if request.method =='POST':
-        estate_form = EstateCreateForm(data=request.POST)
-        if estate_form.is_valid():
+        #estate_form = EstateCreateForm(data=request.POST)
+        estate_form = EstateCreateForm(request.POST)
+        estate_image = EstateCreateForm(request.FILES)
+        if estate_image:
+            print("1")
+
+        if estate_form.is_valid and estate_image.is_valid():
+            print(estate_image)
             print('Valid!')
             estate_form.save()
+            estate_image.save()
         return redirect('browse')
     else:
         estate_form = EstateCreateForm()

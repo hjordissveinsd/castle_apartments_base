@@ -20,16 +20,16 @@ def singleEstate(request):
 
 def createEstate(request):
     if request.method =='POST':
-        form = EstateCreateForm(data=request.POST)
-        if form.is_valid():
+        estate_form = EstateCreateForm(data=request.POST)
+        if estate_form.is_valid():
             print('Valid!')
-            form.save()
+            estate_form.save()
         return redirect('browse')
     else:
-        form = EstateCreateForm()
+        estate_form = EstateCreateForm()
     #return redirect('profile')
     return render(request, 'browse/createEstate.html', {
-      'form': form
+      'estate_form': estate_form
     })
 
 def clickEstate(request):

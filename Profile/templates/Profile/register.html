@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1> Sign up now!</h1>
+    <div class="page-header">
+        <h1>Sign up</h1>
+        <h4>Please fill in all fields</h4>
+    </div>
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% load widget_tweaks %}
         <fieldset>
 
-            <label>User details</label>
             {% for hidden in user_form.hidden_fields %}
               {{ hidden }}
             {% endfor %}
@@ -21,12 +23,9 @@
               </div>
             {% endfor %}
 
-
-            <!--{{ user_form.as_p}}-->
         </fieldset>
 
         <fieldset>
-            <label>Profile details</label>
             {% for hidden in profile_form.hidden_fields %}
               {{ hidden }}
             {% endfor %}

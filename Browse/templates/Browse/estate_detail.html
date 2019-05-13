@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <p>Hello!</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="jumbotron" id="notfrontpage">
+        <div>
+            {% for image in imageList %}
+                {% if image.id == estate.id %}
+                    <img src="{{ image.imageList }}" alt="EstateLogo"/>
+                {% endif %}
+            {% endfor %}
+            <h1> Address: {{ estate.address }}</h1>
+            <p> {{ estate.desc }}</p>
+        </div>
+
+        <div>
+            <h3> Price:{{ estate.price }}</h3>
+            <p> bathroom number:{{ estate.bathNum }}</p>
+            <p> bedroom number:{{ estate.bedNum }}</p>
+            <p> size of house: {{ estate.houseSize }}</p>
+            <p> size of lot: {{ estate.lotSize }}</p>
+        </div>
+        <button onclick="window.location.href = '/#';" id="dropdown-choice">Buy now</button>
+    </div>
+
+{% endblock %}

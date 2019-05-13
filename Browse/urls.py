@@ -7,5 +7,5 @@ urlpatterns = [
     path('',views.browse, name="estate"),
     path('singleEstate', views.singleEstate, name="singleEstate"),
     path('create_estate', views.createEstate, name='create_estate'),
-    path('estate_detail', views.clickEstate, name="estate_detail")
+    path('<int:id>', views.get_estate_by_id, name="estate_detail")
 ]

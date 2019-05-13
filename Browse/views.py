@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from Browse.models import Estate
@@ -6,6 +7,17 @@ from Browse.forms.estate_form import EstateCreateForm
 #kannski frekar ljótt import, skiptir pottþétt engu máli
 
 def browse(request):
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        estate = [{
+            'id': x.id,
+            'name': x.name,
+            'description': '',
+            'firstImage': ''
+        } for x in Estate.objects.filter(address__icontains=search_filter)]
+        estate = list(Estate.objects.filter(address__icontains=search_filter).values())
+        return JsonResponse({'data': estate})
+
     context = {'estates' : Estate.objects.all().order_by('id'), 'imageList': ImageList.objects.all()}
     return render(request, 'Browse/browse.html', context )
 

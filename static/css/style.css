@@ -88,6 +88,18 @@ body{
     align-content: center;
 }
 
+#search-button{
+    background: linear-gradient(152deg,rgba(226,77,77,1), rgba(175,5,41,1) 72%);
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,.2);
+    color: white;
+    text-shadow: none;
+}
+#search-button:hover{
+    background: linear-gradient(152deg,rgba(226,77,77,1), rgba(175,5,41,1) 70%);
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,.1);
+    color: white;
+}
+
 #flex-box {
     display: flex;
     flex-wrap: wrap;
@@ -157,7 +169,7 @@ body{
 /* Profile */
 
 #breadcrumb-hoverable {
-    background: rgba(250,56,56,0);
+    /*background: rgba(250,56,56,0);
     color: rgb(175, 5, 41);
     padding: 8px 16px;
     border-radius: 5px;
@@ -165,7 +177,7 @@ body{
     text-align: center;
     position: center;
     font-size: 10px;
-    transition: 0.5s;
+    transition: 0.5s;*/
 }
 
 #breadcrumb-hoverable:hover {
@@ -221,6 +233,14 @@ body{
 
 #settings-pic {
     text-align: center;
+}
+
+/* Sell */
+
+#filter-sell{
+    background:#db414e;
+
+
 }
 
 /* PutUpEstate */

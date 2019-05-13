@@ -18,7 +18,9 @@
 
         <fieldset>
             <label>User details</label>
-            {{ user_form.as_p }}
+            <div>
+                {{ user_form.as_p }}
+            </div>
         </fieldset>
 
         <fieldset>
@@ -27,10 +29,12 @@
         </fieldset>
 
         {% if profile_form.instance.avatar %}
-            <img src="{{ profile_form.instance.avatar.url }}" alt="{{ user_form.instance.username }}">
+            <img id="prof-pic" src="{{ profile_form.instance.avatar.url }}" alt="{{ user_form.instance.username }}">
         {% else %}
             <p>No profile pic</p>
         {% endif %}
+    <br><br>
         <input type="submit" class="btn btn-primary" value="Update">
     </form>
+    <br>
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="../" id="breadcrumb-hoverable">Home</a></li>
+        <li><a href="../profile" id="breadcrumb-hoverable">Profile</a></li>
+        <li class="active">Browsing History</li>
+    </ol>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="{% url 'profile' %}" id="dropdown-choice">Profile</a></li>
+        <li role="presentation"><a href="{% url 'settings' %}" id="dropdown-choice">Settings</a></li>
+        <li role="presentation"><a href="{% url 'messages' %}" id="dropdown-choice">Messages</a></li>
+        <li role="presentation" class="active"><a href="{% url 'browsingHistory' %}">Browsing History</a></li>
+    </ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-10">
+          <h1 id="flair">Welcome to your Browsing History!</h1>
+        </div>
+    </div>
+    <hr class="">
+
+    <div class="row">
+        <hr class="">
+    </div>
+
+
+
+{% endblock %}

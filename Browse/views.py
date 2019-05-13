@@ -43,6 +43,6 @@ def get_estate_by_id(request, id):
         'estate': get_object_or_404(Estate, pk=id)
     })
 
-def checkout(request, id):
-    context = {'estate': Estate.objects.get(pk=id)}
-    return render(request, 'checkout.html', context)
+def checkout(request):
+    #context = {'estate': Estate.objects.get(pk=id)}
+    return render(request, 'browse/checkout.html')

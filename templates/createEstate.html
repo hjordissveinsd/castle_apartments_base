@@ -22,6 +22,11 @@
               </div>
             {% endfor %}
         </fieldset>
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <nav aria-label="...">
+          <ul class="pager">
+            <li class="previous"><a href="../" id="dropdown-choice">Quit without saving</a></li>
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </ul>
+        </nav>
     </form>
 {% endblock %}

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Estate(models.Model):
     address = models.CharField(max_length=255)
+    zipCode = models.IntegerField()
     lotSize = models.IntegerField()
     houseSize = models.IntegerField()
     bedNum = models.IntegerField()
@@ -13,6 +14,7 @@ class Estate(models.Model):
     desc = models.CharField(max_length=999)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.BooleanField()
+    buyerID = models.IntegerField()
     image = models.ImageField(upload_to='es_images/', blank=True)
     #bæta við, "if no pictures still post"
     #bæta við Estate type

@@ -13,6 +13,9 @@
             {% endfor %}
 
             {% for field in estate_form.visible_fields %}
+                {% if field.label == 'Image'%}
+                    <p>HELLO!</p>
+                {% endif %}
               <div class="form-group">
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                 {{ field|add_class:'form-control' }}

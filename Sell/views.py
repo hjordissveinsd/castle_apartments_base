@@ -12,7 +12,9 @@ def put_up(request):
         estate_form = EstateCreateForm(data=request.POST)
         if estate_form.is_valid():
             print('Valid!')
-            estate_form.save()
+
+            estate = estate_form.save()
+            print(estate)
         return redirect('sell')
     else:
         estate_form = EstateCreateForm()

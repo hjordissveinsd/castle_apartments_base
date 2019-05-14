@@ -5,9 +5,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Estate(models.Model):
     address = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
     zipCode = models.IntegerField()
+    country = models.CharField(max_length=255)
     lotSize = models.IntegerField()
     houseSize = models.IntegerField()
+    estateType = models.CharField(max_length=255)
     bedNum = models.IntegerField()
     bathNum = models.IntegerField()
     price = models.IntegerField()

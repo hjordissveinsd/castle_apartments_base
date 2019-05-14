@@ -47,11 +47,12 @@ body{
 
 /* FOOTER */
 #footer {
+    padding-top: 10px;
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,0.16150210084033612) 0%, rgba(168,168,168,1) 40%, rgba(168,168,168,1) 100%);
-    /*display: table-row;
+    display: table-row;
     height: 0;
-    position: relative;*/
+    position: relative;
 }
 
 #profile-hover {
@@ -98,6 +99,7 @@ body{
 
 #search-box {
     align-content: center;
+    border: ActiveBorder;
 }
 
 #search-button{
@@ -109,6 +111,10 @@ body{
 #search-button:hover{
     background: linear-gradient(152deg,rgba(226,77,77,1), rgba(175,5,41,1) 70%);
     box-shadow: 1px 1px 1px 0 rgba(0,0,0,.1);
+    color: white;
+}
+
+#search-text{
     color: white;
 }
 

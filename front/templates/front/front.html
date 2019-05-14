@@ -11,11 +11,12 @@
     <div class="row search" id="stretch">
       <div class="col-sm-8 col-sm-offset-2">
 
-        <form role="form">
+        <form role="form" >
             <div class="input-group" id="search-box">
-              <input type="text" class="form-control input-md" placeholder="Search for address, city or zip..." required id="search-box">
-              <span class="input-group-btn" >
-                    <button class="btn btn-default btn-md" id="search-button" type="submit" formaction={% url 'estate' %}>
+              <input type="search" class="form-control input-md" id="search-box" placeholder="Search for address, city or zip...">
+              <span class="input-group-btn">
+                  <input type="submit" value="hey">
+                    <button class="btn btn-default btn-md" id="search-btn search-btn" type="submit" formaction={% url 'estate' %}>
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span>Search</span>
                     </button>
               </span>

@@ -7,6 +7,7 @@ from Browse.forms.estate_form import EstateCreateForm
 #kannski frekar ljótt import, skiptir pottþétt engu máli
 
 def browse(request):
+    print(request.GET)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         estate = [{

@@ -21,8 +21,10 @@ def browse(request):
     context = {'estates' : Estate.objects.all().order_by('id'), 'imageList': ImageList.objects.all()}
     return render(request, 'Browse/browse.html', context)
 
+
 def singleEstate(request):
     return render(request, 'Browse/single_estate.html')
+
 
 def createEstate(request):
     if request.method =='POST':
@@ -45,11 +47,19 @@ def createEstate(request):
       'estate_form': estate_form
     })
 
+
 def get_estate_by_id(request, id):
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
 
+
 def checkout(request):
     #context = {'estate': Estate.objects.get(pk=id)}
     return render(request, 'browse/checkout.html')
+
+
+def payment_details(request, id):
+    return render(request, 'Browse/creditcard.html', {
+        'id_': get_object_or_404(Estate, pk=id)
+    })

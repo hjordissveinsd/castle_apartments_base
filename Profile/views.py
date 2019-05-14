@@ -51,8 +51,6 @@ def register1(request):
                   {'form' : UserCreationForm()})
 
 
-
-
 def register(request):
     if request.method == 'POST':
         user_form = CustomUserCreationForm(request.POST)

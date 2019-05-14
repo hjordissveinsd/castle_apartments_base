@@ -21,7 +21,14 @@
             <p> size of lot: {{ estate.lotSize }}</p>
         </div>
     <!--örugglega mjög ljótt-->
-        <button onclick="window.location.href = '{% url 'checkout' %}';" id="dropdown-choice">Buy now</button>
+
+    <nav aria-label="...">
+      <ul class="pager">
+        <li class="previous"><a href="./" id="dropdown-choice">Quit without saving</a></li>
+        <li class="next"><a href="{{ estate.id }}/payment_details" id="dropdown-choice">Next</a></li>
+      </ul>
+    </nav>
     </div>
+
 
 {% endblock %}

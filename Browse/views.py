@@ -6,6 +6,7 @@ from Browse.models import ImageList
 from Browse.forms.estate_form import EstateCreateForm
 #kannski frekar ljótt import, skiptir pottþétt engu máli
 
+
 def browse(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
@@ -27,6 +28,7 @@ def singleEstate(request):
 
 
 def createEstate(request):
+    # TODO REMOVE THIS STUFF
     if request.method =='POST':
         #estate_form = EstateCreateForm(data=request.POST)
         estate_form = EstateCreateForm(request.POST)

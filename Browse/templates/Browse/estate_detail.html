@@ -2,33 +2,32 @@
 
 {% block content %}
 
-    <div class="jumbotron" id="notfrontpage">
-        <div>
-            {% for image in imageList %}
-                {% if image.id == estate.id %}
-                    <img src="{{ image.imageList }}" alt="EstateLogo"/>
-                {% endif %}
-            {% endfor %}
-            <h1> Address: {{ estate.address }}</h1>
-            <p> {{ estate.desc }}</p>
+    <div class="media" id="details_box">
+        <h1> Address: {{ estate.address }}</h1>
+        <br>
+        <div class="media-left">
+            <img src="https://mario.nintendo.com/assets/img/home/intro/mario-pose2.png" id="img-pic" alt="EstateLogo"/>
         </div>
 
-        <div>
-            <h3> Price:{{ estate.price }}</h3>
-            <p> bathroom number:{{ estate.bathNum }}</p>
-            <p> bedroom number:{{ estate.bedNum }}</p>
-            <p> size of house: {{ estate.houseSize }}</p>
-            <p> size of lot: {{ estate.lotSize }}</p>
+        <div class="media-body">
+            <p> {{ estate.price }} ISK</p>
+            <p> <i class="fa fa-bed"></i>  {{ estate.bathNum }}, <i class="fa fa-bath"></i>  {{ estate.bedNum }}</p>
+            <p>{{ estate.houseSize }} sqft, {{ estate.lotSize }} sqft lot</p>
+            <div class="limit" id="details">
+                <p> {{ estate.desc }}</p>
+            </div>
         </div>
-    <!--örugglega mjög ljótt-->
-
-    <nav aria-label="...">
-      <ul class="pager">
-        <li class="previous"><a href="./" id="dropdown-choice">Quit without saving</a></li>
-        <li class="next"><a href="{{ estate.id }}/payment_details" id="dropdown-choice">Next</a></li>
-      </ul>
-    </nav>
     </div>
-
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous"><a href="./" id="dropdown-choice">Back to Browse</a></li>
+            {% if user.is_authenticated %}
+                <li class="next"><a href="{{ estate.id }}/payment_details" id="dropdown-choice">Next</a></li>
+                {% else %}
+                <li class="next"><a href="{% url 'login' %}" id="dropdown-choice">Log in to Purchase</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+<br><br><br><br><br>
 
 {% endblock %}

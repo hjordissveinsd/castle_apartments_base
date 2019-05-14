@@ -10,17 +10,11 @@
 
     <div class="row search" id="stretch">
       <div class="col-sm-8 col-sm-offset-2">
-
-        <form role="form">
-            <div class="input-group" id="search-box">
-              <input type="text" class="form-control input-md" placeholder="Search for address, city or zip..." required id="search-box">
-              <span class="input-group-btn" >
-                    <button class="btn btn-default btn-md" id="search-button" type="submit" formaction={% url 'estate' %}>
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span>Search</span>
-                    </button>
-              </span>
-            </div>
-        </form>
+            <nav aria-label="...">
+              <ul class="pager">
+                  <li><a href="{% url 'estate' %}" id="front-btn"> Find an estate</a></li>
+              </ul>
+            </nav>
       </div>
     </div>
 </div>

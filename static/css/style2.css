@@ -114,6 +114,20 @@ body{
     color: white;
 }
 
+#front-btn {
+    display: inline-block;
+    padding: 10px 150px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#front-btn:hover {
+    background: rgb(175, 5, 41);
+    color: rgb(255,255,255);
+    transition: 0.5s;
+}
+
 #search-text{
     color: white;
 }
@@ -193,8 +207,38 @@ body{
     width: 250px;
     justify-content: center;
     align-self: center;
+    background-color: white;
 }
 
+#details {
+    text-align: left;
+    max-width: 90%;
+    height: 200px;
+}
+
+#details_box {
+    padding: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+#details_box > h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52);
+    text-align: center;
+}
+
+.media-body {
+    padding-top: 15px;
+    margin-left: 5px;
+    font-size: 17px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
 /* Profile */
 
 #breadcrumb-hoverable {
@@ -221,6 +265,7 @@ body{
 }
 
 #AccountInfo {
+    display: inline-block;
     text-align: left;
     margin-top: 15px;
 }
@@ -271,10 +316,6 @@ body{
 }
 
 /* PutUpEstate */
-
-#dropdown-sell {
-
-}
 
 /* Fyrir Messages í Profiles*/
 

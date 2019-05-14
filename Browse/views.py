@@ -8,13 +8,13 @@ from Browse.forms.estate_form import EstateCreateForm
 
 
 def browse(request):
+    print(request.GET)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         estate = [{
             'id': x.id,
             'name': x.address,
             'description': x.desc,
-            'imageurl': x.image
         } for x in Estate.objects.filter(address__icontains=search_filter)]
         estate = list(Estate.objects.filter(address__icontains=search_filter).values())
         return JsonResponse({'data': estate})

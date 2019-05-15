@@ -77,13 +77,13 @@ WSGI_APPLICATION = 'caster_apartments.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+#current name of DB is Castle_apartments_DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mhpgkmcp',
-        'USER' : 'mhpgkmcp',
-        'PASSWORD': 'uIzguKLyx4sCSM2xGrM5TsEtHq59dCas',
+        'NAME': 'mitihdkf',
+        'USER' : 'mitihdkf',
+        'PASSWORD': '1JSXAchodTyp_bQl7AYtBwXOk6laqYdR',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
     }

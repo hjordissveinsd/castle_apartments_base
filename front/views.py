@@ -6,7 +6,9 @@ from django.http import HttpResponse
 
 def index(request):
     print(request.GET)
-    context = {'estates': Estate.objects.filter(status=True)}
+    context = {'estates': Estate.objects.filter(status=True)[:3]}
+    print('hallo')
+    print(list(context.values())[0].values())
     return render(request, 'front/front.html', context)
 
 

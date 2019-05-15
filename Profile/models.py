@@ -22,5 +22,5 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatars/', blank=True)
 
 class Tracker(models.Model):
-    user = models.ForeignKey(User, primary_key=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     url = models.URLField()

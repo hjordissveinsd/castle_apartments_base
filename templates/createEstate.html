@@ -13,7 +13,7 @@
             {% endfor %}
 
             {% for field in estate_form.visible_fields %}
-                {% if field.label == 'Image'%}
+                {% if field.label == 'Omage'%}
                     {% if not profile_form.instance.image %}
                         <img id="prof-pic" src="{{ estate_form.instance.image.url }}" alt="{{ estate_form.instance.address }}">
                     {% else %}

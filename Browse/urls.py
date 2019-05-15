@@ -7,7 +7,7 @@ urlpatterns = [
     path('',views.browse, name="estate"),
     path('singleEstate', views.singleEstate, name="singleEstate"),
     path('create_estate', views.createEstate, name='create_estate'),
-    path('<int:id>', views.get_estate_by_id, name="estate_detail"),
+    path('<int:id>/', views.get_estate_by_id, name="estate_detail"),
     #raggi að búa til kaup checkout
     path('checkout', views.checkout, name="checkout"),
     path('<int:id>/payment_details', views.payment_details, name='payment_details')

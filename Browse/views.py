@@ -8,7 +8,6 @@ from Browse.forms.estate_form import EstateCreateForm
 
 
 def browse(request):
-    print(request.GET)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         estate = [{

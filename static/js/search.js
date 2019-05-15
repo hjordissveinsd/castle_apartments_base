@@ -9,7 +9,7 @@ $(document).ready(function() {
                 var newHTML = resp.data.map(d => {
                     return `<div class="thumbnail">
                                 <div class="imagelist" id="estateimg">
-                                    <img src="https://mario.nintendo.com/assets/img/home/intro/mario-pose2.png" id="img-pic" alt="EstateLogo"/>
+                                    <img src="${d.image}" id="img-pic" alt="EstateLogo"/>
                                 </div>
 
                                 <div class="caption" id="estatebox">

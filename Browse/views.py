@@ -1,9 +1,11 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import resolve
 
 from Browse.models import Estate
 from Browse.models import User
 from Browse.forms.estate_form import EstateCreateForm
+
 #kannski frekar ljótt import, skiptir pottþétt engu máli
 
 
@@ -19,9 +21,10 @@ def browse(request):
         estate = list(Estate.objects.filter(address__icontains=search_filter).values())
         return JsonResponse({'data': estate})
 
-    context = {'estates' : Estate.objects.all().order_by('id')}
-    if 'name' in request.GET:
-        context = {'estates' : Estate.objects.all().order_by('name')}
+    context = {'estates': Estate.objects.all().order_by('id')}
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'http://127.0.0.1:8000/estate/?sort=name':
+        context = {'estates': Estate.objects.all().order_by('address', )}
     return render(request, 'Browse/browse.html', context)
 
 

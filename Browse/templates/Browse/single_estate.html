@@ -1,11 +1,7 @@
 <div>
     <div class="thumbnail">
         <div class="imagelist" id="estateimg">
-            {% for image in imageList %}
-                {% if image.id == estate.id %}
-                    <img src="{{ image.imageList }}" id="img-pic" alt="EstateLogo"/>
-                {% endif %}
-            {% endfor %}
+            <img src="..{{ estate.image.url }}" id="img-pic" alt="EstateLogo"/>
         </div>
 
         <div class="caption" id="estatebox">

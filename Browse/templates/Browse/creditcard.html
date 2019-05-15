@@ -12,7 +12,7 @@
   <div class="col-75">
     <div class="container">
       <h1> Please fill out all information </h1>
-      <form action="/action_page.php">
+      <form action='./payment_details/checkout' method="post">
 
         <div class="row">
           <div class="col-50">
@@ -128,7 +128,7 @@
                     <option value="Honduras">Honduras</option>
                     <option value="Hong Kong">Hong Kong</option>
                     <option value="Hungary">Hungary</option>
-                    <option value="Iceland">Iceland</option>
+                    <option value="Iceland" selected="true">Iceland</option>
                     <option value="India">India</option>
                     <option value="Indonesia">Indonesia</option>
                     <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
@@ -315,8 +315,8 @@
 
             <div class="row">
               <div class="col-50">
-                <label for="expyear">Exp date</label>
-                <input type="date" id="expyear" name="expyear" >
+                <label for="expdate">Exp date</label>
+                <input type="month" id="expdate" name="expdate" value="2019-05" >
               </div>
               <div class="col-50">
                 <label for="cvv">CVV</label>

@@ -12,13 +12,12 @@
                     <p>hello</p>
                     {{ user.id }}
                 {% endfor %}
-                <p></p>
               <ul class="dropdown-menu">
                   <li class="dropdown-header">
                   {{ estate.owner_id }}
                   {% for user in users %}
                       {% if estate.owner_id == user.id %}
-                        {{ user.get_full_name }}
+                        {{ user.email }}
                       {% endif %}
                   {% endfor %}
 

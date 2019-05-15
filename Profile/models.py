@@ -20,3 +20,7 @@ class Profile(models.Model):
     ssn = models.CharField(max_length=30, blank=True)
     phone = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True)
+
+class Tracker(models.Model):
+    user = models.ForeignKey(User, primary_key=True, on_delete=models.CASCADE)
+    url = models.URLField()

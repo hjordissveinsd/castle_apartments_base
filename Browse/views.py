@@ -21,10 +21,11 @@ def browse(request):
         estate = list(Estate.objects.filter(address__icontains=search_filter).values())
         return JsonResponse({'data': estate})
 
-    context = {'estates': Estate.objects.all().order_by('id'), 'imageList': ImageList.objects.all()}
+    context = {'estates': Estate.objects.all().order_by('id')}
     current_url = resolve(request.path_info).url_name
     if current_url == 'http://127.0.0.1:8000/estate/?sort=name':
         context = {'estates': Estate.objects.all().order_by('address', )}
+    return render(request, 'Browse/browse.html', context)
 
 
 def singleEstate(request):

@@ -11,7 +11,7 @@ from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 # bætti við contex = ......
 def profile(request):
     #context = {'profiles' : User.objects.all()}
-    return render(request, 'Profile/profile.html')
+    return render(request, 'profile/profile.html')
 #profile/profileMain.html', context)
 
 def messages(request):
@@ -112,7 +112,7 @@ def profile(request):
 
     # All other cases that are not a POST (like GET request).
     context = {'user_form': user_form, 'profile_form': profile_form}
-    return render(request, 'profile/profile_2.html', context)
+    return render(request, 'Profile/profile_2.html', context)
 
 
 ###############################################

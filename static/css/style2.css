@@ -38,9 +38,6 @@ body{
 #hoverable:hover {
     color: black;
 }
-#dropdown-choice{
-     border: 1px solid cornflowerblue;
-}
 
 #dropdown-choice:hover{
     background: rgb(175, 5, 41);

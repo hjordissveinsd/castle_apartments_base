@@ -5,8 +5,8 @@
     <div class="media" id="details_box">
         <h1> {{ estate.address }}</h1>
     <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="profile-hover">
-                  <img src="../static/images/Profile.png" height="30" width="30"> Seller Profile <span class="caret"></span>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <img src="../../static/images/Profile.png" height="30" width="30"> Seller Profile <span class="caret"></span>
               </a>
 
               <ul class="dropdown-menu">
@@ -24,7 +24,11 @@
             </li>
         <br>
         <div class="media-left">
-            <img src="https://mario.nintendo.com/assets/img/home/intro/mario-pose2.png" id="img-pic" alt="EstateLogo"/>
+            {% if estate.image %}
+                <img src="{{ estate.image }}" id="img-pic" alt="EstateLogo">
+                {% else %}
+                <img src="https://mario.nintendo.com/assets/img/home/intro/mario-pose2.png" id="img-pic" alt="EstateLogo"/>
+            {% endif %}
         </div>
 
         <div class="media-body">
@@ -41,7 +45,7 @@
         <ul class="pager">
             <li class="previous"><a href="./" id="dropdown-choice">Back to Browse</a></li>
             {% if user.is_authenticated %}
-                <li class="next"><a href="{{ estate.id }}/payment_details" id="dropdown-choice">Next</a></li>
+                <li class="next"><a href="{{ estate.id }}/payment_details" id="dropdown-choice">Buy estate</a></li>
                 {% else %}
                 <li class="next"><a href="{% url 'login' %}" id="dropdown-choice">Log in to Purchase</a></li>
             {% endif %}

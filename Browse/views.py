@@ -21,6 +21,8 @@ def browse(request):
         return JsonResponse({'data': estate})
 
     context = {'estates' : Estate.objects.all().order_by('id'), 'imageList': ImageList.objects.all()}
+    if 'name' in request.GET:
+        context = {'estates' : Estate.objects.all().order_by('name')}
     return render(request, 'Browse/browse.html', context)
 
 

@@ -21,11 +21,7 @@
             </li>
         <br>
         <div class="media-left">
-            {% if estate.image %}
-                <img src="{{ estate.image }}" id="img-pic" alt="EstateLogo">
-                {% else %}
-                <img src="https://mario.nintendo.com/assets/img/home/intro/mario-pose2.png" id="img-pic" alt="EstateLogo"/>
-            {% endif %}
+            <img src="../..{{ estate.image.url }}" id="img-pic" alt="EstateLogo">
         </div>
 
         <div class="media-body">

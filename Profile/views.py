@@ -27,13 +27,41 @@ def loggedIn (request):
 def notLoggedIn (request):
     return render(request, 'Profile/notLoggedIn.html')
 
-def browsingHistory (request):
 
+
+
+def create_track(request, id):
+    #Tracker.objects.all().delete()
+    #kóði fyrir ofan notaður til að eyða efninu í töflunni
+    track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id , url=request.get_raw_uri())
+    #track = Tracker()
+    #track.user_id = request.user.id
+    #track.url = request.get_raw_uri()
+    if created == True:
+        track.save()
+
+def browsingHistory (request):
+    #context = {}
     check_list = [request.user.id]
+    trackers = list(Tracker.objects.filter(user_id__in=(check_list)))
+    estates = []
+
+    for tracker in trackers:
+        estates.append(tracker.estate_id)
+
+    context = {'trackers': trackers, 'estates': estates}
+
+
+
+
+
     #all_instances = Tracker.objects.all()
     #filtered = Tracker.objects.filter(test_id__in=test_ids).filter([some other filtering])
-    context = {'trackers': list(Tracker.objects.filter(user_id__in=(check_list)))}
+    #context = {'trackers': list(Tracker.objects.filter(user_id__in=(check_list)))}
     #context = {'trackers': Tracker.objects..filter(user_id=request.user.id)}
+    #for tracker in trackers:
+     #   tracker.get_object_by_path
+
     return render(request, 'Profile/browsingHistory.html', context)
 
 ####################raggi######################
@@ -93,7 +121,7 @@ def profile(request):
     user_form = CustomUserChangeForm(instance=user)
     profile_form = ProfileForm(instance=user.profile)
 
-    print(profile_form.instance.avatar.url)
+    #print(profile_form.instance.avatar.url)
 
     return render(request, 'Profile/profile_2.html')
 

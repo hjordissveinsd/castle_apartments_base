@@ -6,6 +6,7 @@ from Browse.models import Estate
 from Browse.models import User
 from Browse.forms.estate_form import EstateCreateForm
 from Profile.models import Tracker
+from Profile.views import create_track
 
 
 
@@ -54,19 +55,19 @@ def createEstate(request):
       'estate_form': estate_form
     })
 
-def create_track(request):
+#def create_track(request, id):
     #Tracker.objects.all().delete()
     #kóði fyrir ofan notaður til að eyða efninu í töflunni
-    track, created = Tracker.objects.get_or_create(user_id=request.user.id, url=request.get_raw_uri())
+  #  track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id , url=request.get_raw_uri())
     #track = Tracker()
     #track.user_id = request.user.id
     #track.url = request.get_raw_uri()
-    if created == True:
-        track.save()
+ #   if created == True:
+   #     track.save()
 
 def get_estate_by_id(request, id):
     if request.user:
-        create_track(request)
+        create_track(request, id)
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })

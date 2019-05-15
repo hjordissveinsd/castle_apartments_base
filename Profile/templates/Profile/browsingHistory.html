@@ -20,9 +20,31 @@
           <h1 id="flair">Welcome to your Browsing History!</h1>
         </div>
     </div>
-    <hr class="">
+
+
+    <div class="row" id="flex-box">
     {% for tracker in trackers %}
         <p>{{ tracker.url }}</p>
+
     {% endfor %}
+    </div>
+
+    <div class="row" id="flex-box">
+    {% for estate in estates %}
+        <p>{{ estate }}</p>
+
+    {% endfor %}
+    </div>
+
 </div>
+
+
+    <div class="row" id="flex-box">
+        {% for tracker in trackers%}
+            {% if estate.status != False %}
+                {% include 'Browse/single_estate.html' with estate=tracker%}
+            {% endif %}
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}

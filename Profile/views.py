@@ -17,9 +17,6 @@ def profile(request):
 def messages(request):
     return render(request, 'Profile/messages.html')
 
-def settings(request):
-    return render(request, 'Profile/settings.html')
-
 def createOrLogIn (request):
     return render(request, 'Profile/createOrLogIn.html')
 
@@ -89,6 +86,20 @@ def profile(request):
     user_form = CustomUserChangeForm(instance=user)
     profile_form = ProfileForm(instance=user.profile)
 
+    print(profile_form.instance.avatar.url)
+
+    return render(request, 'Profile/profile_2.html')
+
+
+def settings(request):
+    print('current user = ', request.user.id)
+    user = get_object_or_404(User, pk=request.user.id)
+    print('current user info = ', user.profile.phone)
+
+    # used to overrite current data, instance=   populates
+    user_form = CustomUserChangeForm(instance=user)
+    profile_form = ProfileForm(instance=user.profile)
+
     print(user_form)
     print(profile_form)
     if request.method == 'POST':
@@ -101,19 +112,16 @@ def profile(request):
             user_form.save()
             profile_form.save()
 
-            return redirect('profile')
+            return redirect('settings')
         else:
             print('invalid')
 
             context = {'user_form': user_form, 'profile_form': profile_form}
-            return render(request, 'profile/profile_2.html', context)
-
-
+            return render(request, 'profile/settings.html', context)
 
     # All other cases that are not a POST (like GET request).
     context = {'user_form': user_form, 'profile_form': profile_form}
-    return render(request, 'Profile/profile_2.html', context)
-
+    return render(request, 'Profile/settings.html', context)
 
 ###############################################
 #raggi að bæta við#############################

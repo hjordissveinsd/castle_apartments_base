@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from Browse.models import Estate
 from Browse.models import ImageList
 from Browse.models import User
-from Browse.models import Profile
 from Browse.forms.estate_form import EstateCreateForm
 #kannski frekar ljótt import, skiptir pottþétt engu máli
 
@@ -53,7 +52,7 @@ def createEstate(request):
 
 
 def get_estate_by_id(request, id):
-    context = {'users': User.objects.all(), 'profiles': Profile.objects.all()}
+    context = {'users': User.objects.all()}
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     }, context)

@@ -45,6 +45,10 @@ body{
     transition: 0.5s;
 }
 
+#buy_estate{
+    color: red;
+}
+
 /* FOOTER */
 #footer {
     padding-top: 10px;

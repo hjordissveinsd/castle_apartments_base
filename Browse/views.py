@@ -54,8 +54,6 @@ def createEstate(request):
       'estate_form': estate_form
     })
 
-<<<<<<< HEAD
-
 def create_track(request):
     #Tracker.objects.all().delete()
     #kóði fyrir ofan notaður til að eyða efninu í töflunni
@@ -66,8 +64,6 @@ def create_track(request):
     if created == True:
         track.save()
 
-=======
->>>>>>> 8ea1ba5994eafb8c32bfa45160c4134f3a34d37d
 def get_estate_by_id(request, id):
     if request.user:
         create_track(request)

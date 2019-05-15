@@ -1,5 +1,6 @@
 {% extends 'base.html'  %}
 {% block content %}
+    <link href="/static/css/style_credit_card.css" rel="stylesheet">
 <ol class="breadcrumb">
     <li><a href="../../">Home</a></li>
     <li><a href="../">Browse</a></li>
@@ -84,7 +85,7 @@
           <b>1</b>
         </span>
       </h4>
-      <p><a href="#">Castle One</a> <span class="price">$50.000.000.000</span></p>
+      <p><a href="#">Castle One</a> <span class="price">{{ estate.id.price }}</span></p>
       <hr>
       <p><a href="#">Discount <span class="price">$1</span></a></p>
       <hr>

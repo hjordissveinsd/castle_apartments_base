@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from Browse.models import Estate
 from Browse.models import User
 from Browse.forms.estate_form import EstateCreateForm
+from Profile.models import Tracker
 #kannski frekar ljótt import, skiptir pottþétt engu máli
 
 
@@ -52,7 +53,19 @@ def createEstate(request):
     })
 
 
+def create_track(request):
+    #Tracker.objects.all().delete()
+    #kóði fyrir ofan notaður til að eyða efninu í töflunni
+    track, created = Tracker.objects.get_or_create(user_id=request.user.id, url=request.get_raw_uri())
+    #track = Tracker()
+    #track.user_id = request.user.id
+    #track.url = request.get_raw_uri()
+    if created == True:
+        track.save()
+
 def get_estate_by_id(request, id):
+    if request.user:
+        create_track(request)
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })

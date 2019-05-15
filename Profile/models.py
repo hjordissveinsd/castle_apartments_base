@@ -24,3 +24,6 @@ class Profile(models.Model):
 class Tracker(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     url = models.URLField()
+
+    class Meta:
+        unique_together = ('user', 'url',)

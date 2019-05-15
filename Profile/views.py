@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth.forms import UserCreationForm
 from Profile.models import User, Profile
+from Profile.models import Tracker
 
 from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 
@@ -27,7 +28,13 @@ def notLoggedIn (request):
     return render(request, 'Profile/notLoggedIn.html')
 
 def browsingHistory (request):
-    return render(request, 'Profile/browsingHistory.html')
+
+    check_list = [request.user.id]
+    #all_instances = Tracker.objects.all()
+    #filtered = Tracker.objects.filter(test_id__in=test_ids).filter([some other filtering])
+    context = {'trackers': list(Tracker.objects.filter(user_id__in=(check_list)))}
+    #context = {'trackers': Tracker.objects..filter(user_id=request.user.id)}
+    return render(request, 'Profile/browsingHistory.html', context)
 
 ####################raggi######################
 def register1(request):

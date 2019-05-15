@@ -21,10 +21,8 @@
         </div>
     </div>
     <hr class="">
-
-    <div class="row">
-        <hr class="">
-    </div>
-
+    {% for tracker in trackers %}
+        <p>{{ tracker.url }}</p>
+    {% endfor %}
 </div>
 {% endblock %}

@@ -27,8 +27,7 @@ urlpatterns = [
     path('estate/', include('Browse.urls')),
     path('sell/', include('Sell.urls')),
     path('profile/', include('Profile.urls')),
-    path('sell/put-up-estate/', include('PutUpEstateForSale.urls')),
-
+    path('sell/put-up-estate/', include('PutUpEstateForSale.urls'))
 ]
 
 if settings.DEBUG:

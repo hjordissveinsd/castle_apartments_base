@@ -14,6 +14,11 @@
 
             {% for field in estate_form.visible_fields %}
                 {% if field.label == 'Image'%}
+                    {% if not profile_form.instance.image %}
+                        <img id="prof-pic" src="{{ estate_form.instance.image.url }}" alt="{{ estate_form.instance.address }}">
+                    {% else %}
+                        <p>No profile pic</p>
+                    {% endif %}
                     <p>HELLO!</p>
                 {% endif %}
               <div class="form-group">

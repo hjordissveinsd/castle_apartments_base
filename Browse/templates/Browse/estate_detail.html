@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<ol class="breadcrumb">
+    <li><a href="../../">Home</a></li>
+    <li><a href="../">Browse</a></li>
+    <li class="active">Specific castle</li>
+</ol>
     <div class="media" id="details_box">
         <h1> {{ estate.address }}</h1>
     <li class="dropdown">
@@ -10,16 +14,9 @@
               </a>
 
               <ul class="dropdown-menu">
-                <li class="dropdown-header"></li>
+                <li class="dropdown-header">{{ estate.owner.get_full_name }}</li>
                 <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">{{ estate.owner.email }}</a></li>
-                <li><a href="{% url 'messages' %}" id="dropdown-choice">Messages</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="{% url 'browsingHistory' %}" id="dropdown-choice">Browsing History</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#" id="dropdown-choice">Previously purchased</a></li>
-                <li><a href="#" id="dropdown-choice">Previously sold</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="{% url 'logout' %}" id="dropdown-choice">Log out</a></li>
+                <li><a href="{% url 'messages' %}" id="dropdown-choice">{{ estate.owner.profile.phone }}</a></li>
               </ul>
             </li>
         <br>
@@ -43,9 +40,9 @@
     </div>
     <nav aria-label="...">
         <ul class="pager">
-            <li class="previous"><a href="./" id="dropdown-choice">Back to Browse</a></li>
+            <li class="previous"><a href="../" id="dropdown-choice">Back to Browse</a></li>
             {% if user.is_authenticated %}
-                <li class="next"><a href="{{ estate.id }}/payment_details" id="dropdown-choice">Buy estate</a></li>
+                <li class="next"><a href="./payment_details" id="dropdown-choice">Buy estate</a></li>
                 {% else %}
                 <li class="next"><a href="{% url 'login' %}" id="dropdown-choice">Log in to Purchase</a></li>
             {% endif %}

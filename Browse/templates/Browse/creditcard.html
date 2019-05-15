@@ -37,7 +37,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-50">
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
@@ -67,13 +66,7 @@
           </div>
 
         </div>
-          <nav aria-label="...">
-              <ul class="pager">
-              <li><input type="button" value="Go back" id="dropdown-choice" class="btn"></li>
-              <li><input type="submit" value="Continue to checkout" id="dropdown-choice" class="btn"></li>
-              </ul>
-          </nav>
-      </form>
+      <!--/form-->
     </div>
   </div>
 
@@ -85,12 +78,17 @@
           <b>1</b>
         </span>
       </h4>
-      <p><a href="#">Castle One</a> <span class="price">{{ estate.id.price }}</span></p>
       <hr>
-      <p><a href="#">Discount <span class="price">$1</span></a></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>$49.999.999.999</b></span></p>
+      <p>{{ estate.address }} <span class="price" style="color:black"><b>$ {{ estate.price }}</b></span></p>
     </div>
+      <nav aria-label="...">
+              <ul class="pager">
+              <li><a href="./" class="btn" id="dropdown-choice">Go back</a></li>
+              <li><input type="submit" value="Continue to checkout" id="dropdown-choice" class="btn"></li>
+              </ul>
+          </nav>
+    </form>
   </div>
+
 </div>
 {% endblock %}

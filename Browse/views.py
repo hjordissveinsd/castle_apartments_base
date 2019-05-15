@@ -66,5 +66,5 @@ def checkout(request):
 
 def payment_details(request, id):
     return render(request, 'Browse/creditcard.html', {
-        'id_': get_object_or_404(Estate, pk=id)
+        'estate': get_object_or_404(Estate, pk=id)
     })

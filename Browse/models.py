@@ -1,5 +1,4 @@
 from django.db import models
-#from Profile.models import User
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -12,12 +11,8 @@ class Estate(models.Model):
     price = models.IntegerField()
     desc = models.CharField(max_length=999)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    zip = models.IntegerField()
     status = models.BooleanField()
-    image = models.ImageField(upload_to='es_images/', blank=True)
+    image = models.ImageField(upload_to='es_images/')
     #bæta við, "if no pictures still post"
     #bæta við Estate type
-
-class ImageList(models.Model):
-    #should contain a list of image jpg links
-    estateId = models.ForeignKey(Estate, on_delete=models.CASCADE)
-    imageList = models.CharField(max_length=999)

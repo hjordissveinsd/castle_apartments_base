@@ -8,13 +8,12 @@ def sell(request):
     return render(request, 'sell.html')
 
 def put_up(request):
+
     if request.method =='POST':
-        estate_form = EstateCreateForm(data=request.POST)
+        estate_form = EstateCreateForm(request.POST, request.FILES)
         if estate_form.is_valid():
             print('Valid!')
-
-            estate = estate_form.save()
-            print(estate)
+            estate_form.save()
         return redirect('sell')
     else:
         estate_form = EstateCreateForm()

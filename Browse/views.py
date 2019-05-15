@@ -1,11 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import resolve
 
 from Browse.models import Estate
 from Browse.models import User
 from Browse.forms.estate_form import EstateCreateForm
 from Profile.models import Tracker
-#kannski frekar ljótt import, skiptir pottþétt engu máli
+
 
 
 def browse(request):
@@ -20,9 +21,10 @@ def browse(request):
         estate = list(Estate.objects.filter(address__icontains=search_filter).values())
         return JsonResponse({'data': estate})
 
-    context = {'estates' : Estate.objects.all().order_by('id')}
-    if 'name' in request.GET:
-        context = {'estates' : Estate.objects.all().order_by('name')}
+    context = {'estates': Estate.objects.all().order_by('id')}
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'http://127.0.0.1:8000/estate/?sort=name':
+        context = {'estates': Estate.objects.all().order_by('address', )}
     return render(request, 'Browse/browse.html', context)
 
 
@@ -52,6 +54,7 @@ def createEstate(request):
       'estate_form': estate_form
     })
 
+<<<<<<< HEAD
 
 def create_track(request):
     #Tracker.objects.all().delete()
@@ -63,6 +66,8 @@ def create_track(request):
     if created == True:
         track.save()
 
+=======
+>>>>>>> 8ea1ba5994eafb8c32bfa45160c4134f3a34d37d
 def get_estate_by_id(request, id):
     if request.user:
         create_track(request)
@@ -70,10 +75,9 @@ def get_estate_by_id(request, id):
         'estate': get_object_or_404(Estate, pk=id)
     })
 
-
 def checkout(request):
-    #context = {'estate': Estate.objects.get(pk=id)}
-    return render(request, 'browse/checkout.html')
+    context = {'form' : request.POST}
+    return render(request, 'browse/checkout.html', context)
 
 
 def payment_details(request, id):

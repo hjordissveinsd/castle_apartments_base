@@ -12,7 +12,7 @@ from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 # bætti við contex = ......
 def profile(request):
     #context = {'profiles' : User.objects.all()}
-    return render(request, 'profile/profile.html')
+    return render(request, 'profile/profile_2.html')
 #profile/profileMain.html', context)
 
 def messages(request):
@@ -52,7 +52,7 @@ def register1(request):
 
     # All other cases that are not a POST.
     return render(request, 'profile/register.html',
-                  {'form' : UserCreationForm()})
+                  {'form': UserCreationForm()})
 
 
 def register(request):

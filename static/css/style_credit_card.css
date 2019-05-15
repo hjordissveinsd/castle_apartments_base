@@ -44,17 +44,17 @@ input[type=text] {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-input[type=date] {
+input[type=month] {
   width: 100%;
   margin-bottom: 20px;
-  padding: 25px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
 select {
   width: 100%;
   margin-bottom: 20px;
-  padding: 12px;
+  padding: 19px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }

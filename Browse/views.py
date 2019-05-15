@@ -52,10 +52,9 @@ def createEstate(request):
 
 
 def get_estate_by_id(request, id):
-    context = {'users': User.objects.all()}
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
-    }, context)
+    })
 
 
 def checkout(request):

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import resolve
-
+from django.http import HttpResponse
 from Browse.models import Estate
 from Browse.models import User
 from Profile.models import Tracker
@@ -47,11 +47,17 @@ def get_estate_by_id(request, id):
     })
 
 def checkout(request, id):
-    if request.GET['fname']:
-        pass
-    return render(request, 'Browse/checkout.html', {
-        'estate': get_object_or_404(Estate, pk=id)
-    })
+    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST:
+        firstname = request.POST['firstname']
+        email =request.POST['email']
+        ssn = request.POST['ssn']
+        country = request.POST['country']
+        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country},{
+            'estate':get_object_or_404(Estate,pk=id)
+        })
+    else:
+        error=True
+        return render(request, 'Browse/checkout.html', {'error':error})
 
 
 def payment_details(request, id):

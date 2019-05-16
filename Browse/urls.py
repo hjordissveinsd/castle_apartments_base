@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     path('',views.browse, name="estate"),
+    path('name',views.order_name, name="filter"),
     path('singleEstate', views.singleEstate, name="singleEstate"),
     #path('create_estate', views.createEstate, name='create_estate'),
     path('<int:id>/', views.get_estate_by_id, name="estate_detail"),

@@ -22,9 +22,6 @@ def browse(request):
         return JsonResponse({'data': estate})
 
     context = {'estates': Estate.objects.all().order_by('id')}
-    current_url = resolve(request.path_info).url_name
-    if current_url == 'http://127.0.0.1:8000/estate/?sort=name':
-        context = {'estates': Estate.objects.all().order_by('address', )}
     return render(request, 'Browse/browse.html', context)
 
 
@@ -61,3 +58,9 @@ def payment_details(request, id):
     return render(request, 'Browse/creditcard.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
+
+def order_name(request):
+    search = request.GET.get('address')
+    context = {'estates': Estate.objects.all().order_by('address')}
+
+    return render(request, 'Browse/browse.html', context)

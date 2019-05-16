@@ -318,7 +318,7 @@
             <div class="row">
               <div class="col-50">
                 <label for="expdate">Exp date</label>
-                <input type="month" id="expdate" name="expdate" value="2019-05" >
+                <input type="month" id="expdate" name="expdate" value="2019-05" min="2019-05" max="2050-05" >
               </div>
               <div class="col-50">
                 <label for="cvv">CVV</label>
@@ -341,7 +341,7 @@
         </span>
       </h4>
       <hr>
-      <p>{{ estate.address }} <span class="price" style="color:black"><b>$ {{ estate.price }}</b></span></p>
+        <p>{{ estate.address }} <span class="price" style="color:black"><b>$ {{ estate.price }}</b></span></p>
     </div>
       <nav aria-label="...">
               <ul class="pager">

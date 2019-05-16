@@ -19,7 +19,7 @@ def put_up(request):
             print('Valid!')
             estate = estate_form.save(commit=False)
             estate.status = True
-            estate.owner = request.user
+            estate.owner = request.user.id
             estate.save()
         return redirect('sell')
     else:

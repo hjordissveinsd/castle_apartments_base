@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from Profile.models import User, Profile
 from Profile.models import Tracker
+from Browse.models import Estate
 
 from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 
@@ -47,7 +48,10 @@ def browsingHistory (request):
     estates = []
 
     for tracker in trackers:
-        estates.append(tracker.estate_id)
+        #estates.append(tracker.estate_id)
+        #spurning að kalla á get estate by id fallið en kann ekki nógu vel á það
+        the_instance = Estate.objects.get(pk=tracker.estate_id)
+        estates.append(the_instance)
 
     context = {'trackers': trackers, 'estates': estates}
 

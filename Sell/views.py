@@ -16,7 +16,6 @@ def create_Review(request):
     return render(request, 'creationReveiw.html', context)
 
 def put_up(request):
-
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
         if estate_form.is_valid():
@@ -27,23 +26,10 @@ def put_up(request):
             estate.save()
         return redirect('sell')
     else:
+        print('this is in else')
         estate_form = EstateCreateForm()
     #return redirect('profile')
     return render(request, 'createEstate.html', {
       'estate_form': estate_form
     })
 
-
-#from Sell.Forms.CreateSaleForm import CreateSaleForm
-
-
-#def create_sale(request):
- #   if request == 'POST':
-  #      form = CreateSaleForm(data=request.POST)
-   #     if form.is_valid():
-    #        form.save()
-    #else:
-     #   form = CreateSaleForm()
-      #  return render(request, 'sell/sellform.html.html', {
-       #     'form' : form
-        #})

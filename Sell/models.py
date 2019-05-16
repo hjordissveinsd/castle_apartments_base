@@ -11,6 +11,7 @@ class Estate(models.Model):
     bathNum = models.IntegerField()
     price = models.IntegerField()
     desc = models.CharField(max_length=999)
+    city = models.CharField(max_length=100)
     zip = models.IntegerField(max_length=4)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, initial={{User.pk}})
     status = models.BooleanField(default=True)

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="alert alert-success" role="alert">
+  CONDRAGULATIONS! YOU HAVE JUST BOUGHT THIS ESTATE!
+</div>
+    <div class="media" id="details_box">
+        <div class="media-heading details_" id="details_box">
+            <h1 class="address-title"> {{ estate.address }}</h1>
+            <div class="dropdown pull-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="seller_profile">
+                  <img src="../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> Seller Profile <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                  <li><img id="prof-pic" src="../..{{ estate.owner.profile.avatar.url }}"></li>
+                  <li> <a href="" class="disabled" id="bold_">{{ estate.owner.get_full_name }}</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">Email: {{ estate.owner.email }}</a></li>
+                <li> <a href="" class="disabled">Phone number: {{ estate.owner.profile.phone }}</a></li>
+              </ul>
+            </div>
+        </div>
+        <br>
+        <div class="media-left">
+            <img src="../..{{ estate.image.url }}" id="img-pic" alt="EstateLogo">
+        </div>
+
+        <div class="media-body" id="media_height">
+            <p> {{ estate.price }} <b>ISK</b></p>
+            <p> <i class="fa fa-bed"></i>  {{ estate.bathNum }}, <i class="fa fa-bath"></i>  {{ estate.bedNum }}</p>
+            <p> <b>House size: </b>{{ estate.houseSize }} m²</p>
+            <p> <b>Lot size: </b>{{ estate.lotSize }} m²</p>
+            <div id="details">
+                <p> {{ estate.desc }}</p>
+            </div>
+        </div>
+
+    </div>
+    <nav aria-label="...">
+              <ul class="pager">
+              <li><a href="{% url 'estate' %}" class="btn" id="dropdown-choice">Back to browse</a></li>
+              </ul>
+          </nav>
+{% endblock %}

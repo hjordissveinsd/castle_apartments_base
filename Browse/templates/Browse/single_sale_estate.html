@@ -1,0 +1,25 @@
+<div>
+    <div class="thumbnail">
+        <div class="imagelist" id="estateimg">
+            <img src="..{{ estate.image.url }}" id="img-pic" alt="EstateLogo"/>
+        </div>
+
+        <div class="caption" id="estatebox">
+            <h3>{{ estate.address }}</h3>
+            <div><h4> <i class="fas fa-usd"></i>{{ estate.price }}</h4></div>
+            <div class="limit">
+                <p>{{ estate.desc }}</p>
+            </div>
+            <br>
+            <div><h4>
+                {% if estate.status != False %}
+                    For sale
+                {% else %}
+                    Sold
+                {% endif %}
+
+            </h4></div>
+            <button class="btn" id="dropdown-choice" onclick=" window.location.href = '../estate/{{ estate.id }}'" >See more</button>
+        </div>
+    </div>
+</div>

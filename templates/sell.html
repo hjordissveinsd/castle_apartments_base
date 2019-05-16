@@ -7,8 +7,18 @@
     </ol>
 
     <a class="btn btn-primary" href="{% url 'put_up' %}" role="button">Put estate up for sale</a>
+    <h2>Your estates</h2>
+    <div class="row" id="flex-sale">
+        {% if estates %}
+            {% for estate in estates %}
+                {% include 'Browse/single_sale_estate.html' with estate=estate%}
+            {% endfor %}
+        {% else%}
+            <div><p>You have no estates up for sale. Would you like to <a href="{% url 'put_up' %}">put one up now?</a></p></div>
+        {% endif %}
+    </div>
 
-    <div><p>You have no estates up for sale. Would you like to <a href="{% url 'put_up' %}">put one up now?</a></p></div>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 {% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    </div>
+
+<div class="jumbotron" id="frontpage">
+    <h1 id="title">Howdy y'all here at Castle Apartments</h1>
+    <p id="title">A website with fine looking real estate</p>
+
+    <div class="row search" id="stretch">
+      <div class="col-sm-8 col-sm-offset-2">
+            <nav aria-label="...">
+              <ul class="pager">
+                  <li><a href="{% url 'estate' %}" id="front-btn"> Let's find you a castle</a></li>
+              </ul>
+            </nav>
+      </div>
+    </div>
+</div>
+
+<br>
+<div class="container">
+    <h2 id="flair">Our recent estates</h2>
+    <div class="row" id="flex-box">
+        <div>
+            <div class="thumbnail">
+                <img src="..{{ estates.0.image.url }}" alt="AwesomeCastle1">
+                <div class="caption">
+                    <h2>{{ estates.0.address }}</h2>
+                    <p>{{ estates.0.desc }}</p>
+                    <p><a href="#" class="btn btn-default" role="button" id="hoverable-button-2">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <div class="thumbnail">
+                <img src="..{{ estates.1.image.url }}" alt="AwesomeCastle2">
+                <div class="caption">
+                    <h2>{{ estates.1.address }}</h2>
+                    <p>{{ estates.1.desc }}</p>
+                    <p><a href="#" class="btn btn-default" role="button" id="hoverable-button-2">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thumbnail">
+                <img src="..{{ estates.2.image.url }}" alt="AwesomeCastle3">
+                <div class="caption">
+                    <h2>{{ estates.2.address }}</h2>
+                    <p>{{ estates.2.desc }}</p>
+                    <p><a href="#" class="btn btn-default" role="button" id="hoverable-button-2">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+</div>
+{% endblock %}

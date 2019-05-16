@@ -10,6 +10,7 @@ class Estate(models.Model):
     bathNum = models.IntegerField()
     price = models.IntegerField()
     desc = models.CharField(max_length=999)
+    city = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     #setja default value sem active user
     city = models.CharField(max_length=101)

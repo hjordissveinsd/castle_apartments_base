@@ -27,11 +27,12 @@
             <img src="../..{{ estate.image.url }}" id="img-pic" alt="EstateLogo">
         </div>
 
-        <div class="media-body">
-            <p> {{ estate.price }} ISK</p>
+        <div class="media-body" id="media_height">
+            <p> {{ estate.price }} <b>ISK</b></p>
             <p> <i class="fa fa-bed"></i>  {{ estate.bathNum }}, <i class="fa fa-bath"></i>  {{ estate.bedNum }}</p>
-            <p>{{ estate.houseSize }} sqft, {{ estate.lotSize }} sqft lot</p>
-            <div class="limit" id="details">
+            <p> <b>House size: </b>{{ estate.houseSize }} m²</p>
+            <p> <b>Lot size: </b>{{ estate.lotSize }} m²</p>
+            <div id="details">
                 <p> {{ estate.desc }}</p>
             </div>
         </div>

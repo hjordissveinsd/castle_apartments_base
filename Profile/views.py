@@ -16,9 +16,6 @@ def profile(request):
     return render(request, 'profile/profile_2.html')
 #profile/profileMain.html', context)
 
-def messages(request):
-    return render(request, 'Profile/messages.html')
-
 def createOrLogIn (request):
     return render(request, 'Profile/createOrLogIn.html')
 

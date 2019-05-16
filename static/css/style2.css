@@ -221,8 +221,8 @@ body{
 #details {
     text-align: left;
     max-width: 90%;
-    height: 80%;
     margin-bottom: 30px;
+    padding-left: 5px;
 }
 
 #details_box {
@@ -246,6 +246,18 @@ body{
 
 #bold_{
     font-weight: bold;
+}
+
+#media_height{
+    height: 250px;
+}
+
+#scrolly{
+    width:100%;
+    padding-left: 5px;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    text-align: left;
 }
 
 .media-body {

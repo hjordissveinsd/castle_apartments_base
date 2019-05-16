@@ -1,6 +1,12 @@
 {% extends 'base.html'  %}
 {% block content %}
+
+    {% csrf_token %}
 <h1> Welcome to checkout </h1>
- {% csrf_token %}
+    <p>Name: {{ firstname }}</p>
+    <p>Email: {{ email }}</p>
+    <p>SSN: {{ ssn }}</p>
+    <p>Country: {{ country }}</p>
+
 
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import resolve
-
+from django.http import HttpResponse
 from Browse.models import Estate
 from Browse.models import User
 from Profile.models import Tracker
@@ -22,9 +22,6 @@ def browse(request):
         return JsonResponse({'data': estate})
 
     context = {'estates': Estate.objects.all().order_by('id')}
-    current_url = resolve(request.path_info).url_name
-    if current_url == 'http://127.0.0.1:8000/estate/?sort=name':
-        context = {'estates': Estate.objects.all().order_by('address', )}
     return render(request, 'Browse/browse.html', context)
 
 
@@ -49,12 +46,27 @@ def get_estate_by_id(request, id):
         'estate': get_object_or_404(Estate, pk=id)
     })
 
-def checkout(request):
-    context = {'form' : request.POST}
-    return render(request, 'browse/checkout.html', context)
+def checkout(request, id):
+    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST:
+        firstname = request.POST['firstname']
+        email =request.POST['email']
+        ssn = request.POST['ssn']
+        country = request.POST['country']
+        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country},{
+            'estate':get_object_or_404(Estate,pk=id)
+        })
+    else:
+        error=True
+        return render(request, 'Browse/checkout.html', {'error':error})
 
 
 def payment_details(request, id):
     return render(request, 'Browse/creditcard.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
+
+def order_name(request):
+    search = request.GET.get('address')
+    context = {'estates': Estate.objects.all().order_by('address')}
+
+    return render(request, 'Browse/browse.html', context)

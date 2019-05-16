@@ -7,18 +7,21 @@
     <li class="active">Specific castle</li>
 </ol>
     <div class="media" id="details_box">
-        <h1> {{ estate.address }}</h1>
-    <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <img src="../../static/images/Profile.png" height="30" width="30"> Seller Profile <span class="caret"></span>
+        <div class="media-heading details_" id="details_box">
+            <h1 class="address-title"> {{ estate.address }}</h1>
+            <div class="dropdown pull-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="seller_profile">
+                  <img src="../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> Seller Profile <span class="caret"></span>
               </a>
-
               <ul class="dropdown-menu">
-                <li class="dropdown-header">{{ estate.owner.get_full_name }}</li>
-                <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">{{ estate.owner.email }}</a></li>
-                <li><a href="{% url 'messages' %}" id="dropdown-choice">{{ estate.owner.profile.phone }}</a></li>
+                  <li><img id="prof-pic" src="../..{{ estate.owner.profile.avatar.url }}"></li>
+                  <li> <a href="" class="disabled" id="bold_">{{ estate.owner.get_full_name }}</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">Email: {{ estate.owner.email }}</a></li>
+                <li> <a href="" class="disabled">Phone number: {{ estate.owner.profile.phone }}</a></li>
               </ul>
-            </li>
+            </div>
+        </div>
         <br>
         <div class="media-left">
             <img src="../..{{ estate.image.url }}" id="img-pic" alt="EstateLogo">
@@ -34,6 +37,7 @@
         </div>
 
     </div>
+
     <nav aria-label="...">
         <ul class="pager">
             <li class="previous"><a href="../" id="dropdown-choice">Back to Browse</a></li>

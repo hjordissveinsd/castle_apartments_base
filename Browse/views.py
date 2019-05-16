@@ -46,9 +46,12 @@ def get_estate_by_id(request, id):
         'estate': get_object_or_404(Estate, pk=id)
     })
 
-def checkout(request):
-    context = {'form' : request.POST}
-    return render(request, 'browse/checkout.html', context)
+def checkout(request, id):
+    if request.GET['fname']:
+        pass
+    return render(request, 'Browse/checkout.html', {
+        'estate': get_object_or_404(Estate, pk=id)
+    })
 
 
 def payment_details(request, id):

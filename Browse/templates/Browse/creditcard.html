@@ -1,6 +1,6 @@
 {% extends 'base.html'  %}
 {% block content %}
-    {% csrf_token %}
+
     <link href="/static/css/style_credit_card.css" rel="stylesheet">
 <ol class="breadcrumb">
     <li><a href="../../">Home</a></li>
@@ -13,7 +13,8 @@
   <div class="col-75">
     <div class="container">
       <h1> Please fill out all information </h1>
-      <form action='./payment_details/checkout' method="post">
+      <form action='./payment_details/checkout' method="post" name="creditC">
+          {% csrf_token %}
 
         <div class="row">
           <div class="col-50">

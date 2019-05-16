@@ -18,6 +18,7 @@ def create_Review(request):
 def put_up(request):
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
+        print('HALLO')
         if estate_form.is_valid():
             print('Valid!')
             estate = estate_form.save(commit=False)
@@ -26,6 +27,7 @@ def put_up(request):
             estate.save()
         return redirect('sell')
     else:
+        print(request.method)
         print('this is in else')
         estate_form = EstateCreateForm()
     #return redirect('profile')

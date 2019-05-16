@@ -47,19 +47,31 @@ def get_estate_by_id(request, id):
     })
 
 def checkout(request, id):
-    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST:
+    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:
         firstname = request.POST['firstname']
         email =request.POST['email']
         ssn = request.POST['ssn']
         country = request.POST['country']
         street_name =request.POST['street_name']
         house_number=request.POST['house_number']
-        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number},{
-            'estate':get_object_or_404(Estate,pk=id)
+        city=request.POST['city']
+        zip =request.POST['zip']
+        cardname=request.POST['cardname']
+        cardnumber=request.POST['cardnumber']
+        billing=request.POST['billing']
+        expdate=request.POST['expdate']
+        cvv=request.POST['cvv']
+        print('hoho')
+        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number,'city': city, 'zip':zip, 'cardname': cardname, 'cardnumber':cardnumber, 'billing':billing, 'expdate':expdate, 'cvv':cvv,
+            'estate' : get_object_or_404(Estate,pk=id)
         })
     else:
+        print('hello')
         error=True
-        return render(request, 'Browse/checkout.html', {'error':error})
+        return render(request, 'Browse/checkout.html', {
+            'error':error,
+            'estate': get_object_or_404(Estate,pk=id)
+        })
 
 
 def payment_details(request, id):

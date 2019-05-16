@@ -10,5 +10,6 @@ urlpatterns = [
     # path('',views.create_sale(), name="create_sale")
     path('', views.sell, name="sell"),
     path('put_up', views.put_up, name='put_up'),
-    path('createReveiw', views.create_Review, name='createReview')
+    path('createReveiw', views.create_Review, name='createReview'),
+    path('<int:id>/sucess', views.successmsg, name='successmsg')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -25,7 +25,7 @@ def put_up(request):
             estate.status = True
             estate.owner = request.user
             estate.save()
-        return redirect('sell')
+        return redirect('successmsg', estate.id)
     else:
         print(request.method)
         print('this is in else')
@@ -35,3 +35,7 @@ def put_up(request):
       'estate_form': estate_form
     })
 
+def successmsg(request, id):
+    return render(request, 'successSale.html', {
+        'estate': get_object_or_404(Estate, pk=id)
+    })

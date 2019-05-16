@@ -16,9 +16,6 @@ def profile(request):
     return render(request, 'profile/profile_2.html')
 #profile/profileMain.html', context)
 
-def messages(request):
-    return render(request, 'Profile/messages.html')
-
 def createOrLogIn (request):
     return render(request, 'Profile/createOrLogIn.html')
 
@@ -55,13 +52,7 @@ def browsingHistory (request):
         the_instance = Estate.objects.get(pk=tracker.estate_id)
         estates.append(the_instance)
 
-    for i in range(len(trackers)):
-        nested_info = {}
-        nested_info['estate']=estates[i]
-        nested_info['track']= trackers[i]
-        info_list.append(nested_info)
-
-    context = {'info_list': info_list}
+    context = {'estates': estates}
 
 
 

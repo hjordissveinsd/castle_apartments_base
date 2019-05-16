@@ -10,7 +10,6 @@
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="{% url 'profile' %}" id="dropdown-choice">Profile</a></li>
         <li role="presentation"><a href="{% url 'settings' %}" id="dropdown-choice">Settings</a></li>
-        <li role="presentation"><a href="{% url 'messages' %}" id="dropdown-choice">Messages</a></li>
         <li role="presentation" class="active"><a href="{% url 'browsingHistory' %}">Browsing History</a></li>
     </ul>
 
@@ -28,13 +27,11 @@
 
 
     <div class="row" id="flex-box">
-        {% for info in info_list %}
-            {% for es in info %}
-                {% if es.status != False %}
-                    {% include 'Profile/historySingleEstate.html' with estate=es tracker=es %}
-                {% endif %}
-{% endfor %}
-    {% endfor %}
+        {% for estate in estates %}
+            {% if estate.status != False %}
+                {% include 'Profile/historySingleEstate.html' with estate=estate %}
+            {% endif %}
+        {% endfor %}
 
     </div>
     </div>

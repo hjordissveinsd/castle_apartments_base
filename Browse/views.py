@@ -105,3 +105,12 @@ def successPurch(request, id):
     return render(request, 'Browse/purchase_success.html', {
         'estate': context
     })
+
+def zip_filter(request):
+    query = request.GET.get('search_res')
+    context = {}
+
+    if query and request.method == 'GET':
+        context = Estate.objects.filter(zip=query)
+
+    return render(request, 'Browse/browse.html', context)

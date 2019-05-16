@@ -9,10 +9,15 @@
     <div class="media" id="details_box">
         <div class="media-heading details_" id="details_box">
             <h1 class="address-title"> {{ estate.address }}</h1>
+
+<!-- raggi hér -->
+            {% if estate.owner.id != user.id %}
             <div class="dropdown pull-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="seller_profile">
                   <img src="../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> Seller Profile <span class="caret"></span>
               </a>
+
+
               <ul class="dropdown-menu">
                   <li><img id="prof-pic" src="../..{{ estate.owner.profile.avatar.url }}"></li>
                   <li> <a href="" class="disabled" id="bold_">{{ estate.owner.get_full_name }}</a></li>
@@ -20,6 +25,7 @@
                 <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">Email: {{ estate.owner.email }}</a></li>
                 <li> <a href="" class="disabled">Phone number: {{ estate.owner.profile.phone }}</a></li>
               </ul>
+                {% endif %}
             </div>
         </div>
         <br>
@@ -44,7 +50,9 @@
         {% if estate.status %}
              <li class="previous"><a href="../" id="dropdown-choice">Back to Browse</a></li>
             {% if user.is_authenticated %}
-                <li class="next"><a href="./payment_details" id="dropdown-choice">Buy estate</a></li>
+                {% if user.id != estate.owner.id %}
+                    <li class="next"><a href="./payment_details" id="dropdown-choice">Buy estate</a></li>
+                    {% endif %}
                 {%  else%}
                 <li class="next"><a href="{% url 'login' %}" id="dropdown-choice">Log in to Purchase</a></li>
             {% endif %}

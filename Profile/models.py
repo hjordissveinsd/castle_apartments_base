@@ -18,8 +18,8 @@ from Browse.models import Estate
 
 class Profile(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    ssn = models.CharField(max_length=30, blank=True)
-    phone = models.CharField(max_length=30, blank=True)
+    ssn = models.CharField(max_length=15, blank=True)
+    phone = models.CharField(max_length=15, blank=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True)
 
 class Tracker(models.Model):

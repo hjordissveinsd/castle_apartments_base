@@ -347,7 +347,7 @@ body{
 #flex-sale {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(255,255,255);
+    background-color: inherit;
     justify-content: flex-start;
     width: 100%;
 }

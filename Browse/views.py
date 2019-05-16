@@ -72,3 +72,15 @@ def order_name(request):
     context = {'estates': Estate.objects.all().order_by('address')}
 
     return render(request, 'Browse/browse.html', context)
+
+def order_price_low(request):
+    search = request.GET.get('price')
+    context = {'estates': Estate.objects.all().order_by('price')}
+
+    return render(request, 'Browse/browse.html', context)
+
+def order_price_high(request):
+    search = request.GET.get('price')
+    context = {'estates': Estate.objects.all().order_by('-price')}
+
+    return render(request, 'Browse/browse.html', context)

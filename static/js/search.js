@@ -19,7 +19,7 @@ $(document).ready(function() {
                                         <p>${d.desc}</p>
                                     </div>
                                     <br>
-                                    <button onclick="window.location.href = ${d.id};" id="dropdown-choice">Learn more</button>
+                                    <button class='btn' onclick="window.location.href = ${d.id};" id="dropdown-choice">Learn more</button>
                                 </div>
                             </div>`
                 });

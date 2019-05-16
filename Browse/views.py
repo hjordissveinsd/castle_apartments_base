@@ -4,9 +4,9 @@ from django.urls import resolve
 
 from Browse.models import Estate
 from Browse.models import User
-from Browse.forms.estate_form import EstateCreateForm
+from Profile.models import Tracker
+from Profile.views import create_track
 
-#kannski frekar ljótt import, skiptir pottþétt engu máli
 
 
 def browse(request):
@@ -32,29 +32,19 @@ def singleEstate(request):
     return render(request, 'Browse/single_estate.html')
 
 
-def createEstate(request):
-    # TODO REMOVE THIS STUFF
-    if request.method =='POST':
-        #estate_form = EstateCreateForm(data=request.POST)
-        estate_form = EstateCreateForm(request.POST)
-        estate_image = EstateCreateForm(request.FILES)
-        if estate_image:
-            print("1")
-
-        if estate_form.is_valid and estate_image.is_valid():
-            print(estate_image)
-            print('Valid!')
-            estate_form.save()
-            estate_image.save()
-        return redirect('browse')
-    else:
-        estate_form = EstateCreateForm()
-    #return redirect('profile')
-    return render(request, 'browse/createEstate.html', {
-      'estate_form': estate_form
-    })
+#def create_track(request, id):
+    #Tracker.objects.all().delete()
+    #kóði fyrir ofan notaður til að eyða efninu í töflunni
+  #  track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id , url=request.get_raw_uri())
+    #track = Tracker()
+    #track.user_id = request.user.id
+    #track.url = request.get_raw_uri()
+ #   if created == True:
+   #     track.save()
 
 def get_estate_by_id(request, id):
+    if request.user:
+        create_track(request, id)
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })

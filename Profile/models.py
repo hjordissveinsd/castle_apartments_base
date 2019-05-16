@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from Browse.models import Estate
 
 # Create your models here.
 #class User(models.Model):
@@ -24,3 +25,7 @@ class Profile(models.Model):
 class Tracker(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     url = models.URLField()
+    estate = models.ForeignKey(Estate, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'url',)

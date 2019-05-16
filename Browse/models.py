@@ -11,8 +11,10 @@ class Estate(models.Model):
     price = models.IntegerField()
     desc = models.CharField(max_length=999)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    #setja default value sem active user
     zip = models.IntegerField()
     status = models.BooleanField()
+    #setja defualt value sem true
     image = models.ImageField(upload_to='es_images/')
     #bæta við, "if no pictures still post"
     #bæta við Estate type

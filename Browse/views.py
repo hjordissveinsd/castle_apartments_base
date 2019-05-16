@@ -4,7 +4,6 @@ from django.urls import resolve
 
 from Browse.models import Estate
 from Browse.models import User
-from Browse.forms.estate_form import EstateCreateForm
 from Profile.models import Tracker
 from Profile.views import create_track
 

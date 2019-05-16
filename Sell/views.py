@@ -7,26 +7,7 @@ from django.http import JsonResponse
 
 
 def sell(request):
-  #  estate = [{
-   #     'id': x.id,
-    #    'name': x.address,
-    #    'description': x.desc,
-    #    'sold': x.status
-
-        #zip code
-    #} for x in Estate.objects.filter(owner = request.user)]
-    #estate = list(Estate.objects.filter(owner = request.user).values())
-    #return JsonResponse({'data': estate})
-
-    #estate = [{
-     #   'id': x.id,
-      #  'name': x.address,
-      #  'description': x.desc,
-      #  'sold': x.status
-
-      #zip code
-  #  } for x in Estate.objects.filter(owner = request.user)]
-    context = {'estates': Estate.objects.all().order_by('id')}
+    context = {'estates': Estate.objects.filter(owner=request.user).order_by('id')}
     return render(request, 'sell.html', context)
 
 

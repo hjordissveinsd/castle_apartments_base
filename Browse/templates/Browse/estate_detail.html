@@ -11,21 +11,27 @@
             <h1 class="address-title"> {{ estate.address }}</h1>
 
 <!-- raggi hér -->
-            {% if estate.owner.id != user.id %}
+
             <div class="dropdown pull-right">
+                {% if estate.owner.id != user.id %}
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="seller_profile">
                   <img src="../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> Seller Profile <span class="caret"></span>
               </a>
-
-
               <ul class="dropdown-menu">
                   <li><img id="prof-pic" src="../..{{ estate.owner.profile.avatar.url }}"></li>
+
                   <li> <a href="" class="disabled" id="bold_">{{ estate.owner.get_full_name }}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">Email: {{ estate.owner.email }}</a></li>
                 <li> <a href="" class="disabled">Phone number: {{ estate.owner.profile.phone }}</a></li>
+                  {% else %}
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="seller_profile">
+                  <img src="../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> You are the owner!
+              </a>
+                  {% endif %}
+
               </ul>
-                {% endif %}
+
             </div>
         </div>
         <br>

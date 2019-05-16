@@ -7,12 +7,20 @@ from Sell.Forms.estate_form import EstateCreateForm
 def sell(request):
     return render(request, 'sell.html')
 
+def create_Review(request):
+    context = {'estates': Estate.objects.all()}
+    return render(request, 'creationReveiw.html', context)
+
 def put_up(request):
+
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
         if estate_form.is_valid():
             print('Valid!')
-            estate_form.save()
+            estate = estate_form.save(commit=False)
+            estate.status = True
+            estate.owner = request.user
+            estate.save()
         return redirect('sell')
     else:
         estate_form = EstateCreateForm()

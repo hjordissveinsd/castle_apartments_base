@@ -12,3 +12,9 @@ def index(request):
 
 def aboutUs(request):
     return render(request, 'front/aboutus.html')
+
+def teenage(request):
+    return render(request, 'front/teenage.html')
+
+def texas(request):
+    return render(request, 'front/texas.html')

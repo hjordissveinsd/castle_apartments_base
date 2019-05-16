@@ -16,9 +16,6 @@ def profile(request):
     return render(request, 'profile/profile_2.html')
 #profile/profileMain.html', context)
 
-def messages(request):
-    return render(request, 'Profile/messages.html')
-
 def createOrLogIn (request):
     return render(request, 'Profile/createOrLogIn.html')
 
@@ -31,18 +28,20 @@ def notLoggedIn (request):
 
 
 
-#def create_track(request, id):
+def create_track(request, id):
     #Tracker.objects.all().delete()
     #kóði fyrir ofan notaður til að eyða efninu í töflunni
-    #track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id, url=request.get_raw_uri())
+    track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id, url=request.get_raw_uri())
     #track = Tracker()
     #track.user_id = request.user.id
+
     #track.url = request.get_raw_uri()
-    #if created == True:
-        #track.save()
+    if created == True:
+        track.save()
 
 def browsingHistory (request):
-    #context = {}
+    info_list = []
+
     check_list = [request.user.id]
     trackers = list(Tracker.objects.filter(user_id__in=(check_list)))
     estates = []
@@ -53,8 +52,7 @@ def browsingHistory (request):
         the_instance = Estate.objects.get(pk=tracker.estate_id)
         estates.append(the_instance)
 
-    context = {'trackers': trackers, 'estates': estates}
-
+    context = {'estates': estates}
 
 
 

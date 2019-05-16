@@ -13,6 +13,7 @@ class Estate(models.Model):
     city = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     #setja default value sem active user
+    city = models.CharField(max_length=101)
     zip = models.IntegerField()
     status = models.BooleanField()
     #setja defualt value sem true

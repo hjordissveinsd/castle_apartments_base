@@ -18,14 +18,16 @@ def create_Review(request):
 def put_up(request):
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
+        print('HALLO')
         if estate_form.is_valid():
             print('Valid!')
             estate = estate_form.save(commit=False)
             estate.status = True
             estate.owner = request.user
             estate.save()
-        return redirect('sell')
+        return redirect('successmsg', estate.id)
     else:
+        print(request.method)
         print('this is in else')
         estate_form = EstateCreateForm()
     #return redirect('profile')
@@ -33,3 +35,7 @@ def put_up(request):
       'estate_form': estate_form
     })
 
+def successmsg(request, id):
+    return render(request, 'successSale.html', {
+        'estate': get_object_or_404(Estate, pk=id)
+    })

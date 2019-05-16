@@ -7,6 +7,7 @@ from Browse.models import User
 from Profile.models import Tracker
 #from Profile.views import create_track
 from django.db.models import Q
+from Profile.views import create_track
 
 
 
@@ -43,8 +44,8 @@ def singleEstate(request):
    #     track.save()
 
 def get_estate_by_id(request, id):
-    #if request.user:
-     #   create_track(request, id)
+    if request.user:
+        create_track(request, id)
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
@@ -108,3 +109,12 @@ def successPurch(request, id):
     return render(request, 'Browse/purchase_success.html', {
         'estate': context
     })
+
+def zip_filter(request):
+    query = request.GET.get('search_res')
+    context = {}
+
+    if query and request.method == 'GET':
+        context = Estate.objects.filter(zip=query)
+
+    return render(request, 'Browse/browse.html', context)

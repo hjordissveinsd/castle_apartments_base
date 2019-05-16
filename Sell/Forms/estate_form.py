@@ -6,4 +6,4 @@ from Profile.models import User
 class EstateCreateForm(ModelForm):
     class Meta:
         model = Estate
-        exclude = ['id']
+        exclude = ['id', 'status', 'owner']

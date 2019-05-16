@@ -41,12 +41,17 @@
 
     <nav aria-label="...">
         <ul class="pager">
-            <li class="previous"><a href="../" id="dropdown-choice">Back to Browse</a></li>
+        {% if estate.status %}
+             <li class="previous"><a href="../" id="dropdown-choice">Back to Browse</a></li>
             {% if user.is_authenticated %}
                 <li class="next"><a href="./payment_details" id="dropdown-choice">Buy estate</a></li>
-                {% else %}
+                {%  else%}
                 <li class="next"><a href="{% url 'login' %}" id="dropdown-choice">Log in to Purchase</a></li>
             {% endif %}
+            {% else %}
+            <li class="previous"><a href="/sell" id="dropdown-choice">Back to your Estates</a></li>
+        {% endif %}
+
         </ul>
     </nav>
 <br><br><br><br><br>

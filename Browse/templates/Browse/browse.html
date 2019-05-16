@@ -6,6 +6,7 @@
       <li class="active">Browse</li>
     </ol>
 
+
     <h2>Search estates</h2>
     <div>
         <form class="form-inline" id="search-box-browse">
@@ -25,41 +26,16 @@
 
     <h2>Estates currently on sale</h2>
     <nav class="navbar navbar-default">
+    <form class="navbar-form navbar-left">
+        <div class="form-group" id="search-box-browse" >
+          <input type="text" class="form-control" placeholder="Search by address, city, zip..." id="search-box">
+        </div>
+        <button type="submit" class="btn btn-default" id="search-btn">Search</button>
+      </form>
+
         <div class="container-fluid" id="filter-bar">
             <ul class="nav navbar-nav">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="hoverable-browse">Castle type <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#" id="dropdown-choice">Medieval Castle</a></li>
-                <li><a href="#" id="dropdown-choice">Motte-and-Bailey</a></li>
-                <li><a href="#" id="dropdown-choice">Stone Keep</a></li>
-                <li><a href="#" id="dropdown-choice">Square Stone Keep</a></li>
-                <li><a href="#" id="dropdown-choice">Round Stone Keep</a></li>
-                <li><a href="#" id="dropdown-choice">Shell Keep</a></li>
-                <li><a href="#" id="dropdown-choice">Concentric Castle</a></li>
-                <li><a href="#" id="dropdown-choice">Victorian Castle</a></li>
-                <li><a href="#" id="dropdown-choice">Royal Palace</a></li>
-                <li><a href="#" id="dropdown-choice">Not a Castle</a></li>
-            </ul>
-        </li>
 
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="hoverable-browse">Price <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-        <li>
-            <div class="input-group" id="search-box-browse">
-                <span class="input-group-addon" id="basic-addon1">From</span>
-                <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon1" id="">
-            </div>
-        </li>
-        <li>
-          <div class="input-group" id="search-box-browse">
-            <span class="input-group-addon" id="basic-addon1">To</span>
-            <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon1">
-            </div>
-        </li>
-        </ul>
-        </li>
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="hoverable-browse">Size <span class="caret"></span></a>
         <ul class="dropdown-menu">

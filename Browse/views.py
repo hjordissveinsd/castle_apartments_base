@@ -5,22 +5,26 @@ from django.http import HttpResponse
 from Browse.models import Estate
 from Browse.models import User
 from Profile.models import Tracker
+#from Profile.views import create_track
+from django.db.models import Q
 from Profile.views import create_track
 
 
 
 def browse(request):
+
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         estate = [{
             'id': x.id,
             'name': x.address,
             'description': x.desc,
-            #zip code
-        } for x in Estate.objects.filter(address__icontains=search_filter)]
-        estate = list(Estate.objects.filter(address__icontains=search_filter).values())
-        return JsonResponse({'data': estate})
-
+            'zip': x.zip
+        } for x in Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter))]
+        estate = Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)).values()
+        estate_list = list(estate)
+        context={'data': estate_list}
+        return JsonResponse(context)
     context = {'estates': Estate.objects.all().order_by('id')}
     return render(request, 'Browse/browse.html', context)
 

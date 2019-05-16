@@ -14,7 +14,9 @@ def aboutUs(request):
     return render(request, 'front/aboutus.html')
 
 def teenage(request):
-    return render(request, 'front/teenage.html')
+    context = {'estates': Estate.objects.filter(status=True)[:3]}
+    return render(request, 'front/teenage.html', context)
 
 def texas(request):
-    return render(request, 'front/texas.html')
+    context = {'estates': Estate.objects.filter(status=True)[:3]}
+    return render(request, 'front/texas.html', context)

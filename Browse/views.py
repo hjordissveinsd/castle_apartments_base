@@ -47,12 +47,14 @@ def get_estate_by_id(request, id):
     })
 
 def checkout(request, id):
-    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST:
+    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST:
         firstname = request.POST['firstname']
         email =request.POST['email']
         ssn = request.POST['ssn']
         country = request.POST['country']
-        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country},{
+        street_name =request.POST['street_name']
+        house_number=request.POST['house_number']
+        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number},{
             'estate':get_object_or_404(Estate,pk=id)
         })
     else:

@@ -28,13 +28,11 @@
 
 
     <div class="row" id="flex-box">
-        {% for info in info_list %}
-            {% for es in info %}
-                {% if es.status != False %}
-                    {% include 'Profile/historySingleEstate.html' with estate=es tracker=es %}
-                {% endif %}
-{% endfor %}
-    {% endfor %}
+        {% for estate in estates %}
+            {% if estate.status != False %}
+                {% include 'Profile/historySingleEstate.html' with estate=estate %}
+            {% endif %}
+        {% endfor %}
 
     </div>
     </div>

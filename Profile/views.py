@@ -55,13 +55,7 @@ def browsingHistory (request):
         the_instance = Estate.objects.get(pk=tracker.estate_id)
         estates.append(the_instance)
 
-    for i in range(len(trackers)):
-        nested_info = {}
-        nested_info['estate']=estates[i]
-        nested_info['track']= trackers[i]
-        info_list.append(nested_info)
-
-    context = {'info_list': info_list}
+    context = {'estates': estates}
 
 
 

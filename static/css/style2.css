@@ -214,25 +214,38 @@ body{
     background-color: white;
 }
 
+.address-title {
+    display: inline;
+}
+
 #details {
     text-align: left;
     max-width: 90%;
-    height: 200px;
+    height: 80%;
+    margin-bottom: 30px;
 }
 
 #details_box {
     padding: 15px;
     padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
     color: inherit;
     background-color: #eee;
     border-radius: 10px;
 }
+.details_{
+    flex-direction: row ;
+    justify-content: space-between;
+}
 
 #details_box > h1 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52);
-    text-align: center;
+}
+#seller_profile{
+    color: black;
+}
+
+#bold_{
+    font-weight: bold;
 }
 
 .media-body {

@@ -8,7 +8,6 @@ def sell(request):
     return render(request, 'sell.html')
 
 def put_up(request):
-
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
         if estate_form.is_valid():

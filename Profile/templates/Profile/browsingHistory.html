@@ -31,7 +31,8 @@
 
     <div class="row" id="flex-box">
     {% for estate in estates %}
-        <p>{{ estate }}</p>
+        <p>{{ estate.owner }}</p>
+        <p>{{ estate.desc }}</p>
 
     {% endfor %}
     </div>
@@ -40,9 +41,9 @@
 
 
     <div class="row" id="flex-box">
-        {% for tracker in trackers%}
+        {% for estate in estates%}
             {% if estate.status != False %}
-                {% include 'Browse/single_estate.html' with estate=tracker%}
+                {% include 'Profile/history_single_estate.html' with estate=estate%}
             {% endif %}
         {% endfor %}
     </div>

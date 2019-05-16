@@ -31,15 +31,15 @@ def notLoggedIn (request):
 
 
 
-def create_track(request, id):
+#def create_track(request, id):
     #Tracker.objects.all().delete()
     #kóði fyrir ofan notaður til að eyða efninu í töflunni
-    track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id , url=request.get_raw_uri())
+    #track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id, url=request.get_raw_uri())
     #track = Tracker()
     #track.user_id = request.user.id
     #track.url = request.get_raw_uri()
-    if created == True:
-        track.save()
+    #if created == True:
+        #track.save()
 
 def browsingHistory (request):
     #context = {}

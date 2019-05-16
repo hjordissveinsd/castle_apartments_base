@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from Browse.models import Estate
 from Browse.models import User
 from Profile.models import Tracker
-from Profile.views import create_track
+#from Profile.views import create_track
 
 
 
@@ -40,8 +40,8 @@ def singleEstate(request):
    #     track.save()
 
 def get_estate_by_id(request, id):
-    if request.user:
-        create_track(request, id)
+    #if request.user:
+     #   create_track(request, id)
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })

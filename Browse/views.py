@@ -96,3 +96,12 @@ def order_price_high(request):
     context = {'estates': Estate.objects.all().order_by('-price')}
 
     return render(request, 'Browse/browse.html', context)
+
+
+def successPurch(request, id):
+    context = get_object_or_404(Estate, pk=id)
+    context.status = False
+    context.save()
+    return render(request, 'Browse/purchase_success.html', {
+        'estate': context
+    })

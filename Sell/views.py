@@ -1,11 +1,34 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from Browse.models import Estate
+from Profile.models import User
 from Sell.Forms.estate_form import EstateCreateForm
+from django.http import JsonResponse
 # Create your views here.
 
 
 def sell(request):
-    return render(request, 'sell.html')
+  #  estate = [{
+   #     'id': x.id,
+    #    'name': x.address,
+    #    'description': x.desc,
+    #    'sold': x.status
+
+        #zip code
+    #} for x in Estate.objects.filter(owner = request.user)]
+    #estate = list(Estate.objects.filter(owner = request.user).values())
+    #return JsonResponse({'data': estate})
+
+    #estate = [{
+     #   'id': x.id,
+      #  'name': x.address,
+      #  'description': x.desc,
+      #  'sold': x.status
+
+      #zip code
+  #  } for x in Estate.objects.filter(owner = request.user)]
+    context = {'estates': Estate.objects.all().order_by('id')}
+    return render(request, 'sell.html', context)
+
 
 def create_Review(request):
     context = {'estates': Estate.objects.all()}

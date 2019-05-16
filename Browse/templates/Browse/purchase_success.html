@@ -9,10 +9,10 @@
             <h1 class="address-title"> {{ estate.address }}</h1>
             <div class="dropdown pull-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="seller_profile">
-                  <img src="../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> Seller Profile <span class="caret"></span>
+                  <img src="../../../..{{ estate.owner.profile.avatar.url }}" height="30" width="30"> Seller Profile <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                  <li><img id="prof-pic" src="../..{{ estate.owner.profile.avatar.url }}"></li>
+                  <li><img id="prof-pic" src="../../../..{{ estate.owner.profile.avatar.url }}"></li>
                   <li> <a href="" class="disabled" id="bold_">{{ estate.owner.get_full_name }}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="mailto:{{ estate.owner.email }}?" id="dropdown-choice">Email: {{ estate.owner.email }}</a></li>
@@ -22,7 +22,7 @@
         </div>
         <br>
         <div class="media-left">
-            <img src="../..{{ estate.image.url }}" id="img-pic" alt="EstateLogo">
+            <img src="../../../..{{ estate.image.url }}" id="img-pic" alt="EstateLogo">
         </div>
 
         <div class="media-body" id="media_height">

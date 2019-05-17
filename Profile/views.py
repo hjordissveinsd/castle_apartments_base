@@ -25,7 +25,7 @@ def notLoggedIn (request):
 
 
 
-
+@login_required
 def create_track(request, id):
     #Tracker.objects.all().delete()
     #kóði fyrir ofan notaður til að eyða efninu í töflunni

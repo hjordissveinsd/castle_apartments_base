@@ -11,7 +11,7 @@ from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 # bætti við contex = ......
 def profile(request):
     #context = {'profiles' : User.objects.all()}
-    return render(request, 'profile/profile_2.html')
+    return render(request, 'profile/profile.html')
 #profile/profileMain.html', context)
 
 def createOrLogIn (request):
@@ -121,7 +121,7 @@ def profile(request):
 
     #print(profile_form.instance.avatar.url)
 
-    return render(request, 'Profile/profile_2.html')
+    return render(request, 'Profile/profile.html')
 
 
 def settings(request):
@@ -133,8 +133,8 @@ def settings(request):
     user_form = CustomUserChangeForm(instance=user)
     profile_form = ProfileForm(instance=user.profile)
 
-    print(user_form)
-    print(profile_form)
+
+
     if request.method == 'POST':
         #user_form = CustomUserChangeForm(request.POST, instance=user)
         #profile_form = ProfileForm(request.POST, request.FILES, instance=user.profile)

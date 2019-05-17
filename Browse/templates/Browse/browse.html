@@ -88,6 +88,8 @@
             </li>
             <div class="navbar-form navbar-left" id="search-box-browse">
                 <button type="submit" class="btn btn-default" id="filter-btn">Apply</button>
+
+                <button type="submit" class="btn btn-default">Clear filters</button>
             </div>
         </ul>
         </form>
@@ -114,7 +116,7 @@
     <div class="row" id="flex-box">
         {% for estate in estates %}
             {% if estate.status != False %}
-                {% include 'Browse/single_estate.html' with estate=estate%}
+                {% include 'Browse/singleEstate.html' with estate=estate%}
             {% endif %}
         {% endfor %}
     </div>

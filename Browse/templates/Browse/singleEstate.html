@@ -1,0 +1,18 @@
+<div class="gg">
+    <div class="thumbnail">
+        <div class="imagelist" id="estateimg">
+            <img src="..{{ estate.image.url }}" id="img-pic" alt="EstateLogo"/>
+        </div>
+
+        <div class="caption" id="estatebox">
+            <h3 class="address-single">{{ estate.address }}</h3>
+            <h6>{{ estate.city }}, {{ estate.zip }}</h6>
+            <div><h5> {{ estate.price }} ISK</h5></div>
+            <div class="limit" >
+                <p>{{ estate.desc }}</p>
+            </div>
+            <div id="limit_"></div>
+            <button class="btn btn_seemore" id="dropdown-choice" onclick=" window.location.href = '/estate/{{ estate.id }}'" >See more</button>
+        </div>
+    </div>
+</div>

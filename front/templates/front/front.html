@@ -25,7 +25,7 @@
     <div class="row" id="flex-box">
         {% for estate in estates|slice:"4" %}
             {% if estate.status != False %}
-                {% include 'Browse/single_estate.html' with estate=estate%}
+                {% include 'Browse/singleEstate.html' with estate=estate%}
             {% endif %}
         {% endfor %}
     </div>

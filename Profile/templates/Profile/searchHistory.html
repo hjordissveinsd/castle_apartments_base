@@ -24,17 +24,14 @@
 
 </div>
 
-
-
-
-
     <div class="row" id="flex-box">
+    <ul>
         {% for search in searches %}
-            <p>Go to the search</p>
+            <li>
                 {{ search.search_input }}
-
+            </li>
         {% endfor %}
-
+</ul>
     </div>
     </div>
 

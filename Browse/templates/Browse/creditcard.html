@@ -346,7 +346,7 @@
     </div>
       <nav aria-label="...">
               <ul class="pager">
-              <li><a href="./" class="btn" id="dropdown-choice">Go back</a></li>
+              <li><a href="{% url 'estate' %}{{ estate.id }}" class="btn" id="go-back">Go back</a></li>
               <li><input type="submit" value="Continue to checkout" id="dropdown-choice" class="btn"></li>
               </ul>
           </nav>

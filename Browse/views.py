@@ -10,21 +10,62 @@ from django.db.models import Q
 from Profile.views import create_track
 
 
+def bathrooms(request):
+    bath_min = request.GET.get('bath_min', '')
+    bath_max = request.GET.get('bath_max', '')
+    bed_min = request.GET.get('bed_min', '')
+    bed_max = request.GET.get('bed_max', '')
+
+    bathrooms = Q(status=True)
+    if bath_min:
+        bathrooms &= Q(bathNum__gte=bath_min)
+    if bath_max:
+        bathrooms &= Q(bathNum__lte=bath_max)
+    if bed_min:
+        bathrooms &= Q(bathNum__gte=bath_min)
+    if bed_max:
+        bathrooms &= Q(bathNum__lte=bath_max)
+
+    print('query = ', bathrooms)
+
+    estates = Estate.objects.filter(bathrooms).values()
+    print('estates = ', estates)
+    estate_list = list(estates)
+    print('estate_list = ', estate_list)
+    context = {'data': estate_list}
+    return JsonResponse(context)
+
+
 
 def browse(request):
-
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
+    #    estate = [{
+    #        'id': x.id,
+    #        'name': x.address,
+    #        'description': x.desc,
+    #        'zip': x.zip
+    #    } for x in Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter))]
+        estate = Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)).values()
+        estate_list = list(estate)
+        context={'data': estate_list}
+        return JsonResponse(context)
+    elif 'zip_filter' in request.GET:
+        print('hello')
+        minimum = request.GET['minimum']
+        zip_filter = request.GET['zip_filter']
+        print(zip_filter)
         estate = [{
             'id': x.id,
             'name': x.address,
             'description': x.desc,
             'zip': x.zip
-        } for x in Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter))]
-        estate = Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)).values()
+        } for x in Estate.objects.filter(Q(address__icontains=zip_filter)| Q(zip__icontains=zip_filter))]
+        estate = Estate.objects.filter(Q(address__icontains=zip_filter)| Q(zip__icontains=zip_filter)).values()
         estate_list = list(estate)
         context={'data': estate_list}
         return JsonResponse(context)
+
     context = {'estates': Estate.objects.all().order_by('id')}
     return render(request, 'Browse/browse.html', context)
 

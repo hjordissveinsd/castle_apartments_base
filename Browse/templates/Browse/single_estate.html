@@ -5,14 +5,14 @@
         </div>
 
         <div class="caption" id="estatebox">
-            <h3>{{ estate.address }}</h3>
+            <h3 class="address-single">{{ estate.address }}</h3>
             <h6>{{ estate.city }}, {{ estate.zip }}</h6>
             <div><h5> {{ estate.price }} ISK</h5></div>
-            <div class="limit">
+            <div class="limit" >
                 <p>{{ estate.desc }}</p>
             </div>
-            <br>
-            <button class="btn" id="dropdown-choice" onclick=" window.location.href = '{{ estate.id }}'" >Learn more</button>
+            <div id="limit_"></div>
+            <button class="btn btn_seemore" id="dropdown-choice" onclick=" window.location.href = '{{ estate.id }}'" >See more</button>
         </div>
     </div>
 </div>

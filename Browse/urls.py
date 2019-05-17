@@ -12,5 +12,6 @@ urlpatterns = [
     path('<int:id>/', views.get_estate_by_id, name="estate_detail"),
     path('<int:id>/payment_details/', views.payment_details, name='payment_details'),
     path('<int:id>/payment_details/checkout', views.checkout, name='checkout'),
-    path('<int:id>/payment_details/checkout/success', views.successPurch, name='successPurch')
+    path('<int:id>/payment_details/checkout/success', views.successPurch, name='successPurch'),
+    path('bathrooms/', views.bathrooms, name='bathrooms')
 ]

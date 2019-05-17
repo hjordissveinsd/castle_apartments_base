@@ -54,9 +54,6 @@ def filter_(request):
 def browse(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-
-        #raggi prófa search history
-
         create_search(request, the_input=search_filter)
 
         estate_filter = Q(status=True)
@@ -76,8 +73,8 @@ def singleEstate(request):
     return render(request, 'Browse/singleEstate.html')
 
 def get_estate_by_id(request, id):
-    if request.user:
-        create_track(request, id)
+
+    create_track(request, id)
     return render(request, 'browse/estateDetail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
@@ -93,37 +90,38 @@ def create_search(request, the_input):
 
 
 def checkout(request, id):
-    if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:
-        firstname = request.POST['firstname']
-        email =request.POST['email']
-        ssn = request.POST['ssn']
-        country = request.POST['country']
-        street_name =request.POST['street_name']
-        house_number=request.POST['house_number']
-        city=request.POST['city']
-        zip =request.POST['zip']
-        cardname=request.POST['cardname']
-        cardnumber=request.POST['cardnumber']
-        billing=request.POST['billing']
-        expdate=request.POST['expdate']
-        cvv=request.POST['cvv']
-        print('hoho')
-        return render(request, 'browse/checkOut.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number, 'city': city, 'zip':zip, 'cardname': cardname, 'cardnumber':cardnumber, 'billing':billing, 'expdate':expdate, 'cvv':cvv,
-            'estate' : get_object_or_404(Estate,pk=id)
-                                                        })
-    else:
-        print('hello')
-        error=True
-        return render(request, 'Browse/checkOut.html', {
-            'error':error,
-            'estate': get_object_or_404(Estate,pk=id)
-        })
+
+    if request.POST:
+        if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:
+            firstname = request.POST['firstname']
+            email =request.POST['email']
+            ssn = request.POST['ssn']
+            country = request.POST['country']
+            street_name =request.POST['street_name']
+            house_number=request.POST['house_number']
+            city=request.POST['city']
+            zip =request.POST['zip']
+            cardname=request.POST['cardname']
+            cardnumber=request.POST['cardnumber']
+            billing=request.POST['billing']
+            expdate=request.POST['expdate']
+            cvv=request.POST['cvv']
+            return render(request, 'browse/checkOut.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number, 'city': city, 'zip':zip, 'cardname': cardname, 'cardnumber':cardnumber, 'billing':billing, 'expdate':expdate, 'cvv':cvv,
+                'estate' : get_object_or_404(Estate,pk=id)
+                                                            })
+        else:
+            return redirect('/estate')
+    return redirect('/estate')
+
 
 
 def payment_details(request, id):
-    return render(request, 'Browse/creditCard.html', {
-        'estate': get_object_or_404(Estate, pk=id)
-    })
+    estate = get_object_or_404(Estate, pk=id)
+    if estate.owner_id != request.user.id:
+        context = {'estate': estate}
+        return render(request, 'Browse/creditCard.html', context)
+    return redirect('/estate')
+
 
 def order_name(request):
     search = request.GET.get('address')

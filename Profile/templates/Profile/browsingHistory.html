@@ -12,14 +12,15 @@
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="{% url 'profile' %}" id="dropdown-choice">Profile</a></li>
         <li role="presentation"><a href="{% url 'settings' %}" id="dropdown-choice">Settings</a></li>
-        <li role="presentation" class="active"><a href="{% url 'browsingHistory' %}" id="dropdown-choice">Browsing History</a></li>
+        <li role="presentation" class="active"><a href="{% url 'browsingHistory' %}" id="dropdown-choice">Viewing History</a></li>
         <li role="presentation"><a href="{% url 'searchHistory' %}" id="dropdown-choice">Search History</a></li>
     </ul>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-9 col-md-10">
-          <h1 id="flair">Welcome to your Browsing History!</h1>
+            <h1 id="flair">Welcome to your viewing history!</h1>
+            <h4>You have viewed these estates recently: </h4>
         </div>
     </div>
 

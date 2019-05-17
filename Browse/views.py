@@ -10,24 +10,62 @@ from django.db.models import Q
 from Profile.views import create_track
 
 
+def filter_(request):
+    bath_min = request.GET.get('bath_min', '')
+    bath_max = request.GET.get('bath_max', '')
+    bed_min = request.GET.get('bed_min', '')
+    bed_max = request.GET.get('bed_max', '')
+    zip_min = request.GET.get('zip_min', '')
+    zip_max = request.GET.get('zip_max', '')
+    price_min = request.GET.get('price_min', '')
+    price_max = request.GET.get('price_max', '')
+
+    filter_ = Q(status=True)
+    print('heyyy')
+    if bath_min:
+        filter_ &= Q(bathNum__gte=bath_min)
+    if bath_max:
+        filter_ &= Q(bathNum__lte=bath_max)
+    if bed_min:
+        filter_ &= Q(bedNum__gte=bed_min)
+    if bed_max:
+        filter_ &= Q(bedNum__lte=bed_max)
+    if zip_min:
+        filter_ &= Q(zip__gte=zip_min)
+    if zip_max:
+        filter_ &= Q(zip__lte=zip_max)
+    if price_min:
+        filter_ &= Q(price__gte=price_min)
+    if price_max:
+        filter_ &= Q(price__lte=price_max)
+
+    print('query = ', filter_)
+
+    estates = Estate.objects.filter(filter_).values()
+    print('estates = ', estates)
+    estate_list = list(estates)
+    print('estate_list = ', estate_list)
+    jsonstring = {'data': estate_list}
+    return JsonResponse(jsonstring)
+
+
 
 def browse(request):
-
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
+
         #raggi prófa search history
         #create_search(request, the_input="prufa")
 
-        estate = [{
-            'id': x.id,
-            'name': x.address,
-            'description': x.desc,
-            'zip': x.zip
-        } for x in Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter))]
-        estate = Estate.objects.filter(Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)).values()
+        estate_filter = Q(status=True)
+        estate_or = Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)
+        estate_filter &= estate_or
+        estate = Estate.objects.filter(estate_filter).values()
         estate_list = list(estate)
-        context={'data': estate_list}
-        return JsonResponse(context)
+        jsonstring={'data': estate_list}
+        return JsonResponse(jsonstring)
+
+
     context = {'estates': Estate.objects.all().order_by('id')}
     return render(request, 'Browse/browse.html', context)
 

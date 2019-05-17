@@ -12,11 +12,17 @@ class Estate(models.Model):
     desc = models.CharField(max_length=999)
     city = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    #setja default value sem active user
-    city = models.CharField(max_length=101)
     zip = models.IntegerField()
     status = models.BooleanField()
-    #setja defualt value sem true
     image = models.ImageField(upload_to='es_images/')
-    #bæta við, "if no pictures still post"
-    #bæta við Estate type
+
+
+
+
+
+class Search(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    search_input = models.CharField(max_length=200)
+
+    class Meta:
+        unique_together = ('user', 'search_input',)

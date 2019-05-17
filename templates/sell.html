@@ -11,7 +11,7 @@
     <div class="row" id="flex-sale">
         {% if estates %}
             {% for estate in estates %}
-                {% include 'Browse/single_sale_estate.html' with estate=estate%}
+                {% include 'Browse/singleSaleEstate.html' with estate=estate%}
             {% endfor %}
         {% else%}
             <div><p>You have no estates up for sale. Would you like to <a href="{% url 'put_up' %}">put one up now?</a></p></div>

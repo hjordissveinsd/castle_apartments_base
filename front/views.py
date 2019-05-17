@@ -11,7 +11,7 @@ def index(request):
 
 
 def aboutUs(request):
-    return render(request, 'front/aboutus.html')
+    return render(request, 'front/aboutUs.html')
 
 def teenage(request):
     context = {'estates': Estate.objects.filter(status=True)[:4]}

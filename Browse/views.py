@@ -73,12 +73,12 @@ def browse(request):
 
 
 def singleEstate(request):
-    return render(request, 'Browse/single_estate.html')
+    return render(request, 'Browse/singleEstate.html')
 
 def get_estate_by_id(request, id):
     if request.user:
         create_track(request, id)
-    return render(request, 'browse/estate_detail.html', {
+    return render(request, 'browse/estateDetail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
 
@@ -108,20 +108,20 @@ def checkout(request, id):
         expdate=request.POST['expdate']
         cvv=request.POST['cvv']
         print('hoho')
-        return render(request, 'browse/checkout.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number,'city': city, 'zip':zip, 'cardname': cardname, 'cardnumber':cardnumber, 'billing':billing, 'expdate':expdate, 'cvv':cvv,
+        return render(request, 'browse/checkOut.html', {'firstname':firstname, 'email':email, 'ssn':ssn, 'country':country, 'street_name':street_name, 'house_number':house_number, 'city': city, 'zip':zip, 'cardname': cardname, 'cardnumber':cardnumber, 'billing':billing, 'expdate':expdate, 'cvv':cvv,
             'estate' : get_object_or_404(Estate,pk=id)
-        })
+                                                        })
     else:
         print('hello')
         error=True
-        return render(request, 'Browse/checkout.html', {
+        return render(request, 'Browse/checkOut.html', {
             'error':error,
             'estate': get_object_or_404(Estate,pk=id)
         })
 
 
 def payment_details(request, id):
-    return render(request, 'Browse/creditcard.html', {
+    return render(request, 'Browse/creditCard.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
 
@@ -148,7 +148,7 @@ def successPurch(request, id):
     context = get_object_or_404(Estate, pk=id)
     context.status = False
     context.save()
-    return render(request, 'Browse/purchase_success.html', {
+    return render(request, 'Browse/purchaseSuccess.html', {
         'estate': context
     })
 

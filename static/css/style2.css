@@ -346,7 +346,16 @@ li a:hover {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52)
 }
 
+#go-back {
+    padding:12px;
+    border-radius: 3px;
+}
 
+#go-back:hover {
+    background: rgb(175, 5, 41);
+    color: rgb(255,255,255);
+    transition: 0.5s;
+}
 /* Profile */
 
 #breadcrumb-hoverable {
@@ -419,6 +428,34 @@ li a:hover {
     text-align: center;
 }
 
+
+/* Settings */
+#container > form > fieldset > p > input{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+#container > form > fieldset > p > input[type=checkbox] {
+    width: 15px;
+    margin-left: 30px;
+    margin-right: 5px;
+    /* margin-top: 50px; */
+    display: inline-block;
+}
 /* Sell */
 
 #filter-sell{

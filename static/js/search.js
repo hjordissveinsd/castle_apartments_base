@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
         var searchText = $('#search-box').val();
@@ -31,4 +31,4 @@ $(document).ready(function() {
             }
         })
     })
-});
+});*/

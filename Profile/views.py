@@ -51,36 +51,25 @@ def browsingHistory (request):
         estates.append(the_instance)
 
     context = {'estates': estates}
-
-
-
-
-    #all_instances = Tracker.objects.all()
-    #filtered = Tracker.objects.filter(test_id__in=test_ids).filter([some other filtering])
-    #context = {'trackers': list(Tracker.objects.filter(user_id__in=(check_list)))}
-    #context = {'trackers': Tracker.objects..filter(user_id=request.user.id)}
-    #for tracker in trackers:
-     #   tracker.get_object_by_path
-
     return render(request, 'Profile/browsingHistory.html', context)
 
 ####################raggi######################
-def register1(request):
-    if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-        else:
-            print('invalid')
-
-            return render(request, 'profile/register.html',
-                   {'form': form})
-
-    # All other cases that are not a POST.
-    return render(request, 'profile/register.html',
-                  {'form': UserCreationForm()})
+#def register1(request):
+ #   if request.method == 'POST':
+  #      form = UserCreationForm(data=request.POST)
+#
+ #       if form.is_valid():
+  #          form.save()
+   #         return redirect('login')
+    #    else:
+     #       print('invalid')
+#
+ #           return render(request, 'profile/register.html',
+  #                 {'form': form})
+#
+ #   # All other cases that are not a POST.
+  #  return render(request, 'profile/register.html',
+   #               {'form': UserCreationForm()})
 
 
 def register(request):

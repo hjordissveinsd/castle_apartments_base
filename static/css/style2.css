@@ -386,3 +386,7 @@ li a:hover {
     justify-content: flex-start;
     width: 100%;
 }
+
+.form-control label {
+    display: inline-block;
+}

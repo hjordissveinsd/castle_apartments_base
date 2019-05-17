@@ -3,20 +3,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Estate(models.Model):
-    address = models.CharField(max_length=255)
-    lotSize = models.IntegerField()
-    houseSize = models.IntegerField()
-    bedNum = models.IntegerField()
-    bathNum = models.IntegerField()
-    price = models.IntegerField()
-    desc = models.CharField(max_length=999)
-    city = models.CharField(max_length=100)
+    address = models.CharField(max_length=255, name="Address")
+    lotSize = models.IntegerField(name="Lot Size")
+    houseSize = models.IntegerField(name="House Size")
+    bedNum = models.IntegerField(name="Number of bedrooms")
+    bathNum = models.IntegerField(name="Number of bathrooms")
+    price = models.IntegerField(name="Price of estate")
+    desc = models.CharField(max_length=999, name="Description of estate")
+    city = models.CharField(max_length=100, name="City")
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    #setja default value sem active user
-    city = models.CharField(max_length=101)
-    zip = models.IntegerField()
+    zip = models.IntegerField(name="Postal code")
     status = models.BooleanField()
-    #setja defualt value sem true
-    image = models.ImageField(upload_to='es_images/')
+    image = models.ImageField(upload_to='es_images/', name="Image of estate")
     #bæta við, "if no pictures still post"
     #bæta við Estate type

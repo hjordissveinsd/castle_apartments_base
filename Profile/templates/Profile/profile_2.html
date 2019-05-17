@@ -12,7 +12,7 @@
     </ul>
 
     <br>
-    <h1>{{ user.username }}'s Profile</h1>
+    <h1>{{ user.username }}'s profile</h1>
 
         {% csrf_token %}
 
@@ -29,7 +29,7 @@
                 <div class="media-body">
                     <div class="panel panel-default">
                         <div class="panel-heading" id="background">
-                            <h4><b>Full name: {{ user.get_full_name }} </b></h4>
+                            <h4><b>{{ user.get_full_name }} </b></h4>
                         </div>
                         <div class="panel-body">
                             <p>SSN: {{ user.profile.ssn }}</p>

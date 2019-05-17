@@ -11,10 +11,11 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['username', 'email', 'first_name', 'last_name']
 
 
-class CustomUserChangeForm(UserChangeForm):
+class CustomUserChangeForm(ModelForm):
     class Meta:
         model = User
         fields = ['email', 'first_name', 'last_name']
+        exclude = ['password']
 
 
 class ProfileForm(ModelForm):

@@ -133,8 +133,8 @@ def settings(request):
     user_form = CustomUserChangeForm(instance=user)
     profile_form = ProfileForm(instance=user.profile)
 
-    print(user_form)
-    print(profile_form)
+
+
     if request.method == 'POST':
         #user_form = CustomUserChangeForm(request.POST, instance=user)
         #profile_form = ProfileForm(request.POST, request.FILES, instance=user.profile)

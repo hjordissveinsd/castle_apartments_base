@@ -18,7 +18,8 @@ def create_Review(request):
 def put_up(request):
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
-        print('HALLO')
+        print(estate_form.errors)
+        print(estate_form.is_valid())
         if estate_form.is_valid():
             print('Valid!')
             estate = estate_form.save(commit=False)
@@ -27,9 +28,23 @@ def put_up(request):
             estate.save()
         return redirect('successmsg', estate.id)
     else:
-        print(request.method)
-        print('this is in else')
         estate_form = EstateCreateForm()
+        estate_form.fields['address'].label = "Address (street and street number):"
+        estate_form.fields['lotSize'].label = "Lot Size (square meters):"
+        estate_form.fields['houseSize'].label = "House Size (square meters):"
+        estate_form.fields['bedNum'].label = "Number of bedrooms:"
+        estate_form.fields['bathNum'].label = "Number of bathrooms:"
+        estate_form.fields['price'].label = "Price (ISK):"
+        estate_form.fields['desc'].label = "Description (write something nice about your real estate):"
+        estate_form.fields['city'].label = "City and country:"
+        estate_form.fields['zip'].label = "ZIP code:"
+        estate_form.fields['image'].label = "Image:"
+        estate_form.fields['lotSize'].type = 'number'
+        estate_form.fields['houseSize'].type = 'number'
+        estate_form.fields['bedNum'].type = 'number'
+        estate_form.fields['bathNum'].type = 'number'
+        estate_form.fields['price'].type = 'number'
+        estate_form.fields['zip'].type = 'number'
     #return redirect('profile')
     return render(request, 'createEstate.html', {
       'estate_form': estate_form

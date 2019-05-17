@@ -8,6 +8,7 @@ from Profile.models import Tracker
 #from Profile.views import create_track
 from django.db.models import Q
 from Profile.views import create_track
+from django.contrib.auth.decorators import login_required
 
 
 def filter_(request):
@@ -55,7 +56,8 @@ def browse(request):
         search_filter = request.GET['search_filter']
 
         #raggi prófa search history
-        #create_search(request, the_input="prufa")
+
+        create_search(request, the_input=search_filter)
 
         estate_filter = Q(status=True)
         estate_or = Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)
@@ -81,16 +83,12 @@ def get_estate_by_id(request, id):
     })
 
 
+
+@login_required
 def create_search(request, the_input):
-    #earch = Search.objects.create(user_id=1, search_input=the_input)
-    search = Search()
-    search.user_id= '1'
-    search.search_input= "prufa"
-
-
-    search.save()
-
-
+    search, created = Search.objects.get_or_create(user_id=request.user.id, search_input=the_input)
+    if created:
+        search.save()
 
 
 

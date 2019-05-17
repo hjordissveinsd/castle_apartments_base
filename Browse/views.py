@@ -86,7 +86,7 @@ def create_search(request, the_input):
         search.save()
 
 
-
+@login_required
 def checkout(request, id):
     if request.POST:
         if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:
@@ -111,7 +111,7 @@ def checkout(request, id):
     return redirect('/estate')
 
 
-
+@login_required
 def payment_details(request, id):
     estate = get_object_or_404(Estate, pk=id)
     if estate.owner_id != request.user.id:
@@ -135,7 +135,7 @@ def order_price_high(request):
 
     return render(request, 'Browse/browse.html', context)
 
-
+@login_required
 def success_purch(request, id):
     if request.POST:
         context = get_object_or_404(Estate, pk=id)

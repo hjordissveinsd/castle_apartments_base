@@ -29,6 +29,17 @@ li a:hover {
 
 .breadcrumb {
     background: #e8e8e8;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.breadcrumb li a {
+    color: rgba(175,5,41,1)
+}
+
+.breadcrumb li a:hover {
+    color: black;
+    transition: 0.5s;
 }
 /* NAVBAR */
 .container-fluid {
@@ -129,6 +140,7 @@ li a:hover {
     color: white;
     text-shadow: none;
 }
+
 #search-button:hover{
     background: linear-gradient(152deg,rgba(226,77,77,1), rgba(175,5,41,1) 70%);
     box-shadow: 1px 1px 1px 0 rgba(0,0,0,.1);
@@ -240,6 +252,7 @@ li a:hover {
     border: 1px solid #ddd;
     border-radius: 4px;
     margin: 10px;
+    height: 250px;
     padding: 5px;
     width: 250px;
     justify-content: center;
@@ -312,6 +325,28 @@ li a:hover {
     border-radius: 10px;
     background-color: white;
 }
+
+#buy-estate {
+    font-size: large;
+    color: green;
+    border: green solid 1px;
+}
+
+.back-btn {
+    font-size: large;
+}
+
+#buy-estate:hover {
+    background: green;
+    color: rgb(255,255,255);
+    transition: 0.5s;
+}
+
+#details_box > h4 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.52)
+}
+
+
 /* Profile */
 
 #breadcrumb-hoverable {

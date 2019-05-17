@@ -12,27 +12,33 @@
     </ul>
 
     <br>
-    <h1>Profile</h1>
+    <h1>{{ user.username }}'s Profile</h1>
 
         {% csrf_token %}
 
         <fieldset>
-            <div>
-                {% if user.profile.avatar %}
-                    <img id="prof-pic" src="{{ user.profile.avatar.url }}/" alt="Profile picture">
-                {% else %}
-                    <p>No profile pic</p>
-                {% endif %}
-                <p>Full name: {{ user.get_full_name }}</p>
-                <p>SSN: {{ user.profile.ssn }}</p>
-                <p>E-mail address: {{ user.email }}</p>
-                <p>Phone number: {{ user.profile.phone }}</p>
+            <div class="media">
+                <div class="media-left">
+                    {% if user.profile.avatar %}
+                        <img id="prof-pic" src="{{ user.profile.avatar.url }}/" alt="Profile picture">
+                    {% else %}
+                        <p>No profile pic</p>
+                    {% endif %}
+                </div>
 
+                <div class="media-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="background">
+                            <h4><b>Full name: {{ user.get_full_name }} </b></h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>SSN: {{ user.profile.ssn }}</p>
+                            <p>E-mail address: {{ user.email }}</p>
+                            <p>Phone number: {{ user.profile.phone }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </fieldset>
-
-        <fieldset>
-
         </fieldset>
 
 

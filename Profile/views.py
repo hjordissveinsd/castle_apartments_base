@@ -30,6 +30,7 @@ def create_track(request, id):
     if created == True:
         track.save()
 
+@login_required
 def browsing_history (request):
     info_list = []
 
@@ -44,7 +45,7 @@ def browsing_history (request):
     context = {'estates': estates}
     return render(request, 'Profile/browsingHistory.html', context)
 
-
+@login_required
 def search_history(request):
     check_list = [request.user.id]
     searches = list(Search.objects.filter(user_id__in=(check_list)))
@@ -77,7 +78,7 @@ def profile(request):
     #print('current user info = ', user.profile.phone)
     return render(request, 'Profile/profile.html')
 
-
+@login_required
 def settings(request):
     #print('current user = ', request.user.id)
     user = get_object_or_404(User, pk=request.user.id)

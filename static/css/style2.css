@@ -293,7 +293,8 @@ li a:hover {
     border-bottom: lightgrey solid 1px;
 }
 .btn_seemore{
-    margin-top: 3px;
+    margin-top: 10px;
+    background-color:white;
 }
 .address-single{
     font-size: large;

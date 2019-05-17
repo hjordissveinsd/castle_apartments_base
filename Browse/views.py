@@ -2,12 +2,13 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import resolve
 from django.http import HttpResponse
-from Browse.models import Estate
+from Browse.models import Estate, Search
 from Browse.models import User
 from Profile.models import Tracker
 #from Profile.views import create_track
 from django.db.models import Q
 from Profile.views import create_track
+from django.contrib.auth.decorators import login_required
 
 
 def filter_(request):
@@ -53,6 +54,11 @@ def filter_(request):
 def browse(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
+
+        #raggi prófa search history
+
+        create_search(request, the_input=search_filter)
+
         estate_filter = Q(status=True)
         estate_or = Q(address__icontains=search_filter)| Q(zip__icontains=search_filter)| Q(city__icontains=search_filter)
         estate_filter &= estate_or
@@ -69,23 +75,22 @@ def browse(request):
 def singleEstate(request):
     return render(request, 'Browse/single_estate.html')
 
-
-#def create_track(request, id):
-    #Tracker.objects.all().delete()
-    #kóði fyrir ofan notaður til að eyða efninu í töflunni
-  #  track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id , url=request.get_raw_uri())
-    #track = Tracker()
-    #track.user_id = request.user.id
-    #track.url = request.get_raw_uri()
- #   if created == True:
-   #     track.save()
-
 def get_estate_by_id(request, id):
     if request.user:
         create_track(request, id)
     return render(request, 'browse/estate_detail.html', {
         'estate': get_object_or_404(Estate, pk=id)
     })
+
+
+
+@login_required
+def create_search(request, the_input):
+    search, created = Search.objects.get_or_create(user_id=request.user.id, search_input=the_input)
+    if created:
+        search.save()
+
+
 
 def checkout(request, id):
     if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:

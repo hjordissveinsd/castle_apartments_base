@@ -41,6 +41,7 @@
 
         <div class="media-body" id="media_height">
             <p> {{ estate.price }} <b>ISK</b></p>
+            <p> <b>Location: </b>{{ estate.city }}, {{ estate.zip }}</p>
             <p> <i class="fa fa-bed"></i>  {{ estate.bathNum }}, <i class="fa fa-bath"></i>  {{ estate.bedNum }}</p>
             <p> <b>House size: </b>{{ estate.houseSize }} m²</p>
             <p> <b>Lot size: </b>{{ estate.lotSize }} m²</p>
@@ -54,16 +55,18 @@
     <nav aria-label="...">
         <ul class="pager">
         {% if estate.status %}
-             <li class="previous"><a href="../" id="dropdown-choice">Back to Browse</a></li>
+             <li class="previous"><a class="back-btn"  href="../" id="dropdown-choice">Back to Browse</a></li>
             {% if user.is_authenticated %}
                 {% if user.id != estate.owner.id %}
-                    <li class="next"><a href="./payment_details" id="dropdown-choice">Buy estate</a></li>
+                    <li class="next"><a href="./payment_details" id="buy-estate">Buy estate</a></li>
                     {% endif %}
                 {%  else%}
                 <li class="next"><a href="{% url 'login' %}" id="dropdown-choice">Log in to Purchase</a></li>
             {% endif %}
             {% else %}
-            <li class="previous"><a href="/sell" id="dropdown-choice">Back to your Estates</a></li>
+            <li class="previous">
+                <a class="back-btn" href="/sell" id="dropdown-choice">Back to your Estates</a>
+            </li>
         {% endif %}
 
         </ul>

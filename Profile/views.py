@@ -8,8 +8,6 @@ from Browse.models import Estate
 
 from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 
-
-# Create your views here.
 # bætti við contex = ......
 def profile(request):
     #context = {'profiles' : User.objects.all()}

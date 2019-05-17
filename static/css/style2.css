@@ -260,6 +260,10 @@ li a:hover {
     background-color: white;
 }
 
+.navbar-form {
+    padding-top: 5px;
+}
+
 .address-title {
     display: inline;
 }
@@ -307,6 +311,7 @@ li a:hover {
 
 #media_height{
     height: 250px;
+    padding-bottom: 50px;
 }
 
 #scrolly{

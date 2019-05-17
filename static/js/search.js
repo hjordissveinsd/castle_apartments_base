@@ -12,7 +12,6 @@ $(document).ready(function() {
                                     <div class="imagelist" id="estateimg">
                                         <img src="${'../media/'}${d.image}" id="img-pic" alt="EstateLogo"/>
                                     </div>
-                            
                                     <div class="caption" id="estatebox">
                                         <h3 class="address-single">${d.address}</h3>
                                         <h6>${d.city}, ${d.zip}</h6>

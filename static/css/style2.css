@@ -167,9 +167,9 @@ li a:hover {
 
 .thumbnail {
     background-color: #fff;
-    width: 300px;
+    width:280px;
     height: auto;
-    margin: 10px 40px;
+    margin: 10px 2.5px;
     text-align: center;
     font-size: 15px;
 }
@@ -268,6 +268,17 @@ li a:hover {
 .details_{
     flex-direction: row ;
     justify-content: space-between;
+}
+
+#limit_{
+    height: 7px;
+    border-bottom: lightgrey solid 1px;
+}
+.btn_seemore{
+    margin-top: 3px;
+}
+.address-single{
+    font-size: large;
 }
 
 #details_box > h1 {
@@ -390,3 +401,20 @@ li a:hover {
 .form-control label {
     display: inline-block;
 }
+
+.sold{
+    color: green;
+}
+.for_sale{
+    color: darkred;
+}
+.status{
+    margin: 5px 0px;
+}
+
+.price_and_other_stuff{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* PutUpEstate */

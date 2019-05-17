@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'front/front.html', context)
 
 
-def aboutUs(request):
+def about_us(request):
     return render(request, 'front/aboutUs.html')
 
 def teenage(request):

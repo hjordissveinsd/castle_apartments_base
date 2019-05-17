@@ -6,16 +6,13 @@ from . import views
 urlpatterns = [
     path('', views.profile, name="profile"),
     path('settings', views.settings, name="settings"),
-    path('log-in', views.createOrLogIn, name="createOrLogIn"),
-    path('createOrLogIn', views.createOrLogIn, name="createOrLogIn"),
+    path('log-in', views.create_or_log_in, name="createOrLogIn"),
+    path('createOrLogIn', views.create_or_log_in, name="createOrLogIn"),
     path('loggedIn', LoginView.as_view(template_name='Profile/loggedIn.html'), name='Login'),
-    #path('loggedIn', views.loggedIn, name="loggedIn"),
-    path('notLoggedIn', views.notLoggedIn, name="notLoggedIn"),
-    ##############raggi##############################
+    path('notLoggedIn', views.not_logged_in, name="notLoggedIn"),
     path('register', views.register, name="register"),
     path('login/', LoginView.as_view(template_name='Profile/login.html'), name='login'),
-    #path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('browsingHistory/', views.browsingHistory, name="browsingHistory"),
-    path('searchHistory/', views.searchHistory, name="searchHistory")
+    path('browsingHistory/', views.browsing_history, name="browsingHistory"),
+    path('searchHistory/', views.search_history, name="searchHistory")
 ]

@@ -8,36 +8,29 @@ from Browse.models import Estate, Search
 
 from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 
-# bætti við contex = ......
 def profile(request):
-    #context = {'profiles' : User.objects.all()}
     return render(request, 'profile/profile.html')
-#profile/profileMain.html', context)
 
-def createOrLogIn (request):
+
+def create_or_log_in (request):
     return render(request, 'Profile/createOrLogIn.html')
 
-def loggedIn (request):
+
+def logged_in (request):
     return render(request, 'Profile/loggedIn.html')
 
-def notLoggedIn (request):
-    return render(request, 'Profile/notLoggedIn.html')
 
+def not_logged_in (request):
+    return render(request, 'Profile/notLoggedIn.html')
 
 
 @login_required
 def create_track(request, id):
-    #Tracker.objects.all().delete()
-    #kóði fyrir ofan notaður til að eyða efninu í töflunni
     track, created = Tracker.objects.get_or_create(user_id=request.user.id, estate_id=id, url=request.get_raw_uri())
-    #track = Tracker()
-    #track.user_id = request.user.id
-
-    #track.url = request.get_raw_uri()
     if created == True:
         track.save()
 
-def browsingHistory (request):
+def browsing_history (request):
     info_list = []
 
     check_list = [request.user.id]
@@ -45,8 +38,6 @@ def browsingHistory (request):
     estates = []
 
     for tracker in trackers:
-        #estates.append(tracker.estate_id)
-        #spurning að kalla á get estate by id fallið en kann ekki nógu vel á það
         the_instance = Estate.objects.get(pk=tracker.estate_id)
         estates.append(the_instance)
 
@@ -54,31 +45,11 @@ def browsingHistory (request):
     return render(request, 'Profile/browsingHistory.html', context)
 
 
-
-def searchHistory(request):
+def search_history(request):
     check_list = [request.user.id]
     searches = list(Search.objects.filter(user_id__in=(check_list)))
     context = {'searches' : searches}
     return render(request, 'Profile/searchHistory.html', context)
-
-
-####################raggi######################
-#def register1(request):
- #   if request.method == 'POST':
-  #      form = UserCreationForm(data=request.POST)
-#
- #       if form.is_valid():
-  #          form.save()
-   #         return redirect('login')
-    #    else:
-     #       print('invalid')
-#
- #           return render(request, 'profile/register.html',
-  #                 {'form': form})
-#
- #   # All other cases that are not a POST.
-  #  return render(request, 'profile/register.html',
-   #               {'form': UserCreationForm()})
 
 
 def register(request):
@@ -87,77 +58,45 @@ def register(request):
         profile_form = ProfileForm(request.POST, request.FILES)
 
         if user_form.is_valid() and profile_form.is_valid():
-            print('VALID')
-
             user = user_form.save()
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-
             return redirect('login')
         else:
-            print('invalid')
-
             context = {'user_form': user_form, 'profile_form': profile_form}
             return render(request, 'profile/register.html', context)
-
-    # All other cases that are not a POST (like GET request).
     context = {'user_form': CustomUserCreationForm(), 'profile_form': ProfileForm()}
     return render(request, 'profile/register.html', context)
 
 
-
-
-
 @login_required
 def profile(request):
-    print('current user = ', request.user.id)
-    user = get_object_or_404(User, pk=request.user.id)
-    print('current user info = ', user.profile.phone)
-
-    # used to overrite current data, instance=   populates
-    user_form = CustomUserChangeForm(instance=user)
-    profile_form = ProfileForm(instance=user.profile)
-
-    #print(profile_form.instance.avatar.url)
-
+    #print('current user = ', request.user.id)
+    #user = get_object_or_404(User, pk=request.user.id)
+    #print('current user info = ', user.profile.phone)
     return render(request, 'Profile/profile.html')
 
 
 def settings(request):
-    print('current user = ', request.user.id)
+    #print('current user = ', request.user.id)
     user = get_object_or_404(User, pk=request.user.id)
-    print('current user info = ', user.profile.phone)
+    #print('current user info = ', user.profile.phone)
 
     # used to overrite current data, instance=   populates
     user_form = CustomUserChangeForm(instance=user)
     profile_form = ProfileForm(instance=user.profile)
 
-
-
     if request.method == 'POST':
-        #user_form = CustomUserChangeForm(request.POST, instance=user)
-        #profile_form = ProfileForm(request.POST, request.FILES, instance=user.profile)
         user_form = CustomUserChangeForm(request.POST, instance=user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=user.profile)
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-
             return redirect('settings')
         else:
-            print('invalid')
-
             context = {'user_form': user_form, 'profile_form': profile_form}
             return render(request, 'profile/settings.html', context)
-
-    # All other cases that are not a POST (like GET request).
     context = {'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'Profile/settings.html', context)
-
-###############################################
-#raggi að bæta við#############################
-
-#def settings(request):
-#    return render(request, 'profile/profileSettings.html')

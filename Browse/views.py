@@ -11,7 +11,7 @@ from Profile.views import create_track
 from django.contrib.auth.decorators import login_required
 
 
-def filter_(request):
+def filter(request):
     bath_min = request.GET.get('bath_min', '')
     bath_max = request.GET.get('bath_max', '')
     bed_min = request.GET.get('bed_min', '')
@@ -63,13 +63,11 @@ def browse(request):
         estate_list = list(estate)
         jsonstring={'data': estate_list}
         return JsonResponse(jsonstring)
-
-
     context = {'estates': Estate.objects.all().order_by('-id')}
     return render(request, 'Browse/browse.html', context)
 
 
-def singleEstate(request):
+def single_estate(request):
     return render(request, 'Browse/singleEstate.html')
 
 def get_estate_by_id(request, id):
@@ -90,7 +88,6 @@ def create_search(request, the_input):
 
 
 def checkout(request, id):
-
     if request.POST:
         if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:
             firstname = request.POST['firstname']
@@ -124,25 +121,22 @@ def payment_details(request, id):
 
 
 def order_name(request):
-    search = request.GET.get('address')
     context = {'estates': Estate.objects.all().order_by('address')}
 
     return render(request, 'Browse/browse.html', context)
 
 def order_price_low(request):
-    search = request.GET.get('price')
     context = {'estates': Estate.objects.all().order_by('price')}
 
     return render(request, 'Browse/browse.html', context)
 
 def order_price_high(request):
-    search = request.GET.get('price')
     context = {'estates': Estate.objects.all().order_by('-price')}
 
     return render(request, 'Browse/browse.html', context)
 
 
-def successPurch(request, id):
+def success_purch(request, id):
     context = get_object_or_404(Estate, pk=id)
     context.status = False
     context.save()

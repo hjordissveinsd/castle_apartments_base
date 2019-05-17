@@ -15,6 +15,7 @@ def create_Review(request):
     context = {'estates': Estate.objects.all()}
     return render(request, 'creationReveiw.html', context)
 
+
 def put_up(request):
     if request.method =='POST':
         estate_form = EstateCreateForm(request.POST, request.FILES)
@@ -45,10 +46,10 @@ def put_up(request):
         estate_form.fields['bathNum'].type = 'number'
         estate_form.fields['price'].type = 'number'
         estate_form.fields['zip'].type = 'number'
-    #return redirect('profile')
     return render(request, 'createEstate.html', {
       'estate_form': estate_form
     })
+
 
 def successmsg(request, id):
     return render(request, 'successSale.html', {

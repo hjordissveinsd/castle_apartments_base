@@ -22,7 +22,7 @@ class Estate(models.Model):
 
 class Search(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    search_input = models.CharField(max_length=200)
+    searchInput = models.CharField(max_length=200)
 
     class Meta:
-        unique_together = ('user', 'search_input',)
+        unique_together = ('user', 'searchInput',)

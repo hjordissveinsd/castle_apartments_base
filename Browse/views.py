@@ -66,7 +66,7 @@ def browse(request):
         return JsonResponse(jsonstring)
 
 
-    context = {'estates': Estate.objects.all().order_by('id')}
+    context = {'estates': Estate.objects.all().order_by('-id')}
     return render(request, 'Browse/browse.html', context)
 
 

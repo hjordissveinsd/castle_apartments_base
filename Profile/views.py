@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from Profile.models import User, Profile
 from Profile.models import Tracker
-from Browse.models import Estate
+from Browse.models import Estate, Search
 
 from .forms import ProfileForm, CustomUserCreationForm, CustomUserChangeForm
 
@@ -52,6 +52,15 @@ def browsingHistory (request):
 
     context = {'estates': estates}
     return render(request, 'Profile/browsingHistory.html', context)
+
+
+
+def searchHistory(request):
+    check_list = [request.user.id]
+    searches = list(Search.objects.filter(user_id__in=(check_list)))
+    context = {'searches' : searches}
+    return render(request, 'Profile/searchHistory.html', context)
+
 
 ####################raggi######################
 #def register1(request):

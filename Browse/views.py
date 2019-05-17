@@ -92,12 +92,6 @@ def create_search(request, the_input):
 
 
 
-
-
-
-
-
-
 def checkout(request, id):
     if 'firstname' in request.POST and 'email' in request.POST and 'ssn' in request.POST and 'country' in request.POST and 'street_name' in request.POST and 'house_number' in request.POST and 'city' in request.POST and 'zip' in request.POST and 'cardname' in request.POST and 'cardnumber' in request.POST and 'billing' in request.POST and 'expdate' in request.POST and 'cvv' in request.POST:
         firstname = request.POST['firstname']

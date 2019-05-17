@@ -137,12 +137,15 @@ def order_price_high(request):
 
 
 def success_purch(request, id):
-    context = get_object_or_404(Estate, pk=id)
-    context.status = False
-    context.save()
-    return render(request, 'Browse/purchaseSuccess.html', {
-        'estate': context
-    })
+    if request.POST:
+        context = get_object_or_404(Estate, pk=id)
+        context.status = False
+        context.save()
+        return render(request, 'Browse/purchaseSuccess.html', {
+            'estate': context
+        })
+    else:
+        return redirect('/estate')
 
 def zip_filter(request):
     query = request.GET.get('search_res')

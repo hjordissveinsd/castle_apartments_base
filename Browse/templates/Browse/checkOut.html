@@ -85,6 +85,10 @@
       <nav aria-label="...">
               <ul class="pager">
               <li><a href="./" class="btn" id="dropdown-choice">Go back</a></li>
+              <form method="POST" action="./checkout/success">
+                  {% csrf_token %}
+                   <li><input type="submit" value="Finish purchase"class="btn" id="buy-estate"></li>
+              </form>
               <li><a href="./checkout/success" class="btn" id="buy-estate">Finish</a></li>
               </ul>
           </nav>
